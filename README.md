@@ -1,53 +1,142 @@
 # AI Promise | 기업 AI 약속 검증
 
-회사가 사업보고서에 "AI로 이것을 하겠다"고 쓴 약속을 찾고, 다음 보고서에 실행 근거가 있는지 찾아 4가지(근거 확인, 일부 확인, 공시에서 확인 불가, 회사가 미추진으로 공시)로 판정해 보여주는 웹 서비스입니다. Codyssey Final Project입니다.
+회사가 사업보고서에 "AI로 이것을 하겠다"고 쓴 약속을 찾고, 다음 보고서에서 실행 근거를 찾아 **근거 확인 / 일부 확인 / 공시에서 확인 불가 / 회사가 미추진으로 공시**의 4가지로 판정해 보여주는 Codyssey Final Project입니다.
 
-- 대상 기업: 삼성전자(개발용), SK하이닉스(평가용)
-- 약속을 찾는 보고서: 2024 사업보고서 / 근거를 찾는 보고서: 2025 사업보고서, 2026 반기보고서
+> 핵심 차별점은 공시 요약이 아니라 **Promise → Evidence → Judgment → Citation Verification → Human Evaluation**입니다.
 
-## 1. 폴더
+## 현재 범위
 
-| 폴더 | 내용 | 만든 사람 |
+- **Core 2**
+  - 삼성전자: calibration / development
+  - SK하이닉스: blind evaluation
+- **최종 제품 목표**: 5개 기업
+- **확장 후보**: 현대자동차, LG전자, NAVER
+- **약속 보고서**: 2024 사업보고서
+- **근거 보고서**: 2025 사업보고서, 2026 반기보고서
+
+추가 기업은 브랜드 인지도만으로 넣지 않고, 실제 공시에서 v2 기준 구체적 AI 약속이 충분히 존재하는지 먼저 확인합니다. 자세한 기준은 [5개 기업 확장 계획](docs/company-expansion-plan.md)을 봐 주세요.
+
+## 시스템 흐름
+
+```text
+DART PDF
+→ Collect
+→ Promise Extraction
+→ Specificity Classification
+→ Evidence Retrieval
+→ LLM Judgment
+→ Citation Verification
+→ Interview Card
+→ Human/ML Evaluation
+```
+
+자세한 내용: [아키텍처](docs/architecture.md)
+
+## 저장소 구조
+
+| 폴더 | 내용 | Owner |
 | --- | --- | --- |
-| `app/` | 웹 화면 4개 (HTML, CSS, JS). Vercel이 이 폴더를 배포합니다 | 화면: 박수민 (`1011_수민_화면.zip`) / 엔진 결과 연결: 김성태 (`1012_김성태_화면_데이터연결.zip`) |
-| `engine/` | 공시 PDF에서 약속을 찾고, 근거를 검색해 판정하고, 면접 카드를 만드는 AI 엔진 | 김성태 |
-| `eval/` | 판정 기준(v1, v2)과 사람 정답으로 AI를 평가하는 코드 | 김성태 (정답: 김서원, 김성태) |
-| `tests/` | 인터넷과 API 키 없이 가상 회사로 끝까지 도는 시험 | 김성태 |
-| `data/` | 공시 PDF와 실행 결과 자리 (PDF는 저장소에 올리지 않습니다) | |
+| `app/` | 웹 화면 4개, 실제 결과 JSON 연결 | 박수민 / Integration: 김성태 |
+| `engine/` | 공시 수집, 약속 추출, 검색, 판정, 인용 검사, 면접 카드 | 김성태 |
+| `eval/` | Human Ground Truth, AI 평가, 사용자 테스트, ML benchmark | 김성태 / 김서원 |
+| `tests/` | API 키 없이 도는 mock end-to-end test | 김성태 |
+| `docs/` | 방법론, 배포, 윤리, 제출 증빙, Drive-GitHub 동기화 | 팀 |
+| `data/` | 실제 공시와 중간 실행 결과 자리. PDF 원본은 GitHub에 올리지 않음 | |
 
-## 2. 화면
+## 화면
 
-- `app/index.html`은 `app/data/results.json`(엔진 결과)을 먼저 읽고, 없으면 `app/data/sample-data.js`(가상 회사 2곳 예시 데이터)를 보여줍니다. 예시 데이터일 때는 화면 위에 "예시 데이터입니다" 띠가 나옵니다.
-- 화면 고치는 규칙은 `app/README.md`에 있습니다. 디자인 변경은 CSS에서 합니다.
+`app/index.html`은 `app/data/results.json`을 먼저 읽고, 없으면 `app/data/sample-data.js`를 사용합니다.
 
-## 3. 엔진
+화면:
+1. 기업 선택
+2. AI 약속 목록
+3. 약속-근거 상세
+4. 면접 카드
 
-자세한 준비와 실행 순서는 `engine/README.md`에 있습니다. 결과를 화면에 넣는 명령은 다음과 같습니다.
+예시 데이터일 때는 화면 상단에 안내 띠가 나타납니다. 최종 심사용 URL에서는 실제 `results.json`이 연결되어야 합니다.
+
+## 엔진 실행
+
+자세한 내용은 [engine/README.md](engine/README.md)를 참고합니다.
 
 ```bash
 cd engine
+python run.py doctor --company samsung
+python run.py all --company samsung
 python run.py export --companies samsung skhynix --copy-to ../app/data/results.json
+python run.py check --file ../app/data/results.json
 ```
 
-코드 점검(키 없이 가상 회사로 시험):
+오프라인 mock 점검:
 
 ```bash
-python tests/test_mock.py   # 마지막 줄에 "시험 통과"
+python tests/test_mock.py
 ```
 
-## 4. 지키는 것
+## 평가
 
-- API 키(`engine/.env`), 사용자 테스트 참여자의 이름과 연락처는 저장소에 올리지 않습니다. (`.gitignore`로 막아 둠)
-- 화면과 판정 이유에 "거짓", "AI 워싱" 같은 단정 표현을 쓰지 않습니다. 근거를 못 찾은 약속은 "공시에서 확인 불가"로 표시하며, 안 했다는 뜻이 아닙니다.
-- SK하이닉스는 평가용 기업이라, 사람 정답을 먼저 만든 뒤 AI 결과와 비교합니다.
+### Human-AI
+- 사람 2명이 AI 결과를 보기 전에 독립 판정
+- 사람 간 일치율 + Cohen's kappa
+- 합의 Gold Label 생성
+- AI Accuracy / Macro-F1 / confusion matrix / 95% Wilson CI
+- Citation inclusion / exact-match verification
+- Unsupported execution claims
+- 비교 coverage와 end-to-end 성능을 함께 해석
 
-## 5. 역할
+삼성전자는 개발 기업, SK하이닉스는 blind evaluation 기업으로 분리합니다.
 
-- 김성태: 총괄, AI 엔진, 평가 설계, 저장소와 배포
-- 박수민: 화면 4개
-- 김서원: 공시 직접 읽기와 정답 매기기, 사용자 테스트 진행
-- 서준용: 화면 디자인, 사용자 테스트 진행 보조, 발표자료, 3분 시연 영상
+### 사용자 테스트
+- 비대면 화면 공유
+- 1인 약 10분
+- 서비스 과제와 직접 검색 과제 비교
+- 시간, 정답 여부, 이해도, 신뢰도, 면접 활용 의향 기록
 
-## 6. AI 사용
+자세한 내용: [사용자 테스트 프로토콜](docs/user-test-protocol.md)
 
-엔진 코드의 첫 버전과 화면의 엔진 결과 연결 수정은 AI 도구(Claude)로 작성했습니다. 실행, 점검, 수정은 김성태가 합니다. 엔진의 모든 AI 호출 기록은 실행할 때 `data/work/<기업>/llm_log.jsonl`에 남습니다.
+### ML Benchmark
+제품 본체 안정화 후 5개 기업 약 300문장을 `PROMISE / EVIDENCE / OTHER`로 라벨링해 TF-IDF + Logistic Regression baseline과 LLM을 비교합니다.
+
+자세한 내용: [ML benchmark](eval/ml/README.md)
+
+## AI 윤리·신뢰성
+
+- "AI 워싱", "거짓", "약속 위반"으로 단정하지 않습니다.
+- `공시에서 확인 불가`는 분석한 정기공시 범위에서 근거를 못 찾았다는 뜻입니다.
+- 약속과 근거 문장은 원문 그대로 보존합니다.
+- 근거 기반 판정은 citation verification을 통과해야 합니다.
+- 사용자 테스트 개인정보는 GitHub에 저장하지 않습니다.
+- 모든 LLM 호출은 실행 로그를 남깁니다.
+
+자세한 내용: [AI 윤리·신뢰성 원칙](docs/ai-ethics.md)
+
+## 팀 역할
+
+- **김성태** — Product / AI Engine / Evaluation / Integration
+- **김서원** — Research / Human Validation / User Test
+- **박수민** — Frontend / App Implementation / QA
+- **서준용** — UX / Visual / Demo / Presentation
+
+협업 규칙: [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Drive와 GitHub
+
+Drive는 원본 협업 문서와 중간 산출물, GitHub는 실행 코드·버전 고정 방법론·익명 평가 데이터·재현 가능한 결과를 관리합니다.
+
+대응표: [Drive ↔ GitHub 동기화 기준](docs/drive-sync.md)
+
+## 배포
+
+현재 프론트엔드는 빌드가 필요 없는 HTML/CSS/JS 구조이며 Vercel의 Root Directory를 `app`으로 지정해 배포할 수 있습니다.
+
+가이드: [배포 가이드](docs/deploy.md)
+
+## 제출 증빙
+
+현재 참고 중인 6개 평가항목은 공식 문서 확인 전까지 잠정 기준입니다.
+
+체크리스트: [제출 증빙 체크리스트](docs/submission-evidence-checklist.md)
+
+## AI 사용
+
+초기 엔진과 일부 화면 통합 작업에 AI 코딩 도구를 사용했습니다. 실제 실행, 판정기준 설계, Human Ground Truth, 검증과 최종 QA는 팀이 수행합니다. AI 호출 기록은 `data/work/<기업>/llm_log.jsonl`에 남도록 설계되어 있습니다.
