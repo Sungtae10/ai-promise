@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AI Promise | Junyong v3 Preview</title>
+  <meta name="description" content="AI Promise 최신 UX/UI 시안 프리뷰">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/junyong-v3.css">
+  <script>
+    try {
+      var saved = localStorage.getItem('ai-promise-theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="app" id="app" aria-live="polite"></div>
+  <script src="data/sample-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
