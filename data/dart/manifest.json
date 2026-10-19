@@ -1,0 +1,106 @@
+{
+ "companies": {
+  "naver": {
+   "corp_code": "00266961",
+   "corp_name": "NAVER",
+   "stock_code": "035420",
+   "corp_found_by": "종목코드",
+   "reports": {
+    "y2024": {
+     "title": "2024 사업보고서",
+     "found": true,
+     "report_nm": "사업보고서 (2024.12)",
+     "rcept_no": "20250318000645",
+     "rcept_dt": "20250318",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+     "file": "naver_y2024.txt",
+     "xml_member": "20250318000645.xml",
+     "zip_members": 3,
+     "chars": 590885,
+     "sha256": "c95aff7958425a1b",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 1197,
+      "II": 40913,
+      "IV": 11853
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 2425,
+      "IMAGE": 2,
+      "IMG": 4,
+      "TOC": 0,
+      "LIBRARY": 24
+     }
+    },
+    "y2025": {
+     "title": "2025 사업보고서",
+     "found": true,
+     "report_nm": "사업보고서 (2025.12)",
+     "rcept_no": "20260313001021",
+     "rcept_dt": "20260313",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+     "file": "naver_y2025.txt",
+     "xml_member": "20260313001021.xml",
+     "zip_members": 3,
+     "chars": 555071,
+     "sha256": "8da5cb603e89a6a3",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 1397,
+      "II": 44285,
+      "IV": 12413
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 2550,
+      "IMAGE": 2,
+      "IMG": 4,
+      "TOC": 0,
+      "LIBRARY": 26
+     }
+    },
+    "h2026": {
+     "title": "2026 반기보고서",
+     "found": true,
+     "report_nm": "반기보고서 (2026.06)",
+     "rcept_no": "20260814002266",
+     "rcept_dt": "20260814",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002266",
+     "file": "naver_h2026.txt",
+     "xml_member": "20260814002266.xml",
+     "zip_members": 1,
+     "chars": 369640,
+     "sha256": "4f3cbad3aa96a2b0",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 1540,
+      "II": 44296,
+      "IV": 508
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 1212,
+      "IMAGE": 2,
+      "IMG": 4,
+      "TOC": 0,
+      "LIBRARY": 38
+     }
+    }
+   }
+  }
+ },
+ "updated": "2026-10-19T13:01:34+00:00"
+}

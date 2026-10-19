@@ -1,0 +1,43 @@
+{
+ "issues": [
+  {
+   "text": "3천만 명의 이용자가 사용 중인 AI 브리핑의 도입·운영 (근거 확인)",
+   "promise_id": "naver-p1"
+  },
+  {
+   "text": "AI 브리핑 이용의 연관 질문 재검색 및 콘텐츠 재발견으로의 연결 (근거 확인)",
+   "promise_id": "naver-p1"
+  },
+  {
+   "text": "AI 브리핑의 지속적인 답변 품질 개선 및 신뢰성 있는 정보 제공에 집중 (근거 확인)",
+   "promise_id": "naver-p1"
+  }
+ ],
+ "talking_points": [
+  {
+   "text": "공시에는 3천만 명의 이용자가 AI 브리핑을 사용 중이라고 기재되어 있습니다.",
+   "promise_id": "naver-p1",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021"
+  },
+  {
+   "text": "AI 브리핑은 단순한 정보 소비를 넘어 연관 질문의 재검색과 콘텐츠의 재발견으로 이어지는 선순환 구조를 갖추어 가고 있다고 설명되어 있습니다.",
+   "promise_id": "naver-p1",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021"
+  },
+  {
+   "text": "공시에는 AI 브리핑의 지속적인 답변 품질 개선 노력과 신뢰성 있는 정보 제공에 집중하고 있다고 기재되어 있습니다.",
+   "promise_id": "naver-p1",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021"
+  }
+ ],
+ "questions": [
+  {
+   "text": "공시에서 AI 브리핑의 답변 품질 개선과 신뢰성 있는 정보 제공에 집중하고 있다는 내용을 확인했습니다. 실제 업무에서는 답변 품질과 신뢰성을 어떤 기준으로 점검하는지 궁금합니다.",
+   "promise_id": "naver-p1"
+  },
+  {
+   "text": "공시에서 AI 브리핑 이용이 연관 질문의 재검색과 콘텐츠 재발견으로 이어지고 있다는 내용을 확인했습니다. 이러한 이용 흐름을 서비스 개선에 어떻게 반영하는지 궁금합니다.",
+   "promise_id": "naver-p1"
+  }
+ ]
+}
