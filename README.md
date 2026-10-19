@@ -8,6 +8,18 @@
 - 시연용 기업: 카카오, 신한은행, NAVER. 핵심 2곳(삼성전자·SK하이닉스)과 사용자 5명 테스트를 먼저 끝내고, 시간이 남을 때만 화면에 올립니다. 시연용으로 표시하고 Human blind evaluation 수치에는 넣지 않습니다.
 - 약속을 찾는 보고서: 2024 사업보고서 / 근거를 찾는 보고서: 2025 사업보고서, 2026 반기보고서
 
+### Universal Company Search
+
+Final v6는 홈 화면에서 **OpenDART 전체 기업을 회사명으로 검색**할 수 있습니다.
+
+- 분석 완료 기업: 즉시 AI Promise deep analysis 열기
+- 그 외 DART 기업: 상장/등록 상태와 정기공시 준비도 실시간 확인
+- deep analysis가 없는 기업을 분석 완료라고 표시하지 않음
+- 서버 API: `app/api/dart-company-search.py`
+- 배포 시 Vercel 환경변수 `OPENDART_API_KEY` 필요
+
+즉, 화면에 보이는 5개 기업이 서비스의 전체 범위가 아니라 **검증된 deep-analysis/확장 사례**이고, 기업 discovery는 OpenDART 전체 등록 기업으로 확장됩니다.
+
 ## 1. 핵심 AI 활용
 
 미션의 필수 기술 요소 5개(AI Agent, RAG, 멀티모달 AI, 자동화 워크플로우, Long-term Memory) 중 2개 이상이 필요합니다. AI Promise는 **RAG와 자동화 워크플로우를 주 근거**로 제시하고, **AI Agent는 제한적 재검색 형태로 보조**로 씁니다. 자세한 내용은 [기능 요구 명세서](docs/requirements.md) 4장에 있습니다.
