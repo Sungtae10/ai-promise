@@ -1,0 +1,83 @@
+{
+ "promises": [
+  {
+   "type": "specific",
+   "title": "AI금융Talk 업그레이드",
+   "sentence": "- 마이데이터 2.0 가이드라인 적용 : 2025년 6월 - AI금융Talk 업그레이드 : 2025년 10월",
+   "sentence_id": "y2024-I5-0031",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p1"
+  },
+  {
+   "type": "specific",
+   "title": "이미지 보정 AI 개발·적용",
+   "sentence": "해당사항 없습니다.7 향후 추진계획 이미지 보정 AI 개발/적용을 통한 고객의 체감 AI 성능 향상, 기존 VHS와 VLAS로 이원화된 심장 계측 모델을 일원화 하여 하나의 결과 화면으로 구성하여, 사용자에게 통합 정보를 전달하여 진료 편의성 제공 및 체감 만족도 향상시키고자 합니다.",
+   "sentence_id": "y2024-I5-0042",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p2"
+  },
+  {
+   "type": "specific",
+   "title": "AI·On-Device AI 기술 개발",
+   "sentence": "Energy Saving을 통한 TCO 절감기술 개발ᄋ Network Sharing을 통한 공동망 상용화 및 성능 고도화ᄋ 음성/Data/RCS 서비스 고객 체감 품질 향상 기술 개발ᄋ Voice Phishing/불법 접속 탐지 및 예방 기술 개발 유무선 N/W 중장기 핵심 기술 확보 ᄋ 5G-Advanced Infra 진화기술 연구 및 6G 핵심 후보 기술 탐색ᄋ AI Infra/On-Device AI 기술 개발 및 Network 가상화/Cloud 진화 기술 개발ᄋ Open Interface 기반 Radio Network 실증 및 AI 기반 지능화 기술 연구ᄋ 국내외 ICT 표준화 및 Global Alliance 활동 수행 (GSMA,",
+   "sentence_id": "y2024-II-0142",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p3"
+  },
+  {
+   "type": "specific",
+   "title": "AI 기반 측위·공간분석 기술 개발",
+   "sentence": "위성측위 기술 연구 및 측위플랫폼 고도화ᄋ 실내 측위 경쟁력 강화를 위한 AI 기반 PDR/융복합 측위 기술 및 Infra 시설물 점검 효율화를 위한 공간분석 AI 기술 개발",
+   "sentence_id": "y2024-II-0145",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p4"
+  },
+  {
+   "type": "specific",
+   "title": "AI·빅데이터 활용 맞춤형 서비스 제공",
+   "sentence": "시청자들의 콘텐츠 소비 성향과 행태의 급격한 변화를반영하여 콘텐츠 차별화와 AI 및 빅데이터와 같은 ICT 융합 기술을 활용한 맞춤형 서비스 제공을 통해 홈 플랫폼 영역에서 새로운 성장을 준비하고 있습니다.기업사업은 AI Metaverse등 새로운 기술을 통한 신규 서비스들의 출현으로 새로운 영역에서의 성장이 기대되고 있으며,",
+   "sentence_id": "y2024-II-0216",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p5"
+  },
+  {
+   "type": "directional",
+   "title": "AI 사업화 및 매출 성장",
+   "sentence": "또한 2025년에는 AI 사업화를 본격 진행함으로써, AI 관련 매출이 실제로 성장하는 모습을 보여드릴 계획입니다.",
+   "sentence_id": "y2024-IV-0014",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-d1"
+  }
+ ],
+ "dropped": []
+}

@@ -1,0 +1,106 @@
+{
+ "companies": {
+  "skt": {
+   "corp_code": "00159023",
+   "corp_name": "SK텔레콤",
+   "stock_code": "017670",
+   "corp_found_by": "종목코드",
+   "reports": {
+    "y2024": {
+     "title": "2024 사업보고서",
+     "found": true,
+     "report_nm": "사업보고서 (2024.12)",
+     "rcept_no": "20250317000684",
+     "rcept_dt": "20250317",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+     "file": "skt_y2024.txt",
+     "xml_member": "20250317000684.xml",
+     "zip_members": 3,
+     "chars": 502795,
+     "sha256": "b239b5ef81284e4f",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 5954,
+      "II": 35344,
+      "IV": 22118
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 2365,
+      "IMAGE": 1,
+      "IMG": 2,
+      "TOC": 0,
+      "LIBRARY": 23
+     }
+    },
+    "y2025": {
+     "title": "2025 사업보고서",
+     "found": true,
+     "report_nm": "사업보고서 (2025.12)",
+     "rcept_no": "20260318000532",
+     "rcept_dt": "20260318",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000532",
+     "file": "skt_y2025.txt",
+     "xml_member": "20260318000532.xml",
+     "zip_members": 3,
+     "chars": 487791,
+     "sha256": "de2322db484566d1",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 5936,
+      "II": 34871,
+      "IV": 21063
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 2419,
+      "IMAGE": 1,
+      "IMG": 2,
+      "TOC": 0,
+      "LIBRARY": 24
+     }
+    },
+    "h2026": {
+     "title": "2026 반기보고서",
+     "found": true,
+     "report_nm": "반기보고서 (2026.06)",
+     "rcept_no": "20260813001728",
+     "rcept_dt": "20260813",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260813001728",
+     "file": "skt_h2026.txt",
+     "xml_member": "20260813001728.xml",
+     "zip_members": 1,
+     "chars": 327140,
+     "sha256": "0448463041493b5a",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 837,
+      "II": 30622,
+      "IV": 180
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 1711,
+      "IMAGE": 1,
+      "IMG": 2,
+      "TOC": 0,
+      "LIBRARY": 30
+     }
+    }
+   }
+  }
+ },
+ "updated": "2026-10-19T13:02:49+00:00"
+}

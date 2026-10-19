@@ -1,0 +1,466 @@
+{
+ "retrieval_mode": "키워드 + 의미",
+ "models_used": {
+  "extract": [
+   "gpt-6-luna"
+  ],
+  "judge": [
+   "gpt-6.1-sol"
+  ],
+  "judge_escalation": [
+   "gpt-6-astra"
+  ],
+  "related": [
+   "gpt-6.1-sol"
+  ]
+ },
+ "promises": [
+  {
+   "type": "specific",
+   "title": "AI금융Talk 업그레이드",
+   "sentence": "- 마이데이터 2.0 가이드라인 적용 : 2025년 6월 - AI금융Talk 업그레이드 : 2025년 10월",
+   "sentence_id": "y2024-I5-0031",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p1",
+   "verdict": "not_verifiable",
+   "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 2번 다시 찾았지만 결과가 같았습니다.",
+   "evidence": [],
+   "search_attempts": 3,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI금융Talk 업그레이드 - 마이데이터 2.0 가이드라인 적용 : 2025년 6월 - AI금융Talk 업그레이드 : 2025년 10월",
+     "candidates": [
+      "y2025-I5-0009",
+      "y2025-I5-0010",
+      "y2025-I5-0011",
+      "y2025-I5-0012",
+      "y2025-I5-0008",
+      "y2025-I5-0013",
+      "y2025-I5-0014",
+      "y2025-I5-0026",
+      "y2025-I5-0027",
+      "y2025-I5-0028",
+      "y2025-I5-0003",
+      "y2025-I5-0004"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    },
+    {
+     "attempt": 2,
+     "query": "금융비서 AI 금융Talk 기능 개선 완료 마이데이터 2.0 적용",
+     "candidates": [
+      "y2025-I5-0010",
+      "y2025-I5-0011",
+      "y2025-I5-0012",
+      "y2025-I5-0009",
+      "y2025-I5-0008",
+      "y2025-I5-0013",
+      "y2025-I5-0018",
+      "y2025-I5-0019",
+      "y2025-I5-0020",
+      "y2025-I5-0021",
+      "y2025-I5-0022",
+      "y2025-I5-0026"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    },
+    {
+     "attempt": 3,
+     "query": "PASS 금융비서 마이데이터 2.0 가이드라인 반영 AI 금융Talk 개편 2025년 10월",
+     "candidates": [
+      "y2025-I5-0010",
+      "y2025-I5-0011",
+      "y2025-I5-0012",
+      "y2025-I5-0025",
+      "y2025-I5-0026",
+      "y2025-I5-0027",
+      "y2025-I5-0009",
+      "y2025-I5-0008",
+      "y2025-I5-0028",
+      "y2025-I5-0024",
+      "y2025-I5-0020",
+      "y2025-I5-0021"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol"
+  },
+  {
+   "type": "specific",
+   "title": "이미지 보정 AI 개발·적용",
+   "sentence": "해당사항 없습니다.7 향후 추진계획 이미지 보정 AI 개발/적용을 통한 고객의 체감 AI 성능 향상, 기존 VHS와 VLAS로 이원화된 심장 계측 모델을 일원화 하여 하나의 결과 화면으로 구성하여, 사용자에게 통합 정보를 전달하여 진료 편의성 제공 및 체감 만족도 향상시키고자 합니다.",
+   "sentence_id": "y2024-I5-0042",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p2",
+   "verdict": "not_verifiable",
+   "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 2번 다시 찾았지만 결과가 같았습니다.",
+   "evidence": [],
+   "search_attempts": 3,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "이미지 보정 AI 개발·적용 해당사항 없습니다.7 향후 추진계획 이미지 보정 AI 개발/적용을 통한 고객의 체감 AI 성능 향상, 기존 VHS와 VLAS로 이원화된 심장 계측 모델을 일원화 하여 하나의 결과 화면으로 구성하여, 사용자에게 통합 정보를 전달하여 진료 편의성 제공 및 체감 만족도 향상시키고자 합니다.",
+     "candidates": [
+      "y2025-I5-0042",
+      "y2025-I5-0043",
+      "y2025-I5-0041",
+      "y2025-I5-0040",
+      "y2025-I5-0026",
+      "y2025-I5-0027",
+      "y2025-I5-0028",
+      "y2025-I5-0034",
+      "y2025-I5-0035",
+      "y2025-I5-0036",
+      "y2025-I5-0025",
+      "y2025-II-0125"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    },
+    {
+     "attempt": 2,
+     "query": "엑스칼리버 영상 보정 VHS VLAS 통합 계측 결과 화면",
+     "candidates": [
+      "y2025-I5-0042",
+      "y2025-I5-0043",
+      "y2025-I5-0038",
+      "y2025-I5-0039",
+      "y2025-I5-0040",
+      "y2025-I5-0037",
+      "y2025-I5-0041",
+      "h2026-II-0118",
+      "h2026-II-0119",
+      "h2026-II-0120",
+      "y2025-I5-0036",
+      "h2026-II-0121"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    },
+    {
+     "attempt": 3,
+     "query": "X Caliber 이미지 보정 적용 완료 심장 계측 모델 일원화 통합 정보 화면",
+     "candidates": [
+      "y2025-I5-0042",
+      "y2025-I5-0043",
+      "y2025-I5-0039",
+      "y2025-I5-0040",
+      "y2025-I5-0041",
+      "y2025-II-0124",
+      "y2025-II-0125",
+      "y2025-II-0126",
+      "y2025-II-0127",
+      "y2025-I5-0038",
+      "y2025-II-0147",
+      "y2025-II-0148"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol"
+  },
+  {
+   "type": "specific",
+   "title": "AI·On-Device AI 기술 개발",
+   "sentence": "Energy Saving을 통한 TCO 절감기술 개발ᄋ Network Sharing을 통한 공동망 상용화 및 성능 고도화ᄋ 음성/Data/RCS 서비스 고객 체감 품질 향상 기술 개발ᄋ Voice Phishing/불법 접속 탐지 및 예방 기술 개발 유무선 N/W 중장기 핵심 기술 확보 ᄋ 5G-Advanced Infra 진화기술 연구 및 6G 핵심 후보 기술 탐색ᄋ AI Infra/On-Device AI 기술 개발 및 Network 가상화/Cloud 진화 기술 개발ᄋ Open Interface 기반 Radio Network 실증 및 AI 기반 지능화 기술 연구ᄋ 국내외 ICT 표준화 및 Global Alliance 활동 수행 (GSMA,",
+   "sentence_id": "y2024-II-0142",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p3",
+   "verdict": "not_verifiable",
+   "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 1번 다시 찾았지만 결과가 같았습니다.",
+   "evidence": [],
+   "search_attempts": 2,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI·On-Device AI 기술 개발 Energy Saving을 통한 TCO 절감기술 개발ᄋ Network Sharing을 통한 공동망 상용화 및 성능 고도화ᄋ 음성/Data/RCS 서비스 고객 체감 품질 향상 기술 개발ᄋ Voice Phishing/불법 접속 탐지 및 예방 기술 개발 유무선 N/W 중장기 핵심 기술 확보 ᄋ 5G-Advanced Infra 진화기술 연구 및 6G 핵심 후보 기술 탐색ᄋ AI Infra/On-Device AI 기술 개발 및 Network 가상화/Cloud 진화 기술 개발ᄋ Open Interface 기반 Radio Network 실증 및 AI 기반 지능화 기술 연구ᄋ 국내외 ICT 표준화 및 Global Alliance 활동 수행 (GSMA,",
+     "candidates": [
+      "h2026-II-0147",
+      "h2026-II-0148",
+      "h2026-II-0149",
+      "y2025-II-0141",
+      "y2025-II-0142",
+      "y2025-II-0143",
+      "h2026-II-0146",
+      "y2025-II-0140",
+      "h2026-II-0145",
+      "y2025-II-0139",
+      "y2025-II-0144",
+      "h2026-II-0144"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    },
+    {
+     "attempt": 2,
+     "query": "On-Device AI 개발 완료 실증 적용 AI Infra AI-RAN Network 가상화 Cloud",
+     "candidates": [
+      "y2025-II-0141",
+      "y2025-II-0142",
+      "y2025-II-0143",
+      "y2025-II-0144",
+      "y2025-II-0140",
+      "h2026-II-0145",
+      "h2026-II-0146",
+      "h2026-II-0147",
+      "h2026-II-0144",
+      "h2026-II-0143",
+      "h2026-II-0148",
+      "y2025-II-0129"
+     ],
+     "verdict": "partial",
+     "evidence_ids": [
+      "y2025-II-0142",
+      "h2026-II-0147"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol",
+   "escalation": {
+    "model": "gpt-6-astra",
+    "first_verdict": "partial",
+    "second_verdict": "not_verifiable",
+    "adopted": true
+   }
+  },
+  {
+   "type": "specific",
+   "title": "AI 기반 측위·공간분석 기술 개발",
+   "sentence": "위성측위 기술 연구 및 측위플랫폼 고도화ᄋ 실내 측위 경쟁력 강화를 위한 AI 기반 PDR/융복합 측위 기술 및 Infra 시설물 점검 효율화를 위한 공간분석 AI 기술 개발",
+   "sentence_id": "y2024-II-0145",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p4",
+   "verdict": "not_verifiable",
+   "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 2번 다시 찾았지만 결과가 같았습니다.",
+   "evidence": [],
+   "search_attempts": 3,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 기반 측위·공간분석 기술 개발 위성측위 기술 연구 및 측위플랫폼 고도화ᄋ 실내 측위 경쟁력 강화를 위한 AI 기반 PDR/융복합 측위 기술 및 Infra 시설물 점검 효율화를 위한 공간분석 AI 기술 개발",
+     "candidates": [
+      "h2026-II-0148",
+      "h2026-II-0149",
+      "h2026-II-0150",
+      "y2025-II-0145",
+      "y2025-II-0146",
+      "y2025-II-0147",
+      "y2025-II-0144",
+      "y2025-II-0148",
+      "y2025-II-0143",
+      "y2025-II-0128",
+      "y2025-II-0129",
+      "y2025-II-0130"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    },
+    {
+     "attempt": 2,
+     "query": "PDR 융복합 실내측위 개발 성과 공간분석 AI 시설물 점검 실증 완료",
+     "candidates": [
+      "y2025-II-0145",
+      "y2025-II-0146",
+      "y2025-II-0147",
+      "y2025-II-0144",
+      "y2025-II-0148",
+      "h2026-II-0148",
+      "h2026-II-0149",
+      "h2026-II-0150",
+      "y2025-II-0143",
+      "h2026-II-0151",
+      "y2025-II-0136",
+      "y2025-II-0137"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    },
+    {
+     "attempt": 3,
+     "query": "보행자 추측항법 측위플랫폼 고도화 공간분석 인프라 시설물 점검 연구개발 실적",
+     "candidates": [
+      "y2025-II-0145",
+      "y2025-II-0146",
+      "y2025-II-0147",
+      "y2025-II-0148",
+      "h2026-II-0148",
+      "h2026-II-0149",
+      "h2026-II-0150",
+      "y2025-II-0144",
+      "y2025-II-0143",
+      "h2026-II-0146",
+      "h2026-II-0147",
+      "h2026-II-0151"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol"
+  },
+  {
+   "type": "specific",
+   "title": "AI·빅데이터 활용 맞춤형 서비스 제공",
+   "sentence": "시청자들의 콘텐츠 소비 성향과 행태의 급격한 변화를반영하여 콘텐츠 차별화와 AI 및 빅데이터와 같은 ICT 융합 기술을 활용한 맞춤형 서비스 제공을 통해 홈 플랫폼 영역에서 새로운 성장을 준비하고 있습니다.기업사업은 AI Metaverse등 새로운 기술을 통한 신규 서비스들의 출현으로 새로운 영역에서의 성장이 기대되고 있으며,",
+   "sentence_id": "y2024-II-0216",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-p5",
+   "verdict": "not_verifiable",
+   "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 1번 다시 찾았지만 결과가 같았습니다.",
+   "evidence": [],
+   "search_attempts": 2,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI·빅데이터 활용 맞춤형 서비스 제공 시청자들의 콘텐츠 소비 성향과 행태의 급격한 변화를반영하여 콘텐츠 차별화와 AI 및 빅데이터와 같은 ICT 융합 기술을 활용한 맞춤형 서비스 제공을 통해 홈 플랫폼 영역에서 새로운 성장을 준비하고 있습니다.기업사업은 AI Metaverse등 새로운 기술을 통한 신규 서비스들의 출현으로 새로운 영역에서의 성장이 기대되고 있으며,",
+     "candidates": [
+      "y2025-II-0212",
+      "y2025-II-0213",
+      "y2025-II-0214",
+      "y2025-II-0210",
+      "y2025-II-0211",
+      "h2026-II-0210",
+      "h2026-II-0211",
+      "h2026-II-0212",
+      "h2026-II-0209",
+      "h2026-II-0208",
+      "y2025-I5-0020",
+      "y2025-I5-0021"
+     ],
+     "verdict": "not_verifiable",
+     "evidence_ids": []
+    },
+    {
+     "attempt": 2,
+     "query": "Btv 홈 플랫폼 시청 이력 기반 개인화 콘텐츠 추천 서비스 도입 출시",
+     "candidates": [
+      "h2026-II-0209",
+      "h2026-II-0210",
+      "h2026-II-0211",
+      "y2025-II-0153",
+      "y2025-II-0154",
+      "y2025-II-0155",
+      "h2026-II-0212",
+      "y2025-II-0212",
+      "y2025-II-0213",
+      "y2025-II-0214",
+      "y2025-II-0152",
+      "y2025-II-0151"
+     ],
+     "verdict": "partial",
+     "evidence_ids": [
+      "y2025-II-0153"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol",
+   "escalation": {
+    "model": "gpt-6-astra",
+    "first_verdict": "partial",
+    "second_verdict": "not_verifiable",
+    "adopted": true
+   }
+  },
+  {
+   "type": "directional",
+   "title": "AI 사업화 및 매출 성장",
+   "sentence": "또한 2025년에는 AI 사업화를 본격 진행함으로써, AI 관련 매출이 실제로 성장하는 모습을 보여드릴 계획입니다.",
+   "sentence_id": "y2024-IV-0014",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+    "page": null
+   },
+   "id": "skt-d1",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "Data플랫폼사업팀 (8명), B2B AI서비스개발팀(3명) 연구개발활동 내역 - 제품 및 서비스 개발 진척도 상용화 서비스 중 상용화 여부 상용화 서비스 중 매출 발생여부 매출 미발생 5 기존 사업과의 연관성마이데이터 사업을 통해 확보한 개인 금융 데이터를 당사의 AI 사업과 결합함으로써, 대고객 서비스의 경쟁력을 한층 강화할 수 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000532",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-I5-0020"
+    },
+    {
+     "sentence": "- 당사는 2025년 연결 기준으로 유무선 인프라 경쟁력 제고를 위한 Network 투자와 데이터센터와 AI 서비스 등의 성장사업에 대한 투자를 위하여 전년 대비 소폭 감소한 2.13조원의 CapEx를 집행하였습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000532",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0131"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 사업화 및 매출 성장 또한 2025년에는 AI 사업화를 본격 진행함으로써, AI 관련 매출이 실제로 성장하는 모습을 보여드릴 계획입니다.",
+     "candidates": [
+      "y2025-IV-0003",
+      "y2025-IV-0004",
+      "y2025-IV-0005",
+      "y2025-I5-0019",
+      "y2025-I5-0020",
+      "y2025-I5-0021",
+      "y2025-IV-0131",
+      "y2025-IV-0132",
+      "y2025-IV-0133",
+      "y2025-IV-0006",
+      "y2025-IV-0007",
+      "y2025-IV-0130"
+     ],
+     "related_ids": [
+      "y2025-I5-0020",
+      "y2025-IV-0131"
+     ]
+    }
+   ],
+   "flags": []
+  }
+ ]
+}

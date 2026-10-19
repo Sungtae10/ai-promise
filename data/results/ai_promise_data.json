@@ -1,0 +1,231 @@
+{
+ "meta": {
+  "is_sample": false,
+  "notice": "",
+  "schema_version": "0.1",
+  "updated": "2026-10-19",
+  "engine": {
+   "extract_model": "gpt-6-luna",
+   "judge_model": "gpt-6.1-sol",
+   "card_model": "gpt-6.1-sol",
+   "embed_model": "text-embedding-3-large"
+  }
+ },
+ "labels": {
+  "service_name": "AI Promise",
+  "service_subtitle": "기업 AI 약속 검증",
+  "tagline": "면접 전 5분 기업 AI 체크",
+  "disclaimers": [
+   "공시 범위 안에서 확인한 결과입니다.",
+   "AI가 생성한 분석입니다."
+  ],
+  "verdicts": {
+   "evidence_found": {
+    "label": "근거 확인",
+    "short_label": "근거 확인",
+    "meaning": "약속과 같은 대상이 후속 공시에 실행한 것으로 적혀 있음"
+   },
+   "partial": {
+    "label": "일부 확인",
+    "short_label": "일부 확인",
+    "meaning": "관련 활동은 있으나 범위, 시점, 수치가 약속에 못 미치거나 불분명함"
+   },
+   "not_verifiable": {
+    "label": "공시에서 확인 불가",
+    "short_label": "확인 불가",
+    "meaning": "읽은 공시 범위에서 찾지 못함. 미이행이라는 뜻이 아님"
+   },
+   "company_reported_not_pursued": {
+    "label": "회사가 미추진으로 공시",
+    "short_label": "미추진 공시",
+    "meaning": "회사가 추진하지 않았다고 직접 적음"
+   }
+  },
+  "promise_types": {
+   "specific": {
+    "label": "구체적 약속",
+    "note": "판정하고 개수에 넣습니다."
+   },
+   "directional": {
+    "label": "방향성 약속",
+    "note": "방향이 넓어 판정하지 않고 관련 활동만 보여줍니다. 개수에는 넣지 않습니다."
+   }
+  },
+  "not_verifiable_message": "읽은 공시 범위에서 관련 내용을 찾지 못했습니다. 면접에서 추진 방향을 질문해 보세요.",
+  "no_related_activity_message": "읽은 공시 범위에서 관련 활동을 찾지 못했습니다.",
+  "citation_verified_label": "원문 확인됨",
+  "interview_card_notice": "완성된 답변이 아니라 근거가 붙은 소재입니다. 자신의 말로 바꿔 쓰세요."
+ },
+ "companies": [
+  {
+   "id": "skt",
+   "name": "SK텔레콤",
+   "reports": {
+    "promise": [
+     {
+      "title": "2024 사업보고서",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684"
+     }
+    ],
+    "evidence": [
+     {
+      "title": "2025 사업보고서",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000532"
+     },
+     {
+      "title": "2026 반기보고서",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260813001728"
+     }
+    ]
+   },
+   "promises": [
+    {
+     "id": "skt-p1",
+     "type": "specific",
+     "title": "AI금융Talk 업그레이드",
+     "sentence": "- 마이데이터 2.0 가이드라인 적용 : 2025년 6월 - AI금융Talk 업그레이드 : 2025년 10월",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+      "page": null
+     },
+     "verdict": "not_verifiable",
+     "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 2번 다시 찾았지만 결과가 같았습니다.",
+     "evidence": [],
+     "search_attempts": 3
+    },
+    {
+     "id": "skt-p2",
+     "type": "specific",
+     "title": "이미지 보정 AI 개발·적용",
+     "sentence": "해당사항 없습니다.7 향후 추진계획 이미지 보정 AI 개발/적용을 통한 고객의 체감 AI 성능 향상, 기존 VHS와 VLAS로 이원화된 심장 계측 모델을 일원화 하여 하나의 결과 화면으로 구성하여, 사용자에게 통합 정보를 전달하여 진료 편의성 제공 및 체감 만족도 향상시키고자 합니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+      "page": null
+     },
+     "verdict": "not_verifiable",
+     "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 2번 다시 찾았지만 결과가 같았습니다.",
+     "evidence": [],
+     "search_attempts": 3
+    },
+    {
+     "id": "skt-p3",
+     "type": "specific",
+     "title": "AI·On-Device AI 기술 개발",
+     "sentence": "Energy Saving을 통한 TCO 절감기술 개발ᄋ Network Sharing을 통한 공동망 상용화 및 성능 고도화ᄋ 음성/Data/RCS 서비스 고객 체감 품질 향상 기술 개발ᄋ Voice Phishing/불법 접속 탐지 및 예방 기술 개발 유무선 N/W 중장기 핵심 기술 확보 ᄋ 5G-Advanced Infra 진화기술 연구 및 6G 핵심 후보 기술 탐색ᄋ AI Infra/On-Device AI 기술 개발 및 Network 가상화/Cloud 진화 기술 개발ᄋ Open Interface 기반 Radio Network 실증 및 AI 기반 지능화 기술 연구ᄋ 국내외 ICT 표준화 및 Global Alliance 활동 수행 (GSMA,",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+      "page": null
+     },
+     "verdict": "not_verifiable",
+     "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 1번 다시 찾았지만 결과가 같았습니다.",
+     "evidence": [],
+     "search_attempts": 2
+    },
+    {
+     "id": "skt-p4",
+     "type": "specific",
+     "title": "AI 기반 측위·공간분석 기술 개발",
+     "sentence": "위성측위 기술 연구 및 측위플랫폼 고도화ᄋ 실내 측위 경쟁력 강화를 위한 AI 기반 PDR/융복합 측위 기술 및 Infra 시설물 점검 효율화를 위한 공간분석 AI 기술 개발",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+      "page": null
+     },
+     "verdict": "not_verifiable",
+     "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 2번 다시 찾았지만 결과가 같았습니다.",
+     "evidence": [],
+     "search_attempts": 3
+    },
+    {
+     "id": "skt-p5",
+     "type": "specific",
+     "title": "AI·빅데이터 활용 맞춤형 서비스 제공",
+     "sentence": "시청자들의 콘텐츠 소비 성향과 행태의 급격한 변화를반영하여 콘텐츠 차별화와 AI 및 빅데이터와 같은 ICT 융합 기술을 활용한 맞춤형 서비스 제공을 통해 홈 플랫폼 영역에서 새로운 성장을 준비하고 있습니다.기업사업은 AI Metaverse등 새로운 기술을 통한 신규 서비스들의 출현으로 새로운 영역에서의 성장이 기대되고 있으며,",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+      "page": null
+     },
+     "verdict": "not_verifiable",
+     "reason": "읽은 공시 범위(2025 사업보고서, 2026 반기보고서)에서 관련 내용을 찾지 못했습니다. 검색어를 바꿔 1번 다시 찾았지만 결과가 같았습니다.",
+     "evidence": [],
+     "search_attempts": 2
+    },
+    {
+     "id": "skt-d1",
+     "type": "directional",
+     "title": "AI 사업화 및 매출 성장",
+     "sentence": "또한 2025년에는 AI 사업화를 본격 진행함으로써, AI 관련 매출이 실제로 성장하는 모습을 보여드릴 계획입니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250317000684",
+      "page": null
+     },
+     "verdict": null,
+     "reason": null,
+     "evidence": [
+      {
+       "sentence": "Data플랫폼사업팀 (8명), B2B AI서비스개발팀(3명) 연구개발활동 내역 - 제품 및 서비스 개발 진척도 상용화 서비스 중 상용화 여부 상용화 서비스 중 매출 발생여부 매출 미발생 5 기존 사업과의 연관성마이데이터 사업을 통해 확보한 개인 금융 데이터를 당사의 AI 사업과 결합함으로써, 대고객 서비스의 경쟁력을 한층 강화할 수 있습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000532",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "- 당사는 2025년 연결 기준으로 유무선 인프라 경쟁력 제고를 위한 Network 투자와 데이터센터와 AI 서비스 등의 성장사업에 대한 투자를 위하여 전년 대비 소폭 감소한 2.13조원의 CapEx를 집행하였습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "IV. 이사의 경영진단 및 분석의견",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000532",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    }
+   ],
+   "interview_card": {
+    "issues": [
+     {
+      "text": "읽은 공시 범위에서 AI금융Talk 업그레이드 관련 내용 미확인 (확인 어려움)",
+      "promise_id": "skt-p1"
+     },
+     {
+      "text": "읽은 공시 범위에서 이미지 보정 AI 개발·적용 관련 내용 미확인 (확인 어려움)",
+      "promise_id": "skt-p2"
+     },
+     {
+      "text": "읽은 공시 범위에서 AI·On-Device AI 기술 개발 관련 내용 미확인 (확인 어려움)",
+      "promise_id": "skt-p3"
+     }
+    ],
+    "talking_points": [],
+    "questions": [
+     {
+      "text": "2025 사업보고서와 2026 반기보고서에서 AI금융Talk 업그레이드의 후속 내용을 확인하기 어려웠습니다. 현재 추진 현황과 주요 개선 방향을 알 수 있습니까?",
+      "promise_id": "skt-p1"
+     },
+     {
+      "text": "2025 사업보고서와 2026 반기보고서에서 이미지 보정 AI 개발·적용의 후속 내용을 확인하기 어려웠습니다. 현재 개발 현황과 적용 대상에 관해 설명해 주실 수 있습니까?",
+      "promise_id": "skt-p2"
+     }
+    ]
+   },
+   "check_note": "AI 엔진 결과예요(사람 검토 전). 근거 문장은 코드가 원문과 글자 그대로 대조했고, 사람 정답과 비교한 정확도는 없어요.",
+   "data_mode": "engine"
+  }
+ ]
+}
