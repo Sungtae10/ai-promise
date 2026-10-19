@@ -1,0 +1,427 @@
+{
+ "retrieval_mode": "키워드 + 의미",
+ "models_used": {
+  "extract": [
+   "gpt-6-luna"
+  ],
+  "judge": [
+   "gpt-6.1-sol"
+  ],
+  "judge_escalation": [
+   "gpt-6-astra"
+  ],
+  "related": [
+   "gpt-6.1-sol"
+  ]
+ },
+ "promises": [
+  {
+   "type": "specific",
+   "title": "서비스 전반 AI 최적화",
+   "sentence": "자체 AI 기술을 개발하여 전반적인 서비스에 AI 기술을 접목하여 실질적인 비즈니스 혁신을 이끌어가는 것을 핵심 방향으로 하여, 검색, 쇼핑, 콘텐츠, 핀테크 등 서비스 전반에 걸쳐 AI를 최적화하여 사용자 경험을 혁식하고, 차별화된 경쟁력을 확보해 나가고 있습니다.",
+   "sentence_id": "y2024-IV-0013",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+    "page": null
+   },
+   "id": "naver-p1",
+   "verdict": "partial",
+   "reason": "2025 사업보고서에는 자체 AI 기술을 검색·광고에 접목하고, 검색·커머스의 AI 서비스 적용과 콘텐츠·상품 노출 최적화를 확대했다고 적혀 있어 약속한 서비스 영역 일부의 실행이 확인됩니다. 다만 핀테크 서비스의 AI 적용은 후보 문장에서 확인되지 않아, 약속한 서비스 전반의 실행을 모두 확인하기에는 범위가 부족합니다.",
+   "evidence": [
+    {
+     "sentence": "검색, 커머스 등 핵심 사업에서는 AI 기반 서비스 적용을 확대하며 사용자 경험을 혁신하고 트래픽 품질과 전환율을 개선해 나갔습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0012"
+    },
+    {
+     "sentence": "특히 AI 기술을 활용한 개인화 추천, 검색 고도화, 광고 타게팅 정교화, 콘텐츠 및 상품 노출 최적화, 리뷰 및 요약 기반 정보 제공 등 다양한 영역에서 AI 적용을 확대하며 서비스 전반의 경쟁력을 강화하였습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0013"
+    },
+    {
+     "sentence": "서치플랫폼에서는 네이버만의 AI 기술을 검색 서비스와 광고 전반에 효과적으로 접목시키며 이용자와 광고주의 만족도를 제고하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0041"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "서비스 전반 AI 최적화 자체 AI 기술을 개발하여 전반적인 서비스에 AI 기술을 접목하여 실질적인 비즈니스 혁신을 이끌어가는 것을 핵심 방향으로 하여, 검색, 쇼핑, 콘텐츠, 핀테크 등 서비스 전반에 걸쳐 AI를 최적화하여 사용자 경험을 혁식하고, 차별화된 경쟁력을 확보해 나가고 있습니다.",
+     "candidates": [
+      "y2025-IV-0012",
+      "y2025-IV-0013",
+      "y2025-IV-0014",
+      "y2025-IV-0038",
+      "y2025-IV-0039",
+      "y2025-IV-0040",
+      "y2025-II-0007",
+      "y2025-II-0008",
+      "y2025-II-0009",
+      "y2025-IV-0041",
+      "y2025-IV-0011",
+      "y2025-IV-0037"
+     ],
+     "verdict": "partial",
+     "evidence_ids": [
+      "y2025-IV-0012",
+      "y2025-IV-0013",
+      "y2025-II-0007"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol",
+   "escalation": {
+    "model": "gpt-6-astra",
+    "first_verdict": "partial",
+    "second_verdict": "partial",
+    "adopted": true
+   }
+  },
+  {
+   "type": "specific",
+   "title": "AI Briefing 도입",
+   "sentence": "검색에서는 AI Briefing을 도입하여, 이용자의 질의에 대한 정답 정보를 요약 제공하고, 맥락에 맞는 콘텐츠 추천을 강화할 예정입니다.",
+   "sentence_id": "y2024-IV-0035",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+    "page": null
+   },
+   "id": "naver-p2",
+   "verdict": "evidence_found",
+   "reason": "약속한 AI Briefing과 동일한 서비스인 AI 브리핑을 3천만 명의 이용자가 사용 중이라고 공시하여 실제 도입이 확인됩니다. 답변 품질 개선과 정보 제공, 연관 질문의 재검색 및 콘텐츠 재발견으로 이어지는 이용도 기재되어 있어, 검색 정보 제공과 콘텐츠 탐색 강화라는 약속에 부합합니다.",
+   "evidence": [
+    {
+     "sentence": "3천만명 이용자들이 사용 중인 AI 브리핑은 단순한 정보 소비를 넘어서 연관 질문의 재검색과 콘텐츠의 재발견으로 이어지는 선순환 구조를 갖추어 가고 있으며, 지속적인 답변 품질 개선 노력과 신뢰성 있는 정보 제공에 집중하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0042"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI Briefing 도입 검색에서는 AI Briefing을 도입하여, 이용자의 질의에 대한 정답 정보를 요약 제공하고, 맥락에 맞는 콘텐츠 추천을 강화할 예정입니다.",
+     "candidates": [
+      "y2025-IV-0031",
+      "y2025-IV-0032",
+      "y2025-IV-0033",
+      "y2025-IV-0012",
+      "y2025-IV-0013",
+      "y2025-IV-0014",
+      "h2026-II-0156",
+      "h2026-II-0157",
+      "h2026-II-0158",
+      "y2025-II-0188",
+      "y2025-II-0189",
+      "y2025-II-0190"
+     ],
+     "verdict": "evidence_found",
+     "evidence_ids": [
+      "y2025-IV-0042"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol"
+  },
+  {
+   "type": "specific",
+   "title": "AI 초개인화 쇼핑 경험 제공",
+   "sentence": "한 단계 더 발전된 AI 기술을 기반으로 사용자에게 초개인화된 쇼핑 경험을 선사함과 동시에, 판매자에게는 새로운 공간을 제공하여 온라인에서의 브랜드 플래그십 스토어를 구축할 수 있도록 지원할 것입니다.",
+   "sentence_id": "y2024-IV-0045",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+    "page": null
+   },
+   "id": "naver-p3",
+   "verdict": "partial",
+   "reason": "2025 사업보고서에는 네이버플러스스토어의 초개인화 추천 및 탐색 경험 강화와 개인화 검색·추천 기능 고도화가 적혀 있어, 약속한 사용자 쇼핑 경험 개선은 확인됩니다. 다만 판매자에게 새로운 공간을 제공하여 온라인 브랜드 플래그십 스토어 구축을 지원했다는 내용은 확인되지 않아 약속의 일부만 확인됩니다.",
+   "evidence": [
+    {
+     "sentence": "또한 초개인화 추천과 발견/탐색 경험이 강화된 네이버플러스스토어를 포함하여 네이버 서비스 내 연계 강화로 멀티플 시너지를 창출하기 위해 노력하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-II-0192"
+    },
+    {
+     "sentence": "커머스 부문에서는 네이버플러스스토어 앱을 중심으로 탐색 및 발견 기반의 쇼핑 경험을 강화하고, 스마트스토어 기반의 개인화 검색 및 추천 기능을 고도화하며 이용자 활동성과 전환 효율을 개선하였습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0033"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 초개인화 쇼핑 경험 제공 한 단계 더 발전된 AI 기술을 기반으로 사용자에게 초개인화된 쇼핑 경험을 선사함과 동시에, 판매자에게는 새로운 공간을 제공하여 온라인에서의 브랜드 플래그십 스토어를 구축할 수 있도록 지원할 것입니다.",
+     "candidates": [
+      "h2026-II-0159",
+      "h2026-II-0160",
+      "h2026-II-0161",
+      "y2025-II-0217",
+      "y2025-II-0218",
+      "y2025-II-0219",
+      "h2026-II-0187",
+      "h2026-II-0188",
+      "h2026-II-0189",
+      "y2025-IV-0031",
+      "y2025-IV-0032",
+      "y2025-IV-0033"
+     ],
+     "verdict": "partial",
+     "evidence_ids": [
+      "y2025-II-0192",
+      "y2025-IV-0033"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol",
+   "escalation": {
+    "model": "gpt-6-astra",
+    "first_verdict": "partial",
+    "second_verdict": "partial",
+    "adopted": true
+   }
+  },
+  {
+   "type": "directional",
+   "title": "AI 역량 결합 글로벌 플랫폼 도약",
+   "sentence": "또한 2023년부터는 네이버의 AI 기술력과 그간 쌓아온 기술 플랫폼 역량을 모두 결집하여 클라우드 서비스의 경쟁력을 강화할 뿐만 아니라 세계 최고 수준의 AI 기술 역량과 결합 시너지를 기반으로 글로벌 하이퍼스케일 기술 플랫폼으로 거듭나고자 합니다.",
+   "sentence_id": "y2024-II-0317",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+    "page": null
+   },
+   "id": "naver-d1",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "자체 출시한 초대규모 AI인 HyperCLOVA X를 기반으로 AI 개발 도구인 CLOVA Studio 및 보안이 강한 하이브리드 클라우드 형태인 Neurocloud for HyperCLOVA X 등의 차별화된 서비스로 국내외 AI 경쟁력을 입증하며 비즈니스 맞춤형 AI 시대를 주도하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002266",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-0375"
+    },
+    {
+     "sentence": "2023년부터 네이버의 AI 기술 조직과 B2B 사업 부문을 네이버클라우드 법인으로 일원화하여, 기술 플랫폼 역량과 초대규모 AI 'HyperCLOVA X'를 기반으로 기업 맞춤형 AI 솔루션과 클라우드 서비스를 융합하는 통합 B2B 플랫폼 체계를 구축하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002266",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-0027"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 역량 결합 글로벌 플랫폼 도약 또한 2023년부터는 네이버의 AI 기술력과 그간 쌓아온 기술 플랫폼 역량을 모두 결집하여 클라우드 서비스의 경쟁력을 강화할 뿐만 아니라 세계 최고 수준의 AI 기술 역량과 결합 시너지를 기반으로 글로벌 하이퍼스케일 기술 플랫폼으로 거듭나고자 합니다.",
+     "candidates": [
+      "h2026-II-0374",
+      "h2026-II-0375",
+      "h2026-II-0373",
+      "h2026-II-0372",
+      "h2026-II-0027",
+      "h2026-II-0028",
+      "h2026-II-0029",
+      "h2026-II-0025",
+      "h2026-II-0026",
+      "y2025-IV-0063",
+      "y2025-IV-0064",
+      "y2025-IV-0065"
+     ],
+     "related_ids": [
+      "h2026-II-0375",
+      "h2026-II-0027"
+     ]
+    }
+   ],
+   "flags": []
+  },
+  {
+   "type": "directional",
+   "title": "AI 검색·광고 접목",
+   "sentence": "2025년에는 여기서 멈추지 않고 AI를 검색과 광고에 더욱 밀접하게 접목시키며 혁신을 가속화할 계획입니다.",
+   "sentence_id": "y2024-IV-0034",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+    "page": null
+   },
+   "id": "naver-d2",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "서치플랫폼에서는 네이버만의 AI 기술을 검색 서비스와 광고 전반에 효과적으로 접목시키며 이용자와 광고주의 만족도를 제고하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0041"
+    },
+    {
+     "sentence": "네이버의 AI 기술은 이용자의 검색 의도, 관심사, 그리고 행동 패턴을 더욱 잘 이해하여 검색도를 높이고 있을 뿐 아니라, 다양한 브랜드와 SME들의 사업을 성장시킬 수 있는 광고상품 고도화에도 기여하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0043"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 검색·광고 접목 2025년에는 여기서 멈추지 않고 AI를 검색과 광고에 더욱 밀접하게 접목시키며 혁신을 가속화할 계획입니다.",
+     "candidates": [
+      "y2025-IV-0042",
+      "y2025-IV-0043",
+      "y2025-IV-0044",
+      "y2025-IV-0038",
+      "y2025-IV-0039",
+      "y2025-IV-0040",
+      "y2025-II-0160",
+      "y2025-II-0161",
+      "y2025-II-0162",
+      "y2025-IV-0041",
+      "h2026-II-0124",
+      "h2026-II-0125"
+     ],
+     "related_ids": [
+      "y2025-IV-0041",
+      "y2025-IV-0043"
+     ]
+    }
+   ],
+   "flags": []
+  },
+  {
+   "type": "directional",
+   "title": "AI 기반 검색·광고 혁신",
+   "sentence": "이처럼 네이버는 AI 기술을 적극적으로 활용하여 검색과 광고의 혁신을 선도하고, 이용자와 광고주 모두에게 최상의 경험을 제공하는 플랫폼으로 계속해서 성장해 나갈 것입니다.",
+   "sentence_id": "y2024-IV-0037",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+    "page": null
+   },
+   "id": "naver-d3",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "최근 당사는 AI 기술을 기반으로 광고 자동화 및 최적화 기능을 제공하는 'ADVoost 검색'과 'ADVoost 쇼핑'을 출시하여, 광고주의 통합적이고 효과적인 광고 집행을 지원하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002266",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-0157"
+    },
+    {
+     "sentence": "특히, 2023년부터는 AI 기반 타게팅 및 콘텐츠 분석 기술을 바탕으로 피드형 광고를 도입해, 개인화된 광고 경험과 자연스러운 노출을 통해 광고 효율성과 사용자 만족도를 한층 높이고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-II-0018"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 기반 검색·광고 혁신 이처럼 네이버는 AI 기술을 적극적으로 활용하여 검색과 광고의 혁신을 선도하고, 이용자와 광고주 모두에게 최상의 경험을 제공하는 플랫폼으로 계속해서 성장해 나갈 것입니다.",
+     "candidates": [
+      "h2026-II-0153",
+      "h2026-II-0154",
+      "h2026-II-0155",
+      "h2026-II-0156",
+      "h2026-II-0157",
+      "y2025-II-0187",
+      "y2025-II-0188",
+      "y2025-II-0189",
+      "y2025-II-0016",
+      "y2025-II-0017",
+      "y2025-II-0018",
+      "y2025-II-0185"
+     ],
+     "related_ids": [
+      "h2026-II-0157",
+      "y2025-II-0018"
+     ]
+    }
+   ],
+   "flags": []
+  }
+ ]
+}
