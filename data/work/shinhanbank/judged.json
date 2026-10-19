@@ -1,0 +1,9 @@
+{
+ "retrieval_mode": "키워드 + 의미",
+ "models_used": {
+  "extract": [
+   "gpt-6-luna"
+  ]
+ },
+ "promises": []
+}
