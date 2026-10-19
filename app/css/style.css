@@ -472,7 +472,7 @@ a.question { color: inherit; }
   padding: 0 7px;
   border-radius: 999px;
   background: var(--chip);
-  color: var(--sub);
+  color: var(--body);
   font-size: 10px;
   font-weight: 900;
   letter-spacing: .08em;
@@ -580,7 +580,7 @@ a.question { color: inherit; }
 .pipeline-num {
   font-size: 10px;
   font-weight: 900;
-  color: var(--muted);
+  color: var(--body);
   letter-spacing: .08em;
 }
 .pipeline-state {
@@ -668,7 +668,9 @@ a.question { color: inherit; }
   padding: 5px 8px;
   border-radius: 999px;
   background: var(--chip);
-  text-decoration: none;
+  color: var(--body);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .ev-link:hover,
 .ev-link:focus-visible {
@@ -682,3 +684,14 @@ a.question { color: inherit; }
   .timeline-connector em { font-size: 9px; }
   .quote-meta { flex-direction: column; align-items: flex-start; }
 }
+
+.promise-node { --timeline-accent: var(--confirmed); }
+.evidence-node { --timeline-accent: var(--confirmed); }
+.verdict-node { --timeline-accent: var(--v, var(--confirmed)); }
+.verdict-connector { color: var(--body); }
+.pipeline-step.is-muted { opacity: 1; }
+.pipeline-step.is-muted .pipeline-state { color: var(--body); }
+[data-theme="dark"] .timeline-index,
+[data-theme="dark"] .pipeline-num,
+[data-theme="dark"] .ev-link { color: var(--body); }
+[data-theme="light"] .pipeline-num { color: var(--body); }
