@@ -1,0 +1,18 @@
+
+[0단계 DART 자동 수집] KB금융 (kbfg)
+  OpenDART 기업 목록 받는 중 (하루 1번만 받고 data/dart/_corpcode.zip에 둠)
+  기업 목록 119,664곳
+  고유번호 00688996 (KB금융, 종목 105560, 찾은 방법: 종목코드)
+  정기공시 14건 확인
+  2024 사업보고서: [기재정정]사업보고서 (2024.12) 접수 20260324000822 (20260324), 글자 1,302,675, 장 찾기 [5. 정관에 관한 사항 OK, II. 사업의 내용 OK, IV. 이사의 경영진단 및 분석의견 OK], 장 글자 수 {'I5': 646, 'II': 219596, 'IV': 54573}, XML 태그 {'SECTION-1': 15, 'TABLE': 2204, 'IMAGE': 3, 'IMG': 6, 'TOC': 0, 'LIBRARY': 26}
+  실패: OpenDART document.xml 상태 014: 파일이 존재하지 않습니다.
+
+========== kbfg ==========
+[kbfg] 멈춤: 파일이 없습니다: /home/runner/work/ai-promise/ai-promise/data/pdf/kbfg_2024.pdf
+→ DART에서 받은 PDF를 이 이름으로 data/pdf 폴더에 넣거나, python fetch_dart.py --companies <기업>으로 자동으로 받아 주세요.
+
+[기업별 결과]
+기업 | 원문 | 구체적 | 방향성 | 근거 확인 | 일부 확인 | 확인 불가 | 미추진 공시 | 근거 문장(인용 검사 통과) | 시간(초) | 실제로 답한 모델
+kbfg | 실패: 파일이 없습니다: /home/runner/work/ai-promise/ai-promise/data/pdf/kbfg_2024.pdf
+→ DART에서 받은 PDF를 이 이름으로 data/pdf 폴더에 넣거나, python fetch_dart.py --companies <기업>으로 자동으로 받아 주세요.
+(주의) OpenDART에서 보고서를 다 받지 못한 기업: ['kbfg']
