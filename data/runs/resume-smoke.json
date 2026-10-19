@@ -1,0 +1,153 @@
+{
+ "site": "https://ai-promise-six.vercel.app",
+ "company": "skhynix",
+ "role": "",
+ "health": {
+  "status": 200,
+  "seconds": 0.2,
+  "body": {
+   "cached": true,
+   "ok": true,
+   "configured": true,
+   "model_used": "gpt-6.1-sol",
+   "checked_at": "2026-10-19T18:15:19.955Z"
+  }
+ },
+ "post": {
+  "status": 200,
+  "seconds": 34.5,
+  "model": "gpt-6.1-sol",
+  "ok": true,
+  "role_echo": "",
+  "counts": {
+   "connections": 2,
+   "gaps": 3,
+   "talking_points": 3,
+   "questions": 2
+  },
+  "levels": {
+   "direct": 0,
+   "indirect": 2
+  },
+  "indirect_with_limit": 2,
+  "gaps_with_prepare": 3,
+  "has_summary": true,
+  "quotes_in_resume": 2,
+  "dropped": 0,
+  "error": null
+ },
+ "post_body": {
+  "ok": true,
+  "company": "skhynix",
+  "role": "",
+  "model": "gpt-6.1-sol",
+  "summary": "SK하이닉스는 자료에서 AI 서버·데이터센터와 온디바이스 AI 수요에 대응하는 메모리 제품군, 처리 속도·전력 효율 개선, CXL 솔루션 준비를 강조합니다. 지원 직무가 선택되지 않아 이력서 전체를 기준으로 보면 시장·경쟁사 분석과 온디바이스 AI 사례 조사 경험은 이러한 방향을 검토하는 데 이어지지만, 개별 메모리 제품의 개발·양산이나 기술 검증 경험으로 넓혀 말해서는 안 됩니다.",
+  "connections": [
+   {
+    "level": "indirect",
+    "competency": "시장·경쟁사 분석",
+    "resume_quote": "반도체 기업 전략팀 인턴으로 HBM과 AI 서버용 메모리 시장 자료를 정리하고 경쟁사 투자 계획을 비교했습니다.",
+    "role_link": "직무가 지정되지 않았으므로 이력서의 전략 분석 업무를 기준으로, 시장 자료와 경쟁사 투자 계획을 비교해 수요 대응 전략을 검토하는 데 활용할 수 있습니다.",
+    "why": "HBM과 AI 서버용 메모리 시장을 조사한 경험은 온디바이스 AI 수요 대응과 HBM 리더십 유지라는 회사 방향을 시장 관점에서 이해하는 데 이어집니다.",
+    "limit": "HBM이나 온디바이스 AI용 메모리를 개발한 경험이 아니라 시장 자료와 경쟁사 투자 계획을 분석한 경험입니다.",
+    "promise_id": "skhynix-d1",
+    "promise_title": "온디바이스 AI 수요 대응 제품군 준비",
+    "verdict": null,
+    "type": "directional"
+   },
+   {
+    "level": "indirect",
+    "competency": "제품 사례·사업기회 분석",
+    "resume_quote": "온디바이스 AI 제품 사례를 조사해 신사업 아이디어 보고서를 썼습니다.",
+    "role_link": "직무가 지정되지 않았으므로 이력서의 신사업 검토 업무를 기준으로, 제품 활용 사례를 조사하고 사업 아이디어를 정리하는 데 활용할 수 있습니다.",
+    "why": "온디바이스 AI 제품 사례 조사 경험은 회사가 제시한 처리 속도·전력 효율 개선과 수요 확대 시점의 적기 공급 방향을 검토하는 출발점이 됩니다.",
+    "limit": "온디바이스 AI 제품 사례를 조사한 경험이며, 메모리 성능을 측정하거나 공급 시점을 결정한 경험은 아닙니다.",
+    "promise_id": "skhynix-d1",
+    "promise_title": "온디바이스 AI 수요 대응 제품군 준비",
+    "verdict": null,
+    "type": "directional"
+   }
+  ],
+  "gaps": [
+   {
+    "title": "QLC 제품·검증 단계 이해",
+    "why": "시장·공시 분석을 제품 전략 검토로 확장하려면 321단 QLC 개발·고객 인증과 약속한 61TB Gen5 제품 기술력 확보를 구분할 수 있어야 합니다.",
+    "prepare": [
+     "61TB Gen5 약속의 구성 요소 정리",
+     "321단 QLC 개발·고객 인증 근거 읽기",
+     "확인된 내용과 미확인 내용을 표로 구분"
+    ],
+    "promise_id": "skhynix-p3",
+    "promise_title": "AI 데이터센터용 QLC 61TB Gen5 기술력 확보",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "title": "CXL 시장·협업 구조 이해",
+    "why": "전략 분석 관점에서 CXL 방향을 검토하려면 메모리 집약적 서버 수요와 SoC 협력사 협업의 의미를 이해해야 하지만 관련 경험은 이력서에서 확인되지 않습니다.",
+    "prepare": [
+     "CXL 약속의 대상 서버와 시장 가정 정리",
+     "SoC 협력사 협업 문구의 의미 검토",
+     "시장 전망과 솔루션 준비를 구분"
+    ],
+    "promise_id": "skhynix-d2",
+    "promise_title": "CXL 메모리 시장 대비 솔루션 준비",
+    "verdict": null,
+    "type": "directional"
+   },
+   {
+    "title": "ZUFS 양산·탑재 근거 검토",
+    "why": "온디바이스 AI 사례 조사를 제품 전략 분석으로 확장하려면 ZUFS 양산 계획과 실제 스마트폰 탑재를 구분해야 하지만 해당 제품 분석 경험은 확인되지 않습니다.",
+    "prepare": [
+     "ZUFS 양산 계획과 탑재 예정을 분리",
+     "공시에서 확인 불가 판정의 범위 정리",
+     "실행 확인에 필요한 근거 유형 정리"
+    ],
+    "promise_id": "skhynix-p2",
+    "promise_title": "ZUFS 4.0 양산 및 온디바이스 AI 스마트폰 탑재",
+    "verdict": "not_verifiable",
+    "type": "specific"
+   }
+  ],
+  "talking_points": [
+   {
+    "text": "저는 반도체 기업 전략팀 인턴으로 HBM과 AI 서버용 메모리 시장 자료를 정리하고 경쟁사 투자 계획을 비교했습니다. 이 경험을 바탕으로 회사의 AI 수요 대응 방향을 시장 관점에서 검토할 수 있다고 생각하며, 제품 개발 경험과는 구분해서 설명하고자 합니다.",
+    "promise_id": "skhynix-d1",
+    "promise_title": "온디바이스 AI 수요 대응 제품군 준비",
+    "verdict": null,
+    "type": "directional"
+   },
+   {
+    "text": "저는 온디바이스 AI 제품 사례를 조사해 신사업 아이디어 보고서를 작성했습니다. 이 경험을 바탕으로 회사가 제시한 처리 속도·전력 효율 개선과 적기 공급 방향을 이해하고, 수요와 사업기회를 검토하는 데 기여하고자 합니다.",
+    "promise_id": "skhynix-d1",
+    "promise_title": "온디바이스 AI 수요 대응 제품군 준비",
+    "verdict": null,
+    "type": "directional"
+   },
+   {
+    "text": "저는 기업 공시 문서를 LLM으로 분석하는 연구를 하고 있으며, Python으로 공시 데이터 수집 파이프라인을 만들어 공유했습니다. 이러한 분석 경험을 활용할 때도 321단 QLC 개발과 고객 인증 근거를 61TB Gen5 제품 자체의 확인으로 확대 해석하지 않는 것이 중요하다고 생각합니다.",
+    "promise_id": "skhynix-p3",
+    "promise_title": "AI 데이터센터용 QLC 61TB Gen5 기술력 확보",
+    "verdict": "partial",
+    "type": "specific"
+   }
+  ],
+  "questions": [
+   {
+    "text": "온디바이스 AI 수요 확대에 맞춘 제품 준비와 적기 공급을 검토할 때 시장 분석 담당자가 우선적으로 살펴야 할 수요 신호와 판단 기준이 무엇인지 궁금합니다",
+    "promise_id": "skhynix-d1",
+    "promise_title": "온디바이스 AI 수요 대응 제품군 준비",
+    "verdict": null,
+    "type": "directional"
+   },
+   {
+    "text": "CXL 솔루션 준비 방향과 관련해 메모리 집약적 서버 수요 분석과 SoC 협력사 협업을 연결할 때 전략 분석 업무에서 중요하게 보는 검토 항목이 무엇인지 궁금합니다",
+    "promise_id": "skhynix-d2",
+    "promise_title": "CXL 메모리 시장 대비 솔루션 준비",
+    "verdict": null,
+    "type": "directional"
+   }
+  ],
+  "dropped": 0
+ }
+}
