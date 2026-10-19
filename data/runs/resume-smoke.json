@@ -1,0 +1,120 @@
+{
+ "site": "https://ai-promise-six.vercel.app",
+ "company": "hyundai",
+ "health": {
+  "status": 200,
+  "seconds": 2.9,
+  "body": {
+   "ok": true,
+   "configured": true,
+   "model_used": "gpt-6.1-sol",
+   "checked_at": "2026-10-19T16:59:46.787Z"
+  }
+ },
+ "post": {
+  "status": 200,
+  "seconds": 22.9,
+  "model": "gpt-6.1-sol",
+  "ok": true,
+  "counts": {
+   "connections": 3,
+   "gaps": 2,
+   "talking_points": 3,
+   "questions": 2
+  },
+  "dropped": 0,
+  "error": null
+ },
+ "post_body": {
+  "ok": true,
+  "company": "hyundai",
+  "model": "gpt-6.1-sol",
+  "connections": [
+   {
+    "category": "related",
+    "resume_quote": "Python으로 공시 데이터 수집 파이프라인을 만들고 대시보드로 팀에 공유했습니다.",
+    "why": "데이터 수집과 팀 내 공유 경험은 SDV 전환 관련 정보를 정리하고 의사결정을 지원하는 업무에 옮겨 쓸 수 있습니다. 다만 차량 데이터 처리나 차량 소프트웨어 개발을 직접 수행한 경험은 아닙니다.",
+    "promise_id": "hyundai-p1",
+    "promise_title": "AI 기반 SDV 체계 전환",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "category": "related",
+    "resume_quote": "반도체 기업 전략팀 인턴으로 HBM과 AI 서버용 메모리 시장 자료를 정리하고 경쟁사 투자 계획을 비교했습니다.",
+    "why": "시장 자료와 경쟁사 투자 계획을 비교한 경험은 SDV 기반 수익·성장 전략을 검토하는 업무와 연결됩니다. 다만 모빌리티 시장 분석이나 서비스 수익 모델 설계 경험으로 확대해 설명하지 않는 것이 좋습니다.",
+    "promise_id": "hyundai-p1",
+    "promise_title": "AI 기반 SDV 체계 전환",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "category": "related",
+    "resume_quote": "온디바이스 AI 제품 사례를 조사해 신사업 아이디어 보고서를 썼습니다.",
+    "why": "제품 사례를 신사업 아이디어로 연결한 경험은 차량 AI 기능과 새로운 모빌리티 서비스의 활용 가능성을 검토하는 데 옮겨 쓸 수 있습니다. 해당 회사 약속의 실행 여부는 제공된 공시에서 확인되지 않았으며, 이력서에도 차량 AI 구현 경험은 없습니다.",
+    "promise_id": "hyundai-p3",
+    "promise_title": "AI 기능 구현",
+    "verdict": "not_verifiable",
+    "type": "specific"
+   }
+  ],
+  "gaps": [
+   {
+    "why": "이력서에는 LLM을 활용한 공시 분석 연구가 있지만, 차량 데이터로 모델을 학습하거나 차량의 학습·발전 기능을 개발한 경험은 제시되어 있지 않습니다.",
+    "prepare": "공시 분석 연구에서 직접 수행한 작업과 사용한 도구를 정리하고, LLM 활용과 모델 학습·업데이트의 차이를 설명할 수 있도록 준비합니다. 차량 러닝 머신의 구체적인 개발 단계는 자료만으로 알 수 없다는 점도 구분합니다.",
+    "promise_id": "hyundai-p2",
+    "promise_title": "차량 러닝 머신 개발",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "why": "온디바이스 AI 사례 조사 경험은 있으나 차량 환경의 기능 구현·검증 경험은 제시되어 있지 않습니다. 회사의 해당 약속도 공시에서 확인 불가로 판정되어 있습니다.",
+    "prepare": "조사했던 제품 사례 중 하나를 골라 사용자 가치, 기기 내 처리의 제약, 차량에 적용할 때 추가로 확인할 항목을 정리합니다. 회사에서 이미 구현했다고 전제하지 않고 질문을 준비합니다.",
+    "promise_id": "hyundai-p3",
+    "promise_title": "AI 기능 구현",
+    "verdict": "not_verifiable",
+    "type": "specific"
+   }
+  ],
+  "talking_points": [
+   {
+    "text": "저는 Python으로 공시 데이터 수집 파이프라인을 만들고 대시보드로 팀에 공유한 경험이 있습니다. 이를 바탕으로 SDV 전환 관련 자료를 수집·정리하고 팀의 검토를 지원하는 역할에 기여하고자 합니다.",
+    "promise_id": "hyundai-p1",
+    "promise_title": "AI 기반 SDV 체계 전환",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "text": "저는 전략팀 인턴으로 HBM과 AI 서버용 메모리 시장 자료를 정리하고 경쟁사 투자 계획을 비교했습니다. 이 경험을 SDV 기반 수익·성장 전략을 이해하고 관련 시장 정보를 비교하는 업무에 활용하고자 합니다.",
+    "promise_id": "hyundai-p1",
+    "promise_title": "AI 기반 SDV 체계 전환",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "text": "저는 온디바이스 AI 제품 사례를 조사해 신사업 아이디어 보고서를 작성했습니다. 차량 AI를 직접 구현한 경험과는 구분하되, 제품 사례에서 사용자 가치와 서비스 아이디어를 도출한 경험을 활용하고자 합니다.",
+    "promise_id": "hyundai-p3",
+    "promise_title": "AI 기능 구현",
+    "verdict": "not_verifiable",
+    "type": "specific"
+   }
+  ],
+  "questions": [
+   {
+    "text": "사업보고서에 기재된 Pleos Connect의 개인화된 디지털 경험과 서비스 기반 수익 모델 구축 과정에서, 시장 조사와 데이터 분석 업무가 어떤 의사결정을 지원하는지 궁금합니다",
+    "promise_id": "hyundai-p1",
+    "promise_title": "AI 기반 SDV 체계 전환",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "text": "제공된 공시 범위에서는 SDV 페이스 카를 통한 AI 기능 구현과 서비스 실증을 확인하지 못했는데, 공개 가능한 범위에서 현재 진행 상황과 기능 검증 시 중요하게 보는 기준이 궁금합니다",
+    "promise_id": "hyundai-p3",
+    "promise_title": "AI 기능 구현",
+    "verdict": "not_verifiable",
+    "type": "specific"
+   }
+  ],
+  "dropped": 0
+ }
+}
