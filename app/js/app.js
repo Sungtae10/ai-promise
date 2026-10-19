@@ -150,13 +150,12 @@
 
   /* ---------- 화면 1: 기업 고르기 ---------- */
   function viewHome() {
-    var companies = (DATA.companies || []).map(function (c) {
+    var readyCompanyData = (DATA.companies || []).filter(function (c) { return (c.promises || []).length > 0; });
+    var pendingCompanyData = (DATA.companies || []).filter(function (c) { return !(c.promises || []).length; });
+    var companies = readyCompanyData.map(function (c) {
       var spec = specifics(c);
-      var ready = (c.promises || []).length > 0;
       var reports = c.reports || {};
-      var meta = ready
-        ? '구체적 약속 ' + spec.length + '개 중 ' + countLine(spec)
-        : '결과 준비 중';
+      var meta = '구체적 약속 ' + spec.length + '개 중 ' + countLine(spec);
       var inner =
         '<div class="company-logo" aria-hidden="true">' + esc(c.name.charAt(0)) + '</div>' +
         '<div class="company-info"><div class="company-name">' + esc(c.name) + '</div>' +
@@ -164,13 +163,16 @@
         (c.check_note ? '<div class="company-reports check-note">' + esc(c.check_note) + '</div>' : '') +
         '<div class="company-meta">' + esc(meta) + '</div></div>' + ICON.chevron;
       var attrs = ' data-company-name="' + esc(c.name.toLowerCase()) + '" data-company-id="' + esc(c.id) + '"';
-      return ready
-        ? '<a class="company"' + attrs + ' href="#/c/' + encodeURIComponent(c.id) + '">' + inner + '</a>'
-        : '<div class="company"' + attrs + ' aria-disabled="true">' + inner + '</div>';
+      return '<a class="company"' + attrs + ' href="#/c/' + encodeURIComponent(c.id) + '">' + inner + '</a>';
     }).join('');
+    var roadmap = pendingCompanyData.length
+      ? '<div class="expansion-roadmap"><span class="insight-eyebrow">EXPANSION ROADMAP</span><div>' +
+          pendingCompanyData.map(function (c) { return '<span class="roadmap-chip">' + esc(c.name) + ' · 분석 준비 중</span>'; }).join('') +
+        '</div></div>'
+      : '';
 
     var allReports = [];
-    var readyCompanies = (DATA.companies || []).filter(function (c) { return (c.promises || []).length > 0; });
+    var readyCompanies = readyCompanyData;
     var totalSpecific = readyCompanies.reduce(function (sum, c) { return sum + specifics(c).length; }, 0);
     var verifiedCitations = readyCompanies.reduce(function (sum, c) {
       return sum + (c.promises || []).reduce(function (s, p) {
@@ -214,7 +216,9 @@
           '</div>' +
           '<div class="dart-search-status" id="dart-search-status" hidden></div>' +
           '<div class="dart-search-results" id="dart-search-results" hidden></div>' +
+          '<div class="verified-analysis-head"><span class="insight-eyebrow">VERIFIED DEEP ANALYSIS</span><strong>검증 완료 기업</strong><small>실제 공시 원문을 대조한 분석</small></div>' +
           '<div class="company-list" id="company-list">' + companies + '</div>' +
+          roadmap +
           '<div class="company-no-result" id="company-no-result" hidden>' +
             '<strong>로컬 분석 결과에서는 찾지 못했어요.</strong>' +
             '<span>DART 실시간 검색 결과를 확인해 주세요.</span>' +
