@@ -188,7 +188,21 @@ button { font-family: inherit; }
   cursor: pointer;
 }
 .company:active { transform: scale(0.985); }
-.company[aria-disabled="true"] { opacity: 0.45; cursor: default; pointer-events: none; }
+.company[aria-disabled="true"] {
+  cursor: default;
+  pointer-events: none;
+  border: 1px dashed var(--line);
+}
+.company[aria-disabled="true"] .company-logo {
+  background: var(--chip);
+  color: var(--body);
+}
+.company[aria-disabled="true"] .company-meta {
+  color: var(--body);
+}
+.company[aria-disabled="true"] .check-note {
+  color: var(--body);
+}
 .company-logo {
   width: 48px; height: 48px; flex: none; border-radius: 14px;
   background: linear-gradient(135deg, var(--confirmed-bg), var(--chip));
