@@ -306,6 +306,7 @@
           '<p class="eyebrow">' + esc(L.service_subtitle) + ' · ' + esc(L.tagline) + '</p>' +
           '<h1 class="headline">면접 볼 회사의 AI 약속을<br>다음 해 공시와 맞춰 봐요</h1>' +
           '<p class="lead">사업보고서의 "하겠다"를 찾고, 다음 보고서에서 "했다"는 근거를 찾아 원문과 함께 보여드려요.</p>' +
+          '<p class="hero-flow">DART 정기공시 → 약속 찾기 → 근거 찾기(RAG 검색) → 판정 → 원문 인용 검사</p>' +
           heroExample() +
         '</section>' +
         '<section style="display:flex;flex-direction:column;gap:10px">' +
@@ -415,17 +416,18 @@
       '</div>');
 
     // 2. 근거 찾기: 보고서마다 근거가 있었는지 + 근거 문장
+    var noun = specific ? '근거' : '관련 활동';
     var checks = cols.slice(1).map(function (c) {
       var n = evidenceIn(p, c.title).length;
       return '<li class="report-check ' + (n ? 'is-on' : 'is-off') + '">' +
         '<span class="check-icon ' + (n ? 'ok' : 'no') + '">' + (n ? ICON.check : ICON.dash) + '</span>' +
-        '<span>' + esc(c.title) + (n ? ' 근거 ' + n + '개' : ' 근거 없음') + '</span></li>';
+        '<span>' + esc(c.title) + (n ? ' ' + noun + ' ' + n + '개' : ' ' + noun + ' 없음') + '</span></li>';
     }).join('');
     var who2 = human ? '사람이 원문 대조' : (p.search_attempts ? '키워드·의미 검색 ' + p.search_attempts + '번' : 'AI 검색');
     var evHtml = evidence.length
       ? evidence.map(function (e) { return evidenceQuote(e, kindLabel); }).join('')
       : '<p class="quote-empty">' + esc(emptyMsg) + '</p>';
-    var s2 = step(2, '근거 찾기', who2, '<ul class="report-checks">' + checks + '</ul>' + evHtml);
+    var s2 = step(2, specific ? '근거 찾기' : '관련 활동 찾기', who2, '<ul class="report-checks">' + checks + '</ul>' + evHtml);
 
     // 3. 판정
     var vi = verdictInfo(p.verdict) || {};
@@ -441,8 +443,8 @@
     var s4 = step(4, '원문 인용 검사', human ? '사람이 글자 그대로 대조' : '코드가 원문과 대조',
       cc.total
         ? '<p class="step-result"><span class="check-icon ' + (cc.ok === cc.total ? 'ok' : 'no') + '">' + (cc.ok === cc.total ? ICON.check : ICON.dash) + '</span>' +
-            esc('근거 문장 ' + cc.total + '개 중 ' + cc.ok + '개 ' + L.citation_verified_label) + '</p>'
-        : '<p class="note">확인할 근거 문장이 없어요.</p>');
+            esc((specific ? '근거 문장 ' : '찾은 문장 ') + cc.total + '개 중 ' + cc.ok + '개 ' + L.citation_verified_label) + '</p>'
+        : '<p class="note">확인할 문장이 없어요.</p>');
 
     var pill = specific
       ? '<span class="verdict-pill">' + esc(verdictLabel(p.verdict)) + '</span>'

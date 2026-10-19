@@ -400,6 +400,9 @@ a.question { color: inherit; }
 a.tl-col-name { text-decoration: underline; text-underline-offset: 2px; }
 .tl-col-role { font-size: 11px; color: var(--sub); }
 
+/* 화면 1: 처리 순서 한 줄 (실제 엔진 순서) */
+.hero-flow { margin: 0; font-size: 13px; font-weight: 700; line-height: 1.6; color: var(--body); }
+
 /* 화면 1: 실제 약속 하나를 시간축으로 */
 .hero-example {
   display: flex; flex-direction: column; gap: 8px;
