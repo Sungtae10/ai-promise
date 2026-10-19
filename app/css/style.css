@@ -1086,3 +1086,46 @@ a.question { color: inherit; }
   color: var(--body);
   box-shadow: inset 0 0 0 1px var(--line);
 }
+
+
+/* ---------- 18. Final v6: Verified examples + expansion roadmap ---------- */
+.verified-analysis-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 4px 2px 0;
+}
+.verified-analysis-head strong {
+  font-size: 12px;
+  color: var(--text);
+}
+.verified-analysis-head small {
+  font-size: 9px;
+  color: var(--sub);
+}
+.expansion-roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--glass-line);
+}
+.expansion-roadmap > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.roadmap-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--chip);
+  color: var(--body);
+  font-size: 9px;
+  font-weight: 750;
+}
