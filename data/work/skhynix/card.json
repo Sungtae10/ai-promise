@@ -1,0 +1,43 @@
+{
+ "issues": [
+  {
+   "text": "AI 서버 대응용 LPDDR5X 제품 양산 시작 및 SOCAMM·LPCAMM 형태의 시장 대응 예정 (부분 확인)",
+   "promise_id": "skhynix-p1"
+  },
+  {
+   "text": "AI 데이터센터용 QLC 기반 61TB PCIe 5세대 SSD PS1012의 구체적 사양 확인 (근거 확인)",
+   "promise_id": "skhynix-p4"
+  },
+  {
+   "text": "온디바이스 AI용 PCB01 성능 개선 및 ZUFS 4.0 개발 확인, 제품군 실제 공급 여부 확인 제한 (부분 확인)",
+   "promise_id": "skhynix-p5"
+  }
+ ],
+ "talking_points": [
+  {
+   "text": "AI 서버 대응용 LPDDR5X 제품은 6월 개발 완료 후 10월 양산을 시작했으며, 10.7Gbps 동작속도를 구현했습니다. SOCAMM 및 LPCAMM 형태의 AI 서버·PC 시장 대응은 예정으로 기재되어 있습니다.",
+   "promise_id": "skhynix-p1",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  },
+  {
+   "text": "PS1012는 AI 데이터센터용 QLC 기반 61TB PCIe 5세대 SSD 제품으로, 순차 읽기 성능은 13GB/s입니다. OCP 2.0을 지원해 글로벌 AI 고객들의 여러 데이터센터 서버 장치와 호환성을 높였습니다.",
+   "promise_id": "skhynix-p4",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  },
+  {
+   "text": "온디바이스 AI PC용 PCB01은 연속 쓰기 속도가 초당 12GB이며, 이전 세대 대비 전력 효율이 30% 개선됐습니다. 온디바이스 AI용 ZUFS 4.0은 개발됐으며, 양산과 스마트폰 탑재는 계획으로 기재되어 있습니다.",
+   "promise_id": "skhynix-p5",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  }
+ ],
+ "questions": [
+  {
+   "text": "검토된 2025 사업보고서와 2026 반기보고서 범위에서는 ZUFS 4.0 양산의 후속 내용을 확인하기 어려웠습니다. 공개 가능한 범위에서 양산 진행 상황과 향후 일정을 설명해 주실 수 있습니까?",
+   "promise_id": "skhynix-p2"
+  },
+  {
+   "text": "검토된 2025 사업보고서와 2026 반기보고서 범위에서는 CIS 사업의 AI 메모리 전환에 관한 후속 내용을 확인하기 어려웠습니다. 공개 가능한 범위에서 전환의 진행 상황과 주요 과제를 설명해 주실 수 있습니까?",
+   "promise_id": "skhynix-p3"
+  }
+ ]
+}
