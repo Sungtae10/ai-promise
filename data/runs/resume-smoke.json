@@ -1,0 +1,120 @@
+{
+ "site": "https://ai-promise-six.vercel.app",
+ "company": "samsung",
+ "health": {
+  "status": 200,
+  "seconds": 3.3,
+  "body": {
+   "ok": true,
+   "configured": true,
+   "model_used": "gpt-6.1-sol",
+   "checked_at": "2026-10-19T13:05:24.651Z"
+  }
+ },
+ "post": {
+  "status": 200,
+  "seconds": 27.0,
+  "model": "gpt-6.1-sol",
+  "ok": true,
+  "counts": {
+   "connections": 3,
+   "gaps": 2,
+   "talking_points": 3,
+   "questions": 2
+  },
+  "dropped": 0,
+  "error": null
+ },
+ "post_body": {
+  "ok": true,
+  "company": "samsung",
+  "model": "gpt-6.1-sol",
+  "connections": [
+   {
+    "category": "related",
+    "resume_quote": "반도체 기업 전략팀 인턴으로 HBM과 AI 서버용 메모리 시장 자료를 정리하고 경쟁사 투자 계획을 비교했습니다.",
+    "why": "HBM 시장과 경쟁사 투자 계획을 비교한 경험은 HBM을 통한 AI 시장 경쟁력 강화 방향을 분석하는 데 활용할 수 있습니다. 다만 HBM 개발·양산을 직접 수행한 경험은 아닙니다.",
+    "promise_id": "samsung-p2",
+    "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "category": "related",
+    "resume_quote": "Python으로 공시 데이터 수집 파이프라인을 만들고 대시보드로 팀에 공유했습니다.",
+    "why": "공시 수집과 시각화 경험은 AI 서버용 메모리 공급 확대에 관한 공시 근거를 지속적으로 정리하고 공유하는 업무에 활용할 수 있습니다. 제품 공급을 직접 확대한 경험과는 구분됩니다.",
+    "promise_id": "samsung-p3",
+    "promise_title": "AI 서버용 고용량 DDR5·LPDDR5x 공급 확대",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "category": "related",
+    "resume_quote": "온디바이스 AI 제품 사례를 조사해 신사업 아이디어 보고서를 썼습니다.",
+    "why": "온디바이스 AI 제품을 조사하고 사업 아이디어로 정리한 경험은 다양한 폼팩터에서 Galaxy AI가 제공하는 고객 가치를 분석하는 데 연결됩니다. Galaxy AI 구현이나 폼팩터별 사용성 검증 경험은 이력서에서 확인되지 않습니다.",
+    "promise_id": "samsung-p1",
+    "promise_title": "Galaxy AI 확장·고도화 및 다양한 폼팩터 적용",
+    "verdict": "evidence_found",
+    "type": "specific"
+   }
+  ],
+  "gaps": [
+   {
+    "why": "시장 조사 경험은 있지만 HBM 개발·양산 과정과 기술적 쟁점을 직접 다룬 경험은 이력서에서 확인되지 않습니다.",
+    "prepare": "시장 분석 경험과 기술 실행 경험을 구분해 설명하고, HBM 개발·양산의 기본 개념을 정리합니다. 제공 자료에서는 HBM4 양산 출하가 확인되지만 HBM3E 개선제품 판매 확대까지 모두 확인된 것은 아니라는 점도 구분해 준비합니다.",
+    "promise_id": "samsung-p2",
+    "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "why": "온디바이스 AI 사례 조사 이후 실제 사용자 요구를 검증하거나 폼팩터별 사용성을 평가한 경험은 이력서에 제시되지 않았습니다.",
+    "prepare": "조사했던 제품 사례 하나를 골라 고객 문제, AI 기능의 가치, 폼팩터에 따른 사용 맥락, 검증 방법을 정리합니다. 당시 수행한 조사와 앞으로 제안할 검증을 명확히 구분합니다.",
+    "promise_id": "samsung-p1",
+    "promise_title": "Galaxy AI 확장·고도화 및 다양한 폼팩터 적용",
+    "verdict": "evidence_found",
+    "type": "specific"
+   }
+  ],
+  "talking_points": [
+   {
+    "text": "저는 전략팀 인턴으로 HBM과 AI 서버용 메모리 시장 자료를 정리하고 경쟁사 투자 계획을 비교한 경험이 있습니다. 이 경험을 바탕으로 HBM 경쟁력 강화 방향을 시장 관점에서 분석하는 데 기여하고자 합니다.",
+    "promise_id": "samsung-p2",
+    "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "text": "저는 Python으로 공시 데이터 수집 파이프라인을 만들고 대시보드로 공유한 경험이 있습니다. 이를 활용해 AI 서버용 메모리 공급 확대 약속과 후속 공시 근거를 구분해 정리하는 업무에 기여하고자 합니다.",
+    "promise_id": "samsung-p3",
+    "promise_title": "AI 서버용 고용량 DDR5·LPDDR5x 공급 확대",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "text": "저는 온디바이스 AI 제품 사례를 조사해 신사업 아이디어 보고서를 작성한 경험이 있습니다. 이 경험을 다양한 폼팩터에서 Galaxy AI가 제공하는 고객 가치를 분석하는 데 활용하고자 합니다.",
+    "promise_id": "samsung-p1",
+    "promise_title": "Galaxy AI 확장·고도화 및 다양한 폼팩터 적용",
+    "verdict": "evidence_found",
+    "type": "specific"
+   }
+  ],
+  "questions": [
+   {
+    "text": "HBM 개발·양산을 통한 AI 시장 경쟁력 강화와 관련해, 시장 및 경쟁사 분석 업무에서는 어떤 정보와 기술 이해를 중요하게 보는지 궁금합니다",
+    "promise_id": "samsung-p2",
+    "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "text": "다양한 폼팩터에 적용된 Galaxy AI의 고객 가치를 평가할 때, 사용자 조사와 제품 사례 분석 결과를 어떤 기준으로 활용하는지 궁금합니다",
+    "promise_id": "samsung-p1",
+    "promise_title": "Galaxy AI 확장·고도화 및 다양한 폼팩터 적용",
+    "verdict": "evidence_found",
+    "type": "specific"
+   }
+  ],
+  "dropped": 0
+ }
+}
