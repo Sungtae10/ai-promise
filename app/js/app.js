@@ -201,17 +201,23 @@
         '</section>' +
         '<section class="company-picker">' +
           '<div class="picker-head">' +
-            '<div><h2 class="section-label">분석할 회사 선택</h2><p class="picker-help">회사명을 직접 검색하거나 아래 기업을 선택하세요.</p></div>' +
-            '<span class="analysis-ready">' + readyCompanies.length + '개 기업 분석 가능</span>' +
+            '<div><h2 class="section-label">DART 기업 검색</h2><p class="picker-help">회사명을 입력하면 DART 기업 전체에서 찾고, 분석 완료 기업은 바로 열 수 있어요.</p></div>' +
+            '<span class="analysis-ready">' + readyCompanies.length + '개 검증 분석 완료</span>' +
           '</div>' +
           '<label class="company-search">' +
             '<span class="sr-only">회사명 검색</span>' +
-            '<input id="company-search" type="search" autocomplete="off" placeholder="회사명을 검색하세요 (예: 삼성전자)" aria-controls="company-list">' +
+            '<input id="company-search" type="search" autocomplete="off" placeholder="회사명을 검색하세요 (예: 삼성전자, 현대자동차)" aria-controls="company-list dart-search-results">' +
           '</label>' +
+          '<div class="search-scope">' +
+            '<span class="scope-dot live"></span><strong>Verified deep analysis</strong><span>삼성전자·SK하이닉스</span>' +
+            '<span class="scope-divider">·</span><span class="scope-dot"></span><strong>Universal discovery</strong><span>OpenDART 기업 검색</span>' +
+          '</div>' +
+          '<div class="dart-search-status" id="dart-search-status" hidden></div>' +
+          '<div class="dart-search-results" id="dart-search-results" hidden></div>' +
           '<div class="company-list" id="company-list">' + companies + '</div>' +
           '<div class="company-no-result" id="company-no-result" hidden>' +
-            '<strong>아직 분석 준비 전인 회사예요.</strong>' +
-            '<span>현재 분석 완료된 기업에서 선택해 주세요. 지원 기업은 계속 확대할 예정입니다.</span>' +
+            '<strong>로컬 분석 결과에서는 찾지 못했어요.</strong>' +
+            '<span>DART 실시간 검색 결과를 확인해 주세요.</span>' +
           '</div>' +
         '</section>' +
         '<section class="card">' +
@@ -459,6 +465,136 @@
     setTimeout(function () { el.remove(); }, 1800);
   }
 
+
+  /* ---------- OpenDART universal company search ---------- */
+  function normalizeCompanyName(value) {
+    return String(value || '').toLowerCase().replace(/\s+/g, '').replace(/\(주\)|주식회사/g, '');
+  }
+
+  function localCompanyByName(name) {
+    var target = normalizeCompanyName(name);
+    return (DATA.companies || []).filter(function (c) {
+      return normalizeCompanyName(c.name) === target;
+    })[0] || null;
+  }
+
+  function dartBadge(company) {
+    if (company.listed) return '<span class="dart-badge listed">상장 · ' + esc(company.stock_code) + '</span>';
+    return '<span class="dart-badge">DART 등록</span>';
+  }
+
+  function renderDartCompanies(rows) {
+    var wrap = document.getElementById('dart-search-results');
+    if (!wrap) return;
+    if (!rows || !rows.length) {
+      wrap.hidden = false;
+      wrap.innerHTML = '<div class="universal-empty"><strong>DART에서 일치 기업을 찾지 못했어요.</strong><span>정식 회사명 일부를 다시 입력해 주세요.</span></div>';
+      return;
+    }
+    wrap.hidden = false;
+    wrap.innerHTML = '<div class="universal-title"><span>OpenDART 검색 결과</span><small>기업코드 기준 실시간 검색</small></div>' +
+      rows.map(function (row) {
+        var local = localCompanyByName(row.corp_name);
+        var ready = local && (local.promises || []).length > 0;
+        var pending = local && !ready;
+        var action = ready
+          ? '<a class="btn btn-primary btn-sm" href="#/c/' + encodeURIComponent(local.id) + '">검증 분석 열기</a>'
+          : '<button type="button" class="btn btn-secondary btn-sm dart-readiness-btn" data-corp-code="' + esc(row.corp_code) + '" data-corp-name="' + esc(row.corp_name) + '">공시 준비도 확인</button>';
+        var state = ready
+          ? '<span class="analysis-state ready">AI Promise 검증 분석 완료</span>'
+          : (pending ? '<span class="analysis-state pending">확장 분석 준비 중</span>' : '<span class="analysis-state discover">딥 분석 후보</span>');
+        return '<article class="dart-result" data-dart-corp="' + esc(row.corp_code) + '">' +
+          '<div class="dart-result-main">' +
+            '<div class="dart-result-name">' + esc(row.corp_name) + '</div>' +
+            '<div class="dart-result-meta">' + dartBadge(row) + state + '</div>' +
+          '</div>' +
+          '<div class="dart-result-action">' + action + '</div>' +
+          '<div class="dart-readiness" id="readiness-' + esc(row.corp_code) + '" hidden></div>' +
+        '</article>';
+      }).join('');
+
+    Array.prototype.slice.call(wrap.querySelectorAll('.dart-readiness-btn')).forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        loadDartReadiness(btn.getAttribute('data-corp-code'), btn.getAttribute('data-corp-name'), btn);
+      });
+    });
+  }
+
+  function renderReadiness(target, name, payload) {
+    var r = payload.readiness || {};
+    var items = [
+      ['2024 사업보고서', !!r.promise_2024_business],
+      ['2025 사업보고서', !!r.evidence_2025_business],
+      ['2026 반기보고서', !!r.evidence_2026_half]
+    ];
+    var reports = (payload.reports || []).slice(0, 5).map(function (x) {
+      var link = x.url ? '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.report_nm) + ICON.external + '</a>' : esc(x.report_nm);
+      return '<li><span>' + link + '</span><small>' + esc(x.rcept_dt || '') + '</small></li>';
+    }).join('');
+    target.hidden = false;
+    target.innerHTML =
+      '<div class="readiness-head"><strong>' + esc(name) + ' · AI Promise 분석 준비도</strong>' +
+        '<span class="' + (r.ready_for_deep_analysis ? 'ready' : 'pending') + '">' + (r.ready_for_deep_analysis ? '필수 공시 확인' : '공시 일부 확인 필요') + '</span></div>' +
+      '<div class="readiness-grid">' + items.map(function (x) {
+        return '<div class="' + (x[1] ? 'is-ok' : 'is-missing') + '"><span>' + (x[1] ? ICON.check : ICON.dash) + '</span><small>' + esc(x[0]) + '</small></div>';
+      }).join('') + '</div>' +
+      (reports ? '<ul class="report-mini-list">' + reports + '</ul>' : '') +
+      '<p class="readiness-note">기업 검색과 공시 준비도 확인은 OpenDART 실시간 기능입니다. 약속→근거 RAG 딥 분석은 검증 완료 기업부터 제공하고 있습니다.</p>';
+  }
+
+  function loadDartReadiness(corpCode, name, btn) {
+    var target = document.getElementById('readiness-' + corpCode);
+    if (!target) return;
+    btn.disabled = true;
+    btn.textContent = 'DART 확인 중…';
+    fetch('/api/dart-company-search?corp_code=' + encodeURIComponent(corpCode), { cache: 'no-store' })
+      .then(function (res) { return res.json().then(function (body) { if (!res.ok) throw body; return body; }); })
+      .then(function (body) {
+        renderReadiness(target, name, body);
+        btn.textContent = '공시 준비도 확인 완료';
+      })
+      .catch(function () {
+        target.hidden = false;
+        target.innerHTML = '<p class="readiness-note">지금은 DART 공시 준비도를 불러오지 못했습니다. 검증 완료 기업 분석은 정상적으로 사용할 수 있어요.</p>';
+        btn.disabled = false;
+        btn.textContent = '다시 확인';
+      });
+  }
+
+  function searchOpenDart(query, statusEl) {
+    var resultEl = document.getElementById('dart-search-results');
+    if (!query || query.length < 2) {
+      if (resultEl) { resultEl.hidden = true; resultEl.innerHTML = ''; }
+      if (statusEl) statusEl.hidden = true;
+      return Promise.resolve();
+    }
+    if (statusEl) {
+      statusEl.hidden = false;
+      statusEl.className = 'dart-search-status is-loading';
+      statusEl.textContent = 'OpenDART 전체 기업에서 검색 중…';
+    }
+    return fetch('/api/dart-company-search?q=' + encodeURIComponent(query), { cache: 'no-store' })
+      .then(function (res) { return res.json().then(function (body) { if (!res.ok) throw body; return body; }); })
+      .then(function (body) {
+        if (statusEl) {
+          statusEl.hidden = false;
+          statusEl.className = 'dart-search-status is-ok';
+          statusEl.textContent = 'DART 기업 ' + (body.companies || []).length + '개를 찾았어요.';
+        }
+        renderDartCompanies(body.companies || []);
+      })
+      .catch(function (err) {
+        if (resultEl) { resultEl.hidden = true; resultEl.innerHTML = ''; }
+        if (statusEl) {
+          statusEl.hidden = false;
+          statusEl.className = 'dart-search-status is-warn';
+          statusEl.textContent = err && err.code === 'DART_KEY_MISSING'
+            ? 'DART 실시간 검색은 배포 환경 연결 후 활성화됩니다. 아래 검증 완료 기업은 바로 사용할 수 있어요.'
+            : 'DART 실시간 검색을 잠시 사용할 수 없어요. 아래 검증 완료 기업은 정상적으로 열 수 있습니다.';
+        }
+      });
+  }
+
   /* ---------- 주소(#)에 맞는 화면 그리기 ---------- */
   function notFound() {
     return topbar(backLink('#/', '처음으로')) + '<main class="content">' + disclaimers() + '<p class="empty">찾는 화면이 없어요.</p></main>';
@@ -492,6 +628,8 @@
     if (searchInput) {
       var companyCards = Array.prototype.slice.call(document.querySelectorAll('#company-list .company'));
       var noResult = document.getElementById('company-no-result');
+      var dartStatus = document.getElementById('dart-search-status');
+      var searchTimer = null;
       function filterCompanies() {
         var q = searchInput.value.trim().toLowerCase();
         var visible = 0;
@@ -501,13 +639,15 @@
           card.hidden = !show;
           if (show) visible += 1;
         });
-        if (noResult) noResult.hidden = visible !== 0;
+        if (noResult) noResult.hidden = !q || visible !== 0;
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(function () { searchOpenDart(searchInput.value.trim(), dartStatus); }, 320);
       }
       searchInput.addEventListener('input', filterCompanies);
       searchInput.addEventListener('keydown', function (e) {
         if (e.key !== 'Enter') return;
         var first = companyCards.filter(function (card) { return !card.hidden && card.tagName === 'A'; })[0];
-        if (first) {
+        if (first && searchInput.value.trim()) {
           e.preventDefault();
           location.hash = first.getAttribute('href');
         }
