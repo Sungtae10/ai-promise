@@ -1,0 +1,549 @@
+{
+ "site": "https://ai-promise-six.vercel.app",
+ "companies": [
+  "samsung",
+  "skhynix",
+  "kakao",
+  "hyundai",
+  "shinhanfg"
+ ],
+ "resume_chars": 483,
+ "runs": [
+  {
+   "company": "samsung",
+   "status": 200,
+   "seconds": 23.8,
+   "model": "gpt-6.1-sol",
+   "ok": true,
+   "counts": {
+    "connections": 3,
+    "gaps": 2,
+    "talking_points": 3,
+    "questions": 2
+   },
+   "dropped": 0,
+   "error": null,
+   "body": {
+    "ok": true,
+    "company": "samsung",
+    "model": "gpt-6.1-sol",
+    "connections": [
+     {
+      "category": "strong",
+      "resume_quote": "AI 서버용 메모리(HBM) 시장 자료를 조사하고, 경쟁사 투자 계획을 비교한 보고서를 팀에 공유했습니다.",
+      "why": "HBM 시장과 경쟁사 투자를 분석한 경험은 HBM4 개발·양산을 통한 AI 시장 경쟁력 강화라는 약속과 직접 이어집니다. 자료에서는 HBM4 양산 출하가 확인되지만, HBM3E 개선제품 판매 확대까지 모두 확인된 것은 아닙니다.",
+      "promise_id": "samsung-p2",
+      "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "category": "strong",
+      "resume_quote": "고객 상담 기록을 분석해 챗봇 답변 개선안을 제안했고,",
+      "why": "고객 기록에서 개선점을 찾고 챗봇 답변 개선을 제안한 경험은 고객 연구와 AI 기능 고도화로 새로운 경험을 제공하겠다는 방향성과 직접 이어집니다.",
+      "promise_id": "samsung-d1",
+      "promise_title": "AI 기능 고도화로 새로운 고객 경험 제공",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "category": "related",
+      "resume_quote": "프롬프트를 설계해 고객 문의 요약 도구를 만들어 장려상을 받았습니다.",
+      "why": "고객 문의 요약 도구를 만든 경험은 AI 사용성을 고민하는 데 활용할 수 있습니다. 다만 다양한 폼팩터나 멀티모달 인터랙션을 구현한 경험은 아니므로, Galaxy AI 확장·고도화에 옮겨 쓸 수 있는 경험으로 연결하는 것이 적절합니다.",
+      "promise_id": "samsung-p1",
+      "promise_title": "Galaxy AI 확장·고도화 및 다양한 폼팩터 적용",
+      "verdict": "evidence_found",
+      "type": "specific"
+     }
+    ],
+    "gaps": [
+     {
+      "why": "이력서에는 HBM 시장 조사 경험이 있지만, HBM4 개발·양산이나 공정 관련 실무 경험은 제시되어 있지 않습니다.",
+      "prepare": "시장 분석 경험과 기술 개발 경험을 구분해 설명하도록 준비합니다. 제공 자료에서 확인되는 HBM4 양산 출하와 확인 범위가 제한된 HBM3E 개선제품 판매 확대를 나누어 정리합니다.",
+      "promise_id": "samsung-p2",
+      "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "why": "DDR5·LPDDR5x의 제품별 수요나 서버향 공급을 분석한 경험은 이력서에서 확인되지 않습니다.",
+      "prepare": "기존 HBM 시장 조사에서 사용한 비교 기준을 정리하고, 이를 DDR5·LPDDR5x 분석에 어떻게 적용할지 설명하는 틀을 준비합니다. 제공 자료에서 확인되는 판매 내용과 명확히 확인되지 않는 세부 용량·공정·확산 범위를 구분합니다.",
+      "promise_id": "samsung-p3",
+      "promise_title": "AI 서버용 고용량 DDR5·LPDDR5x 공급 확대",
+      "verdict": "partial",
+      "type": "specific"
+     }
+    ],
+    "talking_points": [
+     {
+      "text": "저는 반도체 기업 전략팀 인턴으로 AI 서버용 HBM 시장 자료와 경쟁사 투자 계획을 비교한 경험이 있습니다. 이를 바탕으로 HBM4 경쟁력 강화와 관련된 시장·경쟁 환경 분석에 기여하고자 합니다. 개발·양산 실무와 제가 수행한 시장 분석의 범위는 구분해서 설명하고자 합니다.",
+      "promise_id": "samsung-p2",
+      "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "text": "저는 고객 상담 기록을 분석해 챗봇 답변 개선안을 제안한 경험이 있습니다. 이 경험을 바탕으로 고객의 불편을 데이터로 파악하고, AI 기능 개선을 고객 경험과 연결하는 데 기여하고자 합니다.",
+      "promise_id": "samsung-d1",
+      "promise_title": "AI 기능 고도화로 새로운 고객 경험 제공",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "text": "저는 프롬프트를 설계해 고객 문의 요약 도구를 만든 경험이 있습니다. 다양한 폼팩터를 구현한 경험은 없지만, 사용 목적에 맞게 AI 도구를 설계한 경험을 Galaxy AI 사용성에 대한 이해로 확장하고자 합니다.",
+      "promise_id": "samsung-p1",
+      "promise_title": "Galaxy AI 확장·고도화 및 다양한 폼팩터 적용",
+      "verdict": "evidence_found",
+      "type": "specific"
+     }
+    ],
+    "questions": [
+     {
+      "text": "공시에 제시된 다양한 폼팩터의 개인화된 AI 사용성과 멀티모달 인터랙션을 평가할 때, 고객 피드백과 사용 데이터를 어떤 기준으로 살피는지 궁금합니다",
+      "promise_id": "samsung-p1",
+      "promise_title": "Galaxy AI 확장·고도화 및 다양한 폼팩터 적용",
+      "verdict": "evidence_found",
+      "type": "specific"
+     },
+     {
+      "text": "공시에 제시된 서버향 고용량 DDR5·LPDDR5x 중심 판매와 관련해, 시장 분석 담당자가 제품별 수요와 고객 요구를 비교할 때 중요하게 보는 기준이 무엇인지 궁금합니다",
+      "promise_id": "samsung-p3",
+      "promise_title": "AI 서버용 고용량 DDR5·LPDDR5x 공급 확대",
+      "verdict": "partial",
+      "type": "specific"
+     }
+    ],
+    "dropped": 0
+   }
+  },
+  {
+   "company": "skhynix",
+   "status": 200,
+   "seconds": 23.0,
+   "model": "gpt-6.1-sol",
+   "ok": true,
+   "counts": {
+    "connections": 2,
+    "gaps": 2,
+    "talking_points": 3,
+    "questions": 2
+   },
+   "dropped": 0,
+   "error": null,
+   "body": {
+    "ok": true,
+    "company": "skhynix",
+    "model": "gpt-6.1-sol",
+    "connections": [
+     {
+      "category": "related",
+      "resume_quote": "AI 서버용 메모리(HBM) 시장 자료를 조사하고, 경쟁사 투자 계획을 비교한 보고서를 팀에 공유했습니다.",
+      "why": "HBM 시장과 경쟁사 투자 계획을 조사한 경험은 온디바이스 AI 수요 대응 제품군의 시장 배경을 분석하는 데 활용할 수 있습니다. 다만 온디바이스 제품의 성능·전력 효율을 직접 분석하거나 개발한 경험은 아닙니다.",
+      "promise_id": "skhynix-d1",
+      "promise_title": "온디바이스 AI 수요 대응 제품군 준비",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "category": "related",
+      "resume_quote": "Python으로 기업 공시 문서를 모으는 파이프라인과 대시보드를 만들어 팀원과 공유했습니다.",
+      "why": "공시 수집·공유 경험은 기술 확보 약속과 후속 공시의 실행 근거를 구분해 정리하는 데 활용할 수 있습니다. 제공 자료에서는 321단 QLC 개발과 고객 인증 진행만 확인되며, 약속한 61TB Gen5 제품 자체는 직접 확인되지 않습니다.",
+      "promise_id": "skhynix-p3",
+      "promise_title": "AI 데이터센터용 QLC 61TB Gen5 기술력 확보",
+      "verdict": "partial",
+      "type": "specific"
+     }
+    ],
+    "gaps": [
+     {
+      "why": "이력서에는 ZUFS나 스마트폰 저장장치의 양산·탑재를 직접 다룬 경험이 없습니다. 제공 자료에서도 해당 약속의 실행은 공시에서 확인되지 않습니다.",
+      "prepare": "ZUFS와 온디바이스 AI의 관계를 학습하고, 양산과 실제 제품 탑재를 구분해 설명하는 연습을 합니다. 제공 자료의 확인 한계도 함께 정리합니다.",
+      "promise_id": "skhynix-p2",
+      "promise_title": "ZUFS 4.0 양산 및 온디바이스 AI 스마트폰 탑재",
+      "verdict": "not_verifiable",
+      "type": "specific"
+     },
+     {
+      "why": "시장 조사 경험은 있지만, CXL 메모리나 SoC 협력사와의 솔루션 협업을 직접 수행한 경험은 이력서에 없습니다.",
+      "prepare": "CXL 메모리의 기본 개념과 메모리 집약적 서버의 요구사항을 학습하고, 시장 조사 담당자로서 협력사 논의에 필요한 정보를 어떻게 정리할지 준비합니다.",
+      "promise_id": "skhynix-d2",
+      "promise_title": "CXL 메모리 시장 대비 솔루션 준비",
+      "verdict": null,
+      "type": "directional"
+     }
+    ],
+    "talking_points": [
+     {
+      "text": "저는 반도체 기업 전략팀 인턴으로 HBM 시장 자료와 경쟁사 투자 계획을 조사해 보고서로 공유한 경험이 있습니다. 이 경험을 바탕으로 온디바이스 AI 수요 대응 방향을 이해하고, 제품 성능·전력 효율과 고객 수요를 연결하는 시장 분석 역량을 보완하고자 합니다.",
+      "promise_id": "skhynix-d1",
+      "promise_title": "온디바이스 AI 수요 대응 제품군 준비",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "text": "저는 Python으로 기업 공시 수집 파이프라인과 대시보드를 만들어 공유한 경험이 있습니다. 제공 자료를 읽을 때도 321단 QLC 개발 및 고객 인증 진행과 61TB Gen5 제품 기술력 확보 약속을 구분하며, 직접 확인된 근거의 범위 안에서 설명하는 태도를 중요하게 생각합니다.",
+      "promise_id": "skhynix-p3",
+      "promise_title": "AI 데이터센터용 QLC 61TB Gen5 기술력 확보",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "text": "저는 시장 자료와 경쟁사 투자 계획을 비교한 경험을 CXL 시장 분석에도 활용하고자 합니다. CXL이나 SoC 협업을 직접 수행한 경험은 없으므로, 관련 기술과 서버 고객의 요구사항을 학습해 분석의 깊이를 보완하고자 합니다.",
+      "promise_id": "skhynix-d2",
+      "promise_title": "CXL 메모리 시장 대비 솔루션 준비",
+      "verdict": null,
+      "type": "directional"
+     }
+    ],
+    "questions": [
+     {
+      "text": "제공 자료에서는 SOCAMM·LPCAMM의 AI 서버·PC 시장 대응 약속과 직접 연결되는 실행 근거가 확인되지 않는데, 공개 가능한 범위에서 해당 방향을 이해하기 위해 참고할 자료가 있는지 궁금합니다",
+      "promise_id": "skhynix-p1",
+      "promise_title": "SOCAMM·LPCAMM으로 AI 서버·PC 시장 대응",
+      "verdict": "not_verifiable",
+      "type": "specific"
+     },
+     {
+      "text": "제공 자료에서 확인된 321단 QLC 개발 및 고객 인증 진행과 약속한 61TB Gen5 제품 기술력 확보를 구분해 이해하려면, 공개 자료에서 어떤 기술 항목과 확인 지표를 살펴봐야 하는지 궁금합니다",
+      "promise_id": "skhynix-p3",
+      "promise_title": "AI 데이터센터용 QLC 61TB Gen5 기술력 확보",
+      "verdict": "partial",
+      "type": "specific"
+     }
+    ],
+    "dropped": 0
+   }
+  },
+  {
+   "company": "kakao",
+   "status": 200,
+   "seconds": 23.6,
+   "model": "gpt-6.1-sol",
+   "ok": true,
+   "counts": {
+    "connections": 3,
+    "gaps": 2,
+    "talking_points": 3,
+    "questions": 2
+   },
+   "dropped": 0,
+   "error": null,
+   "body": {
+    "ok": true,
+    "company": "kakao",
+    "model": "gpt-6.1-sol",
+    "connections": [
+     {
+      "category": "strong",
+      "resume_quote": "고객 상담 기록을 분석해 챗봇 답변 개선안을 제안했고",
+      "why": "상담 기록에서 개선점을 찾아 챗봇 답변 개선을 제안한 경험은 카카오톡 AI 기능·서비스의 사용 맥락을 개선하는 업무와 직접 이어집니다. 다만 자료에서는 신규 서비스의 정식 출시 및 CBT 진행만 일부 확인되며, 이용자 활동성 개선까지 확인된 것은 아닙니다.",
+      "promise_id": "kakao-p2",
+      "promise_title": "카카오톡 AI 신규 기능·서비스 선보임",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "category": "strong",
+      "resume_quote": "프롬프트를 설계해 고객 문의 요약 도구를 만들어 장려상을 받았습니다.",
+      "why": "일상적인 고객 문의를 요약하는 도구를 만든 경험은 AI를 일상에서 널리 사용할 수 있도록 서비스를 구축한다는 방향과 직접 연결됩니다. 구체적인 이용 과제를 정하고 생성형 AI 도구로 구현한 경험을 강조할 수 있습니다.",
+      "promise_id": "kakao-d3",
+      "promise_title": "AI 대중화 서비스 구축",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "category": "related",
+      "resume_quote": "AI 서버용 메모리(HBM) 시장 자료를 조사하고, 경쟁사 투자 계획을 비교한 보고서를 팀에 공유했습니다.",
+      "why": "AI 서버용 메모리 시장과 투자 계획을 비교한 경험은 AI 인프라 관련 시장 조사와 의사결정 지원에 옮겨 쓸 수 있습니다. 다만 데이터센터 구축이나 운영을 직접 수행한 경험과는 구분해야 합니다.",
+      "promise_id": "kakao-d1",
+      "promise_title": "AI 관련 인프라 확충",
+      "verdict": null,
+      "type": "directional"
+     }
+    ],
+    "gaps": [
+     {
+      "why": "이력서에는 프롬프트 설계 경험은 있지만, 여러 모델의 성능·비용·편의성을 비교하거나 모델 선택 로직을 구현한 경험은 나타나지 않습니다.",
+      "prepare": "고객 문의 요약 과제를 기준으로 모델별 응답 품질, 지연 시간, 비용을 비교하는 소규모 실험을 준비하고 모델 선택 기준을 정리하세요. 회사 자료에서는 오케스트레이션 연구와 다중 모델 응답 시스템 구현이 확인되지만, 해당 서비스 적용과 별도 앱 출시는 확인되지 않는다는 점도 구분하세요.",
+      "promise_id": "kakao-p3",
+      "promise_title": "카카오톡 AI 기능 및 별도 앱 서비스 준비",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "why": "상담 대기 시간 개선 경험은 있지만, AI 서비스의 반복 사용이나 이용자 활동성을 분석한 경험은 이력서에서 확인되지 않습니다.",
+      "prepare": "챗봇 개선 경험을 문제 발견, 개선안, 결과로 정리하고, 반복 사용 여부와 답변 유용성을 어떻게 검증할지 분석 계획을 준비하세요. 실제 수행한 분석과 면접을 위해 새로 설계한 계획을 구분해서 설명하세요.",
+      "promise_id": "kakao-p2",
+      "promise_title": "카카오톡 AI 신규 기능·서비스 선보임",
+      "verdict": "partial",
+      "type": "specific"
+     }
+    ],
+    "talking_points": [
+     {
+      "text": "저는 고객 상담 기록을 분석해 챗봇 답변 개선안을 제안한 경험이 있습니다. 이를 바탕으로 카카오톡 AI 서비스에서도 이용자의 질문과 사용 맥락을 분석하고 개선 과제를 제안하는 데 기여하고자 합니다.",
+      "promise_id": "kakao-p2",
+      "promise_title": "카카오톡 AI 신규 기능·서비스 선보임",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "text": "저는 프롬프트를 설계해 고객 문의 요약 도구를 만든 경험이 있습니다. 이 경험을 바탕으로 이용자가 일상에서 겪는 구체적인 문제를 AI로 해결하는 서비스 기획에 기여하고자 합니다.",
+      "promise_id": "kakao-d3",
+      "promise_title": "AI 대중화 서비스 구축",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "text": "저는 AI 서버용 메모리 시장과 경쟁사 투자 계획을 조사해 보고서로 공유한 경험이 있습니다. 인프라 구축·운영 경험과는 구분하되, AI 인프라 관련 시장 정보를 비교하고 의사결정에 필요한 근거를 정리하는 역량을 강조하고자 합니다.",
+      "promise_id": "kakao-d1",
+      "promise_title": "AI 관련 인프라 확충",
+      "verdict": null,
+      "type": "directional"
+     }
+    ],
+    "questions": [
+     {
+      "text": "공시에서 카카오톡 AI 서비스의 정식 출시 및 CBT 진행을 확인했는데, 이용자의 사용 맥락과 반복 사용을 평가할 때 어떤 기준을 중시하는지 궁금합니다",
+      "promise_id": "kakao-p2",
+      "promise_title": "카카오톡 AI 신규 기능·서비스 선보임",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "text": "공시에서 자체·외부 모델을 선택하는 오케스트레이션 연구와 다중 모델 조합 응답 시스템 구현을 확인했는데, 모델 선택 과정에서 사용자 편의성·비용효율성·성능 간 우선순위를 어떻게 정하는지 궁금합니다",
+      "promise_id": "kakao-p3",
+      "promise_title": "카카오톡 AI 기능 및 별도 앱 서비스 준비",
+      "verdict": "partial",
+      "type": "specific"
+     }
+    ],
+    "dropped": 0
+   }
+  },
+  {
+   "company": "hyundai",
+   "status": 200,
+   "seconds": 24.6,
+   "model": "gpt-6.1-sol",
+   "ok": true,
+   "counts": {
+    "connections": 3,
+    "gaps": 2,
+    "talking_points": 3,
+    "questions": 2
+   },
+   "dropped": 0,
+   "error": null,
+   "body": {
+    "ok": true,
+    "company": "hyundai",
+    "model": "gpt-6.1-sol",
+    "connections": [
+     {
+      "category": "related",
+      "resume_quote": "차량 주행 데이터로 운전 습관을 분석하는 앱 아이디어를 기획하고 발표했습니다.",
+      "why": "차량 데이터를 사용자 서비스 아이디어로 연결한 기획 경험은 회사가 약속한 차량 데이터·AI 기반 기능 및 서비스 개선 방향과 맞닿습니다. 다만 앱 구현이나 AI 적용 경험은 아니며, 회사의 차량 데이터 활용도 제공된 공시에서는 확인되지 않았습니다.",
+      "promise_id": "hyundai-p1",
+      "promise_title": "AI 기반 SDV 체계 전환",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "category": "related",
+      "resume_quote": "Python으로 기업 공시 문서를 모으는 파이프라인과 대시보드를 만들어 팀원과 공유했습니다.",
+      "why": "데이터 수집과 결과 공유를 소프트웨어로 구현한 경험은 회사가 약속한 SW 중심 전환에 옮겨 쓸 수 있습니다. 다만 차량 SW 개발 경험과는 구분해야 하며, 회사의 전 밸류체인·서비스 전환까지 공시에서 확인된 것은 아닙니다.",
+      "promise_id": "hyundai-p1",
+      "promise_title": "AI 기반 SDV 체계 전환",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "category": "related",
+      "resume_quote": "고객 상담 기록을 분석해 챗봇 답변 개선안을 제안했고,",
+      "why": "기존 데이터를 분석해 개선안을 도출한 경험은 데이터 기반의 지속적 개선이라는 관점에서 연결됩니다. 다만 차량이 스스로 학습하는 시스템을 개발한 경험은 아니며, 회사의 차량 러닝 머신 개발 단계 역시 자료에서 명확하지 않습니다.",
+      "promise_id": "hyundai-p2",
+      "promise_title": "차량 러닝 머신 개발",
+      "verdict": "partial",
+      "type": "specific"
+     }
+    ],
+    "gaps": [
+     {
+      "why": "이력서에서는 차량 데이터 기반 AI 모델의 학습·검증이나 운영 중 지속 학습을 구현한 경험이 확인되지 않습니다.",
+      "prepare": "운전 습관 분석 앱 아이디어를 바탕으로 필요한 데이터, 예측 목표, 검증 방법, 업데이트 후 성능 저하 대응을 정리하고, 실제 수행한 기획과 향후 구현 구상을 명확히 구분해 설명할 준비를 합니다.",
+      "promise_id": "hyundai-p2",
+      "promise_title": "차량 러닝 머신 개발",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "why": "차량용 고성능 컴퓨터, 중앙집중형 전기전자 아키텍처, 자율주행 기능 구현 경험은 이력서에서 확인되지 않습니다. 해당 회사 약속의 실행 여부도 제공된 공시에서는 확인되지 않습니다.",
+      "prepare": "차량용 컴퓨터와 전기전자 아키텍처의 기본 개념을 학습하고, 고객 문의 요약 도구 제작 경험에서 설명할 수 있는 AI 기능 설계와 설명하기 어려운 차량 제어 영역을 구분합니다.",
+      "promise_id": "hyundai-p3",
+      "promise_title": "AI 기능 구현",
+      "verdict": "not_verifiable",
+      "type": "specific"
+     }
+    ],
+    "talking_points": [
+     {
+      "text": "저는 차량 주행 데이터로 운전 습관을 분석하는 앱 아이디어를 기획하고 발표한 경험이 있습니다. 이를 차량 데이터 기반 서비스 개선이라는 약속과 연결해 설명하고자 합니다. 다만 실제 차량 SW나 AI 기능을 구현한 경험과는 구분해 말씀드리고자 합니다.",
+      "promise_id": "hyundai-p1",
+      "promise_title": "AI 기반 SDV 체계 전환",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "text": "저는 고객 상담 기록을 분석해 챗봇 답변 개선안을 제안한 경험이 있습니다. 이 경험을 데이터에서 개선 과제를 찾는 역량으로 설명하고자 합니다. 차량 자체의 지속 학습을 구현한 경험은 없으므로, 학습과 검증 방법을 보완하고자 합니다.",
+      "promise_id": "hyundai-p2",
+      "promise_title": "차량 러닝 머신 개발",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "text": "저는 프롬프트를 설계해 고객 문의 요약 도구를 만든 경험이 있습니다. 이를 AI 기능을 구체적인 사용 목적에 맞춰 설계한 사례로 설명하고자 합니다. 다만 차량용 AI 구현 경험은 아니며, 제공된 공시만으로 SDV 페이스 카 관련 약속의 실행 여부를 확인할 수 없다는 점도 구분해 이해하고자 합니다.",
+      "promise_id": "hyundai-p3",
+      "promise_title": "AI 기능 구현",
+      "verdict": "not_verifiable",
+      "type": "specific"
+     }
+    ],
+    "questions": [
+     {
+      "text": "공시에는 AI 엔진을 통한 지속 학습형 모빌리티 생태계가 기재되어 있는데, 차량 자체가 학습하고 발전하는 러닝 머신이라는 목표의 개발 단계와 검증 방식은 어떠한지 궁금합니다",
+      "promise_id": "hyundai-p2",
+      "promise_title": "차량 러닝 머신 개발",
+      "verdict": "partial",
+      "type": "specific"
+     },
+     {
+      "text": "제공된 공시에서는 SDV 페이스 카 관련 실행 내용을 확인하지 못했는데, 약속한 AI 기능 구현과 모빌리티 서비스 실증의 현재 진행 상황을 공개 가능한 범위에서 설명해 주실 수 있는지 궁금합니다",
+      "promise_id": "hyundai-p3",
+      "promise_title": "AI 기능 구현",
+      "verdict": "not_verifiable",
+      "type": "specific"
+     }
+    ],
+    "dropped": 0
+   }
+  },
+  {
+   "company": "shinhanfg",
+   "status": 200,
+   "seconds": 25.4,
+   "model": "gpt-6.1-sol",
+   "ok": true,
+   "counts": {
+    "connections": 3,
+    "gaps": 2,
+    "talking_points": 3,
+    "questions": 2
+   },
+   "dropped": 0,
+   "error": null,
+   "body": {
+    "ok": true,
+    "company": "shinhanfg",
+    "model": "gpt-6.1-sol",
+    "connections": [
+     {
+      "category": "strong",
+      "resume_quote": "고객 상담 기록을 분석해 챗봇 답변 개선안을 제안했고",
+      "why": "고객 문의를 분석해 챗봇 답변을 개선한 경험은 고객접점에 AI 서비스를 탑재하려는 방향과 직접 이어집니다. 자료에서 확인되는 AI PB의 대화 기능과 관련해, 고객 질문을 바탕으로 답변 개선 과제를 찾는 경험을 설명할 수 있습니다.",
+      "promise_id": "shinhanfg-d2",
+      "promise_title": "고객접점 AI 서비스 탑재",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "category": "strong",
+      "resume_quote": "프롬프트를 설계해 고객 문의 요약 도구를 만들어 장려상을 받았습니다.",
+      "why": "고객 문의를 처리하는 생성형 AI 도구를 만든 경험은 고객 편의성과 혁신적인 고객 경험을 위한 AI 서비스 개발 방향과 직접 이어집니다. 다만 금융정보를 다루는 AI 서비스를 개발한 경험까지 확인되는 것은 아닙니다.",
+      "promise_id": "shinhanfg-d3",
+      "promise_title": "AI 서비스 개발",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "category": "related",
+      "resume_quote": "Python으로 기업 공시 문서를 모으는 파이프라인과 대시보드를 만들어 팀원과 공유했습니다.",
+      "why": "공시 문서를 수집하고 대시보드로 제공한 경험은 투자정보 제공과 정보탐색 효율성 개선에 옮겨 쓸 수 있습니다. 회사 자료에서는 AI 기반 투자정보 제공 활동이 확인되지만, 테크 기업과의 파트너십을 통한 고객 기반 확대까지 확인되지는 않습니다. 이력서의 공시 수집 경험 자체도 AI 적용 경험으로 볼 수는 없습니다.",
+      "promise_id": "shinhanfg-p1",
+      "promise_title": "AI 활용 플랫폼 경쟁력 강화",
+      "verdict": "partial",
+      "type": "specific"
+     }
+    ],
+    "gaps": [
+     {
+      "why": "공시 문서 수집 경험은 있지만 해외 공시·뉴스의 AI 번역이나 번역 품질 검증 경험은 이력서에서 확인되지 않습니다. 회사의 해당 서비스 제공 여부도 제시된 공시 범위에서는 확인되지 않습니다.",
+      "prepare": "해외 공시의 짧은 발췌문으로 번역 예시를 만들고, 금융 용어·수치·부정 표현의 정확성을 원문과 대조하는 검토표를 준비합니다. 기존 경험이 아니라 면접 준비 과정에서 만든 예시임을 구분해 설명합니다.",
+      "promise_id": "shinhanfg-p2",
+      "promise_title": "AI 해외 공시·뉴스 번역 서비스 제공",
+      "verdict": "not_verifiable",
+      "type": "specific"
+     },
+     {
+      "why": "이력서에서 내부통제 업무나 AI 기반 이상 징후 모니터링 경험은 확인되지 않습니다. 회사의 AI 내부통제 모니터링 강화 실행 여부 역시 제시된 공시 범위에서는 확인되지 않습니다.",
+      "prepare": "가상의 업무 기록을 대상으로 점검 항목, 이상 징후 판단 기준, 담당자 검토 절차를 정리합니다. AI 판단을 그대로 확정하지 않고 사람이 재검토하는 흐름을 설명할 수 있도록 준비합니다.",
+      "promise_id": "shinhanfg-p3",
+      "promise_title": "AI 활용 내부통제 모니터링 강화",
+      "verdict": "not_verifiable",
+      "type": "specific"
+     }
+    ],
+    "talking_points": [
+     {
+      "text": "저는 고객 상담 기록을 분석해 챗봇 답변 개선안을 제안한 경험이 있습니다. 이 경험을 바탕으로 고객접점 AI 서비스에서 반복되는 질문과 답변의 부족한 부분을 찾아 개선하는 데 기여하고자 합니다.",
+      "promise_id": "shinhanfg-d2",
+      "promise_title": "고객접점 AI 서비스 탑재",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "text": "저는 프롬프트를 설계해 고객 문의 요약 도구를 만든 경험이 있습니다. 이를 고객 편의성을 높이는 AI 서비스 개발 방향과 연결해 설명할 수 있으며, 면접에서는 제가 만든 도구의 용도와 직접 수행한 작업을 중심으로 말씀드리고자 합니다.",
+      "promise_id": "shinhanfg-d3",
+      "promise_title": "AI 서비스 개발",
+      "verdict": null,
+      "type": "directional"
+     },
+     {
+      "text": "저는 Python으로 기업 공시 문서를 수집하는 파이프라인과 대시보드를 만들어 팀원에게 공유한 경험이 있습니다. AI 투자정보 서비스를 구현한 경험과는 구분하되, 정보를 모으고 찾아보기 쉽게 제공한 경험을 투자정보 탐색 효율성 개선 업무에 활용하고자 합니다.",
+      "promise_id": "shinhanfg-p1",
+      "promise_title": "AI 활용 플랫폼 경쟁력 강화",
+      "verdict": "partial",
+      "type": "specific"
+     }
+    ],
+    "questions": [
+     {
+      "text": "제공된 공시 자료만으로는 해외 공시·뉴스 AI 자동 번역 서비스의 제공 여부를 확인하기 어려웠는데, 현재 제공 여부와 번역 품질 검토 기준이 궁금합니다",
+      "promise_id": "shinhanfg-p2",
+      "promise_title": "AI 해외 공시·뉴스 번역 서비스 제공",
+      "verdict": "not_verifiable",
+      "type": "specific"
+     },
+     {
+      "text": "제공된 공시 자료만으로는 AI를 활용한 내부통제 모니터링 강화의 실행 여부를 확인하기 어려웠는데, 해당 약속의 현재 추진 여부와 추진 시 담당자가 맡게 되는 검토 역할이 궁금합니다",
+      "promise_id": "shinhanfg-p3",
+      "promise_title": "AI 활용 내부통제 모니터링 강화",
+      "verdict": "not_verifiable",
+      "type": "specific"
+     }
+    ],
+    "dropped": 0
+   }
+  }
+ ],
+ "health": {
+  "status": 200,
+  "seconds": 2.5,
+  "body": {
+   "ok": true,
+   "configured": true,
+   "model_used": "gpt-6.1-sol",
+   "checked_at": "2026-10-19T13:43:16.809Z"
+  }
+ }
+}
