@@ -17,6 +17,7 @@ from http.server import BaseHTTPRequestHandler
 from urllib.parse import parse_qs, urlparse, urlencode
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
+from datetime import date
 
 _CORPS = None
 
@@ -82,7 +83,7 @@ def _reports(key, corp_code):
         "crtfc_key": key,
         "corp_code": corp_code,
         "bgn_de": "20250101",
-        "end_de": "20261019",
+        "end_de": date.today().strftime("%Y%m%d"),
         "pblntf_ty": "A",
         "page_count": "100",
     }
