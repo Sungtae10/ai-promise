@@ -69,3 +69,31 @@ PDF 입력부터 화면 JSON 출력까지 Collect → Extract → Retrieve → J
 AI 판정이 '공시에서 확인 불가'이면 새 검색어로 다시 찾습니다(처음 검색 포함 최대 3번, 쓸 새 검색어가 없으면 그 전에 멈춤). 완전 자율 Agent라고 과장하지 않고, 구현된 **상태 기반 재검색·도구 사용 흐름**만 설명합니다.
 
 심사 시 필수 기술요소는 **RAG + 자동화 워크플로우**를 주 근거로 제시하고, Agent-style retry는 추가 AI Native 설계로 설명합니다.
+
+
+## Final v6: Universal Discovery Layer
+
+기존 Core 분석 위에 OpenDART 실시간 discovery layer를 추가했습니다.
+
+```mermaid
+flowchart LR
+    U[사용자 회사명 검색] --> S[OpenDART 기업코드 검색]
+    S --> K{검증 분석 존재?}
+    K -- 예 --> V[Verified Deep Analysis]
+    V --> T[Promise → Evidence → Verdict]
+    K -- 아니오 --> R[Disclosure Readiness]
+    R --> B[2024 사업보고서]
+    R --> C[2025 사업보고서]
+    R --> H[2026 반기보고서]
+    B --> Q[Deep Analysis Candidate]
+    C --> Q
+    H --> Q
+```
+
+### 역할 분리
+- **Universal Discovery**: OpenDART 등록 기업 전체를 회사명으로 검색합니다.
+- **Disclosure Readiness**: AI Promise deep analysis에 필요한 정기공시가 존재하는지 실시간으로 확인합니다.
+- **Verified Deep Analysis**: 약속 추출 → Hybrid RAG → 판정 → Citation Verification을 거쳐 검증된 기업만 결과를 제공합니다.
+- **Compare Workspace**: 동일한 판정 기준으로 검증 완료 기업의 약속·근거 상태와 면접 포인트를 나란히 비교합니다.
+
+이 구조는 "모든 회사를 이미 분석했다"고 과장하지 않으면서, 기업 discovery 범위와 검증된 분석 범위를 제품에서 분리해 보여 줍니다.

@@ -150,13 +150,12 @@
 
   /* ---------- 화면 1: 기업 고르기 ---------- */
   function viewHome() {
-    var companies = (DATA.companies || []).map(function (c) {
+    var readyCompanyData = (DATA.companies || []).filter(function (c) { return (c.promises || []).length > 0; });
+    var pendingCompanyData = (DATA.companies || []).filter(function (c) { return !(c.promises || []).length; });
+    var companies = readyCompanyData.map(function (c) {
       var spec = specifics(c);
-      var ready = (c.promises || []).length > 0;
       var reports = c.reports || {};
-      var meta = ready
-        ? '구체적 약속 ' + spec.length + '개 중 ' + countLine(spec)
-        : '결과 준비 중';
+      var meta = '구체적 약속 ' + spec.length + '개 중 ' + countLine(spec);
       var inner =
         '<div class="company-logo" aria-hidden="true">' + esc(c.name.charAt(0)) + '</div>' +
         '<div class="company-info"><div class="company-name">' + esc(c.name) + '</div>' +
@@ -164,13 +163,16 @@
         (c.check_note ? '<div class="company-reports check-note">' + esc(c.check_note) + '</div>' : '') +
         '<div class="company-meta">' + esc(meta) + '</div></div>' + ICON.chevron;
       var attrs = ' data-company-name="' + esc(c.name.toLowerCase()) + '" data-company-id="' + esc(c.id) + '"';
-      return ready
-        ? '<a class="company"' + attrs + ' href="#/c/' + encodeURIComponent(c.id) + '">' + inner + '</a>'
-        : '<div class="company"' + attrs + ' aria-disabled="true">' + inner + '</div>';
+      return '<a class="company"' + attrs + ' href="#/c/' + encodeURIComponent(c.id) + '">' + inner + '</a>';
     }).join('');
+    var roadmap = pendingCompanyData.length
+      ? '<div class="expansion-roadmap"><span class="insight-eyebrow">EXPANSION ROADMAP</span><div>' +
+          pendingCompanyData.map(function (c) { return '<span class="roadmap-chip">' + esc(c.name) + ' · 분석 준비 중</span>'; }).join('') +
+        '</div></div>'
+      : '';
 
     var allReports = [];
-    var readyCompanies = (DATA.companies || []).filter(function (c) { return (c.promises || []).length > 0; });
+    var readyCompanies = readyCompanyData;
     var totalSpecific = readyCompanies.reduce(function (sum, c) { return sum + specifics(c).length; }, 0);
     var verifiedCitations = readyCompanies.reduce(function (sum, c) {
       return sum + (c.promises || []).reduce(function (s, p) {
@@ -193,26 +195,38 @@
           '<div class="tech-strip" aria-label="서비스 핵심 기술">' +
             '<span>DART 공시</span><span>RAG 근거 검색</span><span>Citation 검증</span>' +
           '</div>' +
-          '<div class="hero-stats" aria-label="현재 분석 범위">' +
-            '<div><strong>' + readyCompanies.length + '</strong><span>분석 기업</span></div>' +
-            '<div><strong>' + totalSpecific + '</strong><span>구체적 AI 약속</span></div>' +
-            '<div><strong>' + verifiedCitations + '</strong><span>원문 대조 근거</span></div>' +
+          '<div class="hero-stats" aria-label="현재 서비스 범위">' +
+            '<div><strong class="stat-word">OpenDART</strong><span>기업 검색 범위</span></div>' +
+            '<div><strong>' + readyCompanies.length + '</strong><span>검증 deep analysis</span></div>' +
+            '<div><strong>' + verifiedCitations + '</strong><span>Citation Verified</span></div>' +
           '</div>' +
         '</section>' +
         '<section class="company-picker">' +
           '<div class="picker-head">' +
-            '<div><h2 class="section-label">분석할 회사 선택</h2><p class="picker-help">회사명을 직접 검색하거나 아래 기업을 선택하세요.</p></div>' +
-            '<span class="analysis-ready">' + readyCompanies.length + '개 기업 분석 가능</span>' +
+            '<div><h2 class="section-label">DART 기업 검색</h2><p class="picker-help">회사명을 입력하면 DART 기업 전체에서 찾고, 분석 완료 기업은 바로 열 수 있어요.</p></div>' +
+            '<span class="analysis-ready">' + readyCompanies.length + '개 검증 분석 완료</span>' +
           '</div>' +
           '<label class="company-search">' +
             '<span class="sr-only">회사명 검색</span>' +
-            '<input id="company-search" type="search" autocomplete="off" placeholder="회사명을 검색하세요 (예: 삼성전자)" aria-controls="company-list">' +
+            '<input id="company-search" type="search" autocomplete="off" placeholder="회사명을 검색하세요 (예: 삼성전자, 현대자동차)" aria-controls="company-list dart-search-results">' +
           '</label>' +
-          '<div class="company-list" id="company-list">' + companies + '</div>' +
-          '<div class="company-no-result" id="company-no-result" hidden>' +
-            '<strong>아직 분석 준비 전인 회사예요.</strong>' +
-            '<span>현재 분석 완료된 기업에서 선택해 주세요. 지원 기업은 계속 확대할 예정입니다.</span>' +
+          '<div class="search-scope">' +
+            '<span class="scope-dot live"></span><strong>Verified deep analysis</strong><span>삼성전자·SK하이닉스</span>' +
+            '<span class="scope-divider">·</span><span class="scope-dot"></span><strong>Universal discovery</strong><span>OpenDART 기업 검색</span>' +
           '</div>' +
+          '<div class="dart-search-status" id="dart-search-status" hidden></div>' +
+          '<div class="dart-search-results" id="dart-search-results" hidden></div>' +
+          '<div class="verified-analysis-head"><span class="insight-eyebrow">VERIFIED DEEP ANALYSIS</span><strong>검증 완료 기업</strong><small>실제 공시 원문을 대조한 분석</small></div>' +
+          '<div class="company-list" id="company-list">' + companies + '</div>' +
+          roadmap +
+          '<div class="company-no-result" id="company-no-result" hidden>' +
+            '<strong>로컬 분석 결과에서는 찾지 못했어요.</strong>' +
+            '<span>DART 실시간 검색 결과를 확인해 주세요.</span>' +
+          '</div>' +
+        '</section>' +
+        '<section class="compare-cta">' +
+          '<div><span class="insight-eyebrow">COMPARE</span><strong>지원 기업을 나란히 비교해 보세요</strong><p>검증 분석이 완료된 기업의 AI 약속·근거 상태와 면접 포인트를 한 화면에서 비교합니다.</p></div>' +
+          '<a class="btn btn-secondary" href="#/compare">기업 비교 열기</a>' +
         '</section>' +
         '<section class="card">' +
           '<h2 class="card-title" style="font-size:13px">이렇게 확인해요</h2>' +
@@ -256,6 +270,10 @@
         '</details>'
       : '';
     var nv = verdictInfo('not_verifiable') || {};
+    var reportCount = (reports.promise || []).length + (reports.evidence || []).length;
+    var verifiedCount = (company.promises || []).reduce(function (sum, p) {
+      return sum + (p.evidence || []).filter(function (e) { return e.citation_verified === true; }).length;
+    }, 0);
 
     return topbar(backLink('#/', '기업 선택')) +
       '<main class="content">' + disclaimers() +
@@ -265,6 +283,11 @@
           (company.check_note ? '<p class="note check-note">' + esc(company.check_note) + '</p>' : '') +
           '<h1 class="headline">구체적 약속 ' + spec.length + '개 중</h1>' +
           '<p class="count-line">' + esc(countLine(spec)) + '</p>' +
+          '<div class="analysis-meta-strip">' +
+            '<span><strong>' + reportCount + '</strong>개 정기공시</span>' +
+            '<span><strong>' + verifiedCount + '</strong> Citation Verified</span>' +
+            '<span><strong>v2</strong> 판정 기준</span>' +
+          '</div>' +
         '</section>' +
         '<section class="card" aria-label="판정별 개수">' +
           '<div class="summary-grid">' + grid + '</div>' +
@@ -459,6 +482,206 @@
     setTimeout(function () { el.remove(); }, 1800);
   }
 
+
+
+  /* ---------- 화면 5: 검증 완료 기업 비교 ---------- */
+  function companyMetrics(company) {
+    var spec = specifics(company);
+    var counts = countVerdicts(spec);
+    var verified = (company.promises || []).reduce(function (sum, p) {
+      return sum + (p.evidence || []).filter(function (e) { return e.citation_verified === true; }).length;
+    }, 0);
+    return {
+      specific: spec.length,
+      evidence_found: counts.evidence_found || 0,
+      partial: counts.partial || 0,
+      not_verifiable: counts.not_verifiable || 0,
+      verified: verified
+    };
+  }
+
+  function compareCompanyPanel(company, side) {
+    if (!company) return '<div class="compare-panel empty">비교할 기업을 선택해 주세요.</div>';
+    var m = companyMetrics(company);
+    var card = company.interview_card || {};
+    var points = (card.talking_points || []).slice(0, 2).map(function (x) {
+      return '<li>' + esc(x.text) + '</li>';
+    }).join('');
+    return '<article class="compare-panel">' +
+      '<div class="compare-company-head">' +
+        '<span class="compare-side">' + esc(side) + '</span>' +
+        '<div><h2>' + esc(company.name) + '</h2><small>검증 완료 deep analysis</small></div>' +
+      '</div>' +
+      '<div class="compare-metrics">' +
+        '<div><strong>' + m.specific + '</strong><span>구체적 약속</span></div>' +
+        '<div><strong>' + m.evidence_found + '</strong><span>근거 확인</span></div>' +
+        '<div><strong>' + m.partial + '</strong><span>일부 확인</span></div>' +
+        '<div><strong>' + m.not_verifiable + '</strong><span>확인 불가</span></div>' +
+        '<div><strong>' + m.verified + '</strong><span>Citation Verified</span></div>' +
+      '</div>' +
+      (points ? '<div class="compare-insights"><span class="insight-eyebrow">INTERVIEW SIGNAL</span><ul>' + points + '</ul></div>' : '') +
+      '<a class="btn btn-secondary btn-sm" href="#/c/' + encodeURIComponent(company.id) + '">상세 분석 보기</a>' +
+    '</article>';
+  }
+
+  function viewCompare(leftId, rightId) {
+    var ready = (DATA.companies || []).filter(function (x) { return (x.promises || []).length > 0; });
+    var left = findCompany(leftId) || ready[0] || null;
+    var right = findCompany(rightId) || ready.filter(function (x) { return !left || x.id !== left.id; })[0] || ready[0] || null;
+    var options = ready.map(function (x) {
+      return '<option value="' + esc(x.id) + '">' + esc(x.name) + '</option>';
+    }).join('');
+
+    return topbar(backLink('#/', '기업 검색')) +
+      '<main class="content">' + disclaimers() +
+        '<section class="compare-hero">' +
+          '<p class="eyebrow">COMPARE · VERIFIED ANALYSIS</p>' +
+          '<h1 class="headline">지원 기업 AI 전략을<br><span class="hl">한눈에 비교하세요.</span></h1>' +
+          '<p class="lead">같은 판정 기준으로 정리된 약속·근거 상태와 면접 포인트를 비교합니다.</p>' +
+        '</section>' +
+        '<section class="compare-controls card">' +
+          '<label>기업 A<select id="compare-left">' + options + '</select></label>' +
+          '<span class="compare-vs">VS</span>' +
+          '<label>기업 B<select id="compare-right">' + options + '</select></label>' +
+        '</section>' +
+        '<section class="compare-grid">' +
+          compareCompanyPanel(left, 'A') +
+          compareCompanyPanel(right, 'B') +
+        '</section>' +
+        '<p class="note">기업 간 우열이나 투자 판단을 제공하지 않습니다. 공시에서 확인된 약속·근거 상태를 같은 기준으로 나란히 보여줍니다.</p>' +
+      '</main>' +
+      '<footer class="bottombar"><a class="btn btn-primary" href="#/">다른 기업 검색</a></footer>';
+  }
+
+  /* ---------- OpenDART universal company search ---------- */
+  function normalizeCompanyName(value) {
+    return String(value || '').toLowerCase().replace(/\s+/g, '').replace(/\(주\)|주식회사/g, '');
+  }
+
+  function localCompanyByName(name) {
+    var target = normalizeCompanyName(name);
+    return (DATA.companies || []).filter(function (c) {
+      return normalizeCompanyName(c.name) === target;
+    })[0] || null;
+  }
+
+  function dartBadge(company) {
+    if (company.listed) return '<span class="dart-badge listed">상장 · ' + esc(company.stock_code) + '</span>';
+    return '<span class="dart-badge">DART 등록</span>';
+  }
+
+  function renderDartCompanies(rows) {
+    var wrap = document.getElementById('dart-search-results');
+    if (!wrap) return;
+    if (!rows || !rows.length) {
+      wrap.hidden = false;
+      wrap.innerHTML = '<div class="universal-empty"><strong>DART에서 일치 기업을 찾지 못했어요.</strong><span>정식 회사명 일부를 다시 입력해 주세요.</span></div>';
+      return;
+    }
+    wrap.hidden = false;
+    wrap.innerHTML = '<div class="universal-title"><span>OpenDART 검색 결과</span><small>기업코드 기준 실시간 검색</small></div>' +
+      rows.map(function (row) {
+        var local = localCompanyByName(row.corp_name);
+        var ready = local && (local.promises || []).length > 0;
+        var pending = local && !ready;
+        var action = ready
+          ? '<a class="btn btn-primary btn-sm" href="#/c/' + encodeURIComponent(local.id) + '">검증 분석 열기</a>'
+          : '<button type="button" class="btn btn-secondary btn-sm dart-readiness-btn" data-corp-code="' + esc(row.corp_code) + '" data-corp-name="' + esc(row.corp_name) + '">공시 준비도 확인</button>';
+        var state = ready
+          ? '<span class="analysis-state ready">AI Promise 검증 분석 완료</span>'
+          : (pending ? '<span class="analysis-state pending">확장 분석 준비 중</span>' : '<span class="analysis-state discover">딥 분석 후보</span>');
+        return '<article class="dart-result" data-dart-corp="' + esc(row.corp_code) + '">' +
+          '<div class="dart-result-main">' +
+            '<div class="dart-result-name">' + esc(row.corp_name) + '</div>' +
+            '<div class="dart-result-meta">' + dartBadge(row) + state + '</div>' +
+          '</div>' +
+          '<div class="dart-result-action">' + action + '</div>' +
+          '<div class="dart-readiness" id="readiness-' + esc(row.corp_code) + '" hidden></div>' +
+        '</article>';
+      }).join('');
+
+    Array.prototype.slice.call(wrap.querySelectorAll('.dart-readiness-btn')).forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        loadDartReadiness(btn.getAttribute('data-corp-code'), btn.getAttribute('data-corp-name'), btn);
+      });
+    });
+  }
+
+  function renderReadiness(target, name, payload) {
+    var r = payload.readiness || {};
+    var items = [
+      ['2024 사업보고서', !!r.promise_2024_business],
+      ['2025 사업보고서', !!r.evidence_2025_business],
+      ['2026 반기보고서', !!r.evidence_2026_half]
+    ];
+    var reports = (payload.reports || []).slice(0, 5).map(function (x) {
+      var link = x.url ? '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.report_nm) + ICON.external + '</a>' : esc(x.report_nm);
+      return '<li><span>' + link + '</span><small>' + esc(x.rcept_dt || '') + '</small></li>';
+    }).join('');
+    target.hidden = false;
+    target.innerHTML =
+      '<div class="readiness-head"><strong>' + esc(name) + ' · AI Promise 분석 준비도</strong>' +
+        '<span class="' + (r.ready_for_deep_analysis ? 'ready' : 'pending') + '">' + (r.ready_for_deep_analysis ? '필수 공시 확인' : '공시 일부 확인 필요') + '</span></div>' +
+      '<div class="readiness-grid">' + items.map(function (x) {
+        return '<div class="' + (x[1] ? 'is-ok' : 'is-missing') + '"><span>' + (x[1] ? ICON.check : ICON.dash) + '</span><small>' + esc(x[0]) + '</small></div>';
+      }).join('') + '</div>' +
+      (reports ? '<ul class="report-mini-list">' + reports + '</ul>' : '') +
+      '<p class="readiness-note">기업 검색과 공시 준비도 확인은 OpenDART 실시간 기능입니다. 약속→근거 RAG 딥 분석은 검증 완료 기업부터 제공하고 있습니다.</p>';
+  }
+
+  function loadDartReadiness(corpCode, name, btn) {
+    var target = document.getElementById('readiness-' + corpCode);
+    if (!target) return;
+    btn.disabled = true;
+    btn.textContent = 'DART 확인 중…';
+    fetch('/api/dart-company-search?corp_code=' + encodeURIComponent(corpCode), { cache: 'no-store' })
+      .then(function (res) { return res.json().then(function (body) { if (!res.ok) throw body; return body; }); })
+      .then(function (body) {
+        renderReadiness(target, name, body);
+        btn.textContent = '공시 준비도 확인 완료';
+      })
+      .catch(function () {
+        target.hidden = false;
+        target.innerHTML = '<p class="readiness-note">지금은 DART 공시 준비도를 불러오지 못했습니다. 검증 완료 기업 분석은 정상적으로 사용할 수 있어요.</p>';
+        btn.disabled = false;
+        btn.textContent = '다시 확인';
+      });
+  }
+
+  function searchOpenDart(query, statusEl) {
+    var resultEl = document.getElementById('dart-search-results');
+    if (!query || query.length < 2) {
+      if (resultEl) { resultEl.hidden = true; resultEl.innerHTML = ''; }
+      if (statusEl) statusEl.hidden = true;
+      return Promise.resolve();
+    }
+    if (statusEl) {
+      statusEl.hidden = false;
+      statusEl.className = 'dart-search-status is-loading';
+      statusEl.textContent = 'OpenDART 전체 기업에서 검색 중…';
+    }
+    return fetch('/api/dart-company-search?q=' + encodeURIComponent(query), { cache: 'no-store' })
+      .then(function (res) { return res.json().then(function (body) { if (!res.ok) throw body; return body; }); })
+      .then(function (body) {
+        if (statusEl) {
+          statusEl.hidden = false;
+          statusEl.className = 'dart-search-status is-ok';
+          statusEl.textContent = 'DART 기업 ' + (body.companies || []).length + '개를 찾았어요.';
+        }
+        renderDartCompanies(body.companies || []);
+      })
+      .catch(function (err) {
+        if (resultEl) { resultEl.hidden = true; resultEl.innerHTML = ''; }
+        if (statusEl) {
+          statusEl.hidden = false;
+          statusEl.className = 'dart-search-status is-warn';
+          statusEl.textContent = err && err.code === 'DART_KEY_MISSING'
+            ? 'DART 실시간 검색은 배포 환경 연결 후 활성화됩니다. 아래 검증 완료 기업은 바로 사용할 수 있어요.'
+            : 'DART 실시간 검색을 잠시 사용할 수 없어요. 아래 검증 완료 기업은 정상적으로 열 수 있습니다.';
+        }
+      });
+  }
+
   /* ---------- 주소(#)에 맞는 화면 그리기 ---------- */
   function notFound() {
     return topbar(backLink('#/', '처음으로')) + '<main class="content">' + disclaimers() + '<p class="empty">찾는 화면이 없어요.</p></main>';
@@ -471,6 +694,8 @@
 
     if (parts.length === 0) {
       html = viewHome();
+    } else if (parts[0] === 'compare') {
+      html = viewCompare(parts[1], parts[2]); title = '기업 AI 전략 비교';
     } else if (company && parts.length === 2) {
       html = viewList(company); title = company.name + ' 약속 목록';
     } else if (company && parts[2] === 'p' && findPromise(company, parts[3])) {
@@ -492,6 +717,8 @@
     if (searchInput) {
       var companyCards = Array.prototype.slice.call(document.querySelectorAll('#company-list .company'));
       var noResult = document.getElementById('company-no-result');
+      var dartStatus = document.getElementById('dart-search-status');
+      var searchTimer = null;
       function filterCompanies() {
         var q = searchInput.value.trim().toLowerCase();
         var visible = 0;
@@ -501,17 +728,40 @@
           card.hidden = !show;
           if (show) visible += 1;
         });
-        if (noResult) noResult.hidden = visible !== 0;
+        if (noResult) noResult.hidden = !q || visible !== 0;
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(function () { searchOpenDart(searchInput.value.trim(), dartStatus); }, 320);
       }
       searchInput.addEventListener('input', filterCompanies);
       searchInput.addEventListener('keydown', function (e) {
         if (e.key !== 'Enter') return;
         var first = companyCards.filter(function (card) { return !card.hidden && card.tagName === 'A'; })[0];
-        if (first) {
+        if (first && searchInput.value.trim()) {
           e.preventDefault();
           location.hash = first.getAttribute('href');
         }
       });
+    }
+    var compareLeft = document.getElementById('compare-left');
+    var compareRight = document.getElementById('compare-right');
+    if (compareLeft && compareRight) {
+      var currentParts = (location.hash.replace(/^#\/?/, '') || '').split('/').filter(Boolean).map(decodeURIComponent);
+      var currentLeft = currentParts[1] || compareLeft.options[0] && compareLeft.options[0].value || '';
+      var currentRight = currentParts[2] || compareRight.options[1] && compareRight.options[1].value || compareRight.options[0] && compareRight.options[0].value || '';
+      compareLeft.value = currentLeft;
+      compareRight.value = currentRight;
+      function updateCompareHash() {
+        var l = compareLeft.value;
+        var r = compareRight.value;
+        if (l === r && compareRight.options.length > 1) {
+          for (var i = 0; i < compareRight.options.length; i++) {
+            if (compareRight.options[i].value !== l) { r = compareRight.options[i].value; compareRight.value = r; break; }
+          }
+        }
+        location.hash = '#/compare/' + encodeURIComponent(l) + '/' + encodeURIComponent(r);
+      }
+      compareLeft.addEventListener('change', updateCompareHash);
+      compareRight.addEventListener('change', updateCompareHash);
     }
     var copyBtn = document.getElementById('copy-btn');
     if (copyBtn && company) {
