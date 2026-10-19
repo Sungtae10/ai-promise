@@ -1053,3 +1053,29 @@ a.question { color: inherit; }
   .compare-vs { margin: 0 auto; transform: rotate(90deg); }
   .compare-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ---------- 17. Final v6: Analysis coverage metadata ---------- */
+.analysis-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 6px;
+}
+.analysis-meta-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 26px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--chip);
+  color: var(--body);
+  font-size: 9px;
+  font-weight: 700;
+}
+.analysis-meta-strip strong {
+  color: var(--text);
+  font-size: 10px;
+  font-weight: 900;
+}
