@@ -1,0 +1,43 @@
+{
+ "issues": [
+  {
+   "text": "AI 데이터센터용 QLC 기반 61TB PCIe 5세대 SSD PS1012의 제품 기술 확보 근거 확인 (근거 확인)",
+   "promise_id": "skhynix-p4"
+  },
+  {
+   "text": "온디바이스 AI용 ZUFS 4.0 개발 확인 및 양산·탑재의 계획 단계 기재 (일부 확인)",
+   "promise_id": "skhynix-p5"
+  },
+  {
+   "text": "2025 사업보고서·2026 반기보고서의 확인 범위 내 SOCAMM·LPCAMM AI 시장 대응 관련 근거 미확인 (확인 어려움)",
+   "promise_id": "skhynix-p1"
+  }
+ ],
+ "talking_points": [
+  {
+   "text": "PS1012는 AI 데이터센터용 QLC 기반 61TB PCIe 5세대 SSD 제품으로 기재되어 있습니다. 데이터 전송 속도는 32GT/s이며 순차 읽기 성능은 13GB/s입니다.",
+   "promise_id": "skhynix-p4",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  },
+  {
+   "text": "PS1012는 OCP 2.0을 지원해 글로벌 AI 고객들의 여러 데이터센터 서버 장치와 호환성을 높인 제품으로 기재되어 있습니다.",
+   "promise_id": "skhynix-p4",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  },
+  {
+   "text": "온디바이스 AI용 모바일 낸드 솔루션인 ZUFS 4.0 개발이 기재되어 있습니다. 유사한 특성의 데이터를 동일한 구역에 저장·관리해 운용 시스템과 저장 장치 간 데이터 전송을 최적화합니다.",
+   "promise_id": "skhynix-p5",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  }
+ ],
+ "questions": [
+  {
+   "text": "2025 사업보고서와 2026 반기보고서의 확인 범위에서는 SOCAMM·LPCAMM의 AI 시장 대응 관련 내용을 확인하기 어려웠습니다. 해당 제품들의 준비 현황과 향후 추진 방향을 설명해 주실 수 있습니까?",
+   "promise_id": "skhynix-p1"
+  },
+  {
+   "text": "2025 사업보고서와 2026 반기보고서의 확인 범위에서는 ZUFS 4.0 양산 관련 내용을 확인하기 어려웠습니다. 현재 양산 진행 상황과 고객 제품 탑재 일정을 설명해 주실 수 있습니까?",
+   "promise_id": "skhynix-p2"
+  }
+ ]
+}
