@@ -899,3 +899,157 @@ a.question { color: inherit; }
   .readiness-grid { grid-template-columns: 1fr; }
   .report-mini-list li { align-items: flex-start; flex-direction: column; gap: 2px; }
 }
+
+
+/* ---------- 16. Final v6: Company Compare workspace ---------- */
+.compare-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(32,201,151,.10), rgba(81,132,255,.08));
+  box-shadow: inset 0 0 0 1px var(--glass-line);
+}
+.compare-cta > div { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.compare-cta strong { font-size: 15px; color: var(--text); }
+.compare-cta p { margin: 0; max-width: 560px; font-size: 11px; line-height: 1.55; color: var(--sub); }
+
+.compare-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.compare-controls {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+  gap: 12px;
+  align-items: end;
+}
+.compare-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 850;
+  color: var(--sub);
+}
+.compare-controls select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+}
+.compare-vs {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 5px;
+  border-radius: 50%;
+  background: var(--chip);
+  color: var(--body);
+  font-size: 10px;
+  font-weight: 900;
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+}
+.compare-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 0 0 1px var(--glass-line);
+}
+.compare-panel.empty { color: var(--sub); font-size: 12px; }
+.compare-company-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.compare-side {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--confirmed);
+  color: var(--cta-text);
+  font-size: 10px;
+  font-weight: 900;
+  flex: none;
+}
+.compare-company-head h2 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--text);
+}
+.compare-company-head small {
+  display: block;
+  margin-top: 2px;
+  font-size: 9px;
+  color: var(--sub);
+}
+.compare-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 7px;
+}
+.compare-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: var(--chip);
+}
+.compare-metrics > div:last-child {
+  grid-column: 1 / -1;
+}
+.compare-metrics strong {
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text);
+}
+.compare-metrics span {
+  font-size: 9px;
+  color: var(--body);
+}
+.compare-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.compare-insights ul {
+  margin: 0;
+  padding-left: 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.compare-insights li {
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+@media (max-width: 640px) {
+  .compare-cta { align-items: flex-start; flex-direction: column; }
+  .compare-cta .btn { width: 100%; }
+  .compare-controls { grid-template-columns: 1fr; }
+  .compare-vs { margin: 0 auto; transform: rotate(90deg); }
+  .compare-grid { grid-template-columns: 1fr; }
+}
