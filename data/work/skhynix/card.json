@@ -1,0 +1,43 @@
+{
+ "issues": [
+  {
+   "text": "AI 데이터센터용 QLC 기반 61TB SSD PS1012의 성능 제시와 Solidigm 통합 시너지 강화 추진 방향 기재 (일부 확인)",
+   "promise_id": "skhynix-p4"
+  },
+  {
+   "text": "온디바이스 AI용 ZUFS 4.1 개발 및 AI PC용 PCB01 성능 개선 기재, 실제 공급 여부는 확인 범위에서 미확인 (일부 확인)",
+   "promise_id": "skhynix-p5"
+  },
+  {
+   "text": "온디바이스 AI용 ZUFS 양산 관련 내용의 검토 공시 범위 내 미확인 (확인 어려움)",
+   "promise_id": "skhynix-p2"
+  }
+ ],
+ "talking_points": [
+  {
+   "text": "PS1012는 AI 데이터센터용 QLC 기반 61TB PCIe 5세대 SSD로 기재되어 있습니다. 순차 읽기 성능은 13GB/s로 이전 세대 대비 2배 향상되었으며, OCP 2.0을 지원합니다.",
+   "promise_id": "skhynix-p4",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  },
+  {
+   "text": "온디바이스 AI용 모바일 낸드 솔루션인 ZUFS 4.1을 개발한 내용이 기재되어 있습니다. 스마트폰 등 모바일 기기에서 온디바이스 AI를 구현하는 데 최적화된 메모리로 설명되어 있습니다.",
+   "promise_id": "skhynix-p5",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  },
+  {
+   "text": "온디바이스 AI PC용 PCIe 5세대 SSD인 PCB01은 연속 쓰기 속도가 초당 12GB로 이전 세대 대비 2배라고 기재되어 있습니다. 전력 효율은 이전 세대 대비 30% 개선되었다고 설명되어 있습니다.",
+   "promise_id": "skhynix-p5",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  }
+ ],
+ "questions": [
+  {
+   "text": "검토한 2025 사업보고서와 2026 반기보고서에서는 온디바이스 AI용 ZUFS 양산의 후속 내용을 확인하기 어려웠습니다. ZUFS 4.1 개발 이후 양산·공급 단계에서 중점적으로 확인하는 기준은 무엇인지 궁금합니다.",
+   "promise_id": "skhynix-p2"
+  },
+  {
+   "text": "공시에서는 PS1012의 제품 성능과 Solidigm 통합 시너지 강화 방향을 확인했지만, 시너지의 구체적인 후속 성과는 확인하기 어려웠습니다. 통합 시너지의 진척을 어떤 기준으로 확인하는지 궁금합니다.",
+   "promise_id": "skhynix-p4"
+  }
+ ]
+}

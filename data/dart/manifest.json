@@ -1,0 +1,106 @@
+{
+ "companies": {
+  "skhynix": {
+   "corp_code": "00164779",
+   "corp_name": "SK하이닉스",
+   "stock_code": "000660",
+   "corp_found_by": "종목코드",
+   "reports": {
+    "y2024": {
+     "title": "2024 사업보고서",
+     "found": true,
+     "report_nm": "사업보고서 (2024.12)",
+     "rcept_no": "20250319000665",
+     "rcept_dt": "20250319",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250319000665",
+     "file": "skhynix_y2024.txt",
+     "xml_member": "20250319000665.xml",
+     "zip_members": 3,
+     "chars": 440772,
+     "sha256": "f3635ed8a37e4a6a",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 1336,
+      "II": 39502,
+      "IV": 10844
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 2322,
+      "IMAGE": 2,
+      "IMG": 4,
+      "TOC": 0,
+      "LIBRARY": 26
+     }
+    },
+    "y2025": {
+     "title": "2025 사업보고서",
+     "found": true,
+     "report_nm": "사업보고서 (2025.12)",
+     "rcept_no": "20260317000635",
+     "rcept_dt": "20260317",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635",
+     "file": "skhynix_y2025.txt",
+     "xml_member": "20260317000635.xml",
+     "zip_members": 3,
+     "chars": 444647,
+     "sha256": "b244d844dbde13c5",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 1336,
+      "II": 41678,
+      "IV": 10474
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 2322,
+      "IMAGE": 2,
+      "IMG": 4,
+      "TOC": 0,
+      "LIBRARY": 27
+     }
+    },
+    "h2026": {
+     "title": "2026 반기보고서",
+     "found": true,
+     "report_nm": "반기보고서 (2026.06)",
+     "rcept_no": "20260814003509",
+     "rcept_dt": "20260814",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003509",
+     "file": "skhynix_h2026.txt",
+     "xml_member": "20260814003509.xml",
+     "zip_members": 1,
+     "chars": 371518,
+     "sha256": "f264c7f6853ef971",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 1679,
+      "II": 30627,
+      "IV": 382
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 1739,
+      "IMAGE": 2,
+      "IMG": 4,
+      "TOC": 0,
+      "LIBRARY": 40
+     }
+    }
+   }
+  }
+ },
+ "updated": "2026-10-19T12:46:19+00:00"
+}

@@ -1,0 +1,70 @@
+{
+ "promises": [
+  {
+   "type": "specific",
+   "title": "AI 서버용 메모리 모듈 대응",
+   "sentence": "전력 효율은 이전 세대 대비 50% 이상 향상 [1bnm LPDDR5X]ᆞ AI 向 Server 확장 대응을 위한 LPDDR5X 기반 Server 대응 제품 양산 시작- 10나노 5세대 16Gb LPDDR5 제품으로 6월 개발 완료 후 10월 양산 시작됨- 이전 세대의 9.6Gbps 보다 약 10% 향상된 10.7Gbps 동작속도 구현 및 전력 효율은 최대 15%까지 절감됨- Module 형태의 새로운 Form Factor인 SOCAMM** 및 LPCAMM*** 형태로 AI向 Server 및 PC 시장 대응 예정 (*) GDDR(Graphics DDR): 국제반도체표준화기구(JEDEC)에서 규정한 그래픽 DRAM의 표준 규격 명칭.",
+   "sentence_id": "y2024-II-0085",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250319000665",
+    "page": null
+   },
+   "id": "skhynix-p1"
+  },
+  {
+   "type": "specific",
+   "title": "온디바이스 AI용 ZUFS 양산",
+   "sentence": "[ZUFS 4.0]ᆞ온디바이스(On-Device) AI용 모바일 낸드 솔루션 제품 'ZUFS*(Zoned UFS) 4.0' 개발, 낸드에서도 AI 메모리 시장 선도 예상- 스마트폰 등 모바일 기기에서 온디바이스(On-Device) AI를 구현하는 데 최적화된 메모리로 업계 최고 성능 구현- ZUFS 4.0 제품 양산에 들어갈 계획이며, 양산 제품은 향후 글로벌 기업들이 내놓을 온디바이스(On-Device) AI 스마트폰들에 탑재될 예정 (*) ZUFS(Zoned Universal Flash Storage): 디지털카메라, 휴대전화 등 전자제품에 사용되는 플래시 메모리 제품인 UFS의 데이터 관리 효율이 향상된 제품.",
+   "sentence_id": "y2024-II-0088",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250319000665",
+    "page": null
+   },
+   "id": "skhynix-p2"
+  },
+  {
+   "type": "specific",
+   "title": "CIS 사업의 AI 메모리 전환",
+   "sentence": "2025년 3월 CIS 사업부문은 AI 메모리 분야로 전환하기로 결정하였습니다.",
+   "sentence_id": "y2024-II-0148",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250319000665",
+    "page": null
+   },
+   "id": "skhynix-p3"
+  },
+  {
+   "type": "specific",
+   "title": "AI 데이터센터용 QLC 제품 기술력 확보",
+   "sentence": "최근 AI 서버 확대로 부상하고 있는 고용량 QLC 엔터프라이즈 SSD 시장 적기 대응을 위해 Solidigm과의 통합 시너지를 강화하고, AI 데이터센터용 QLC 기반 61TB Gen5 제품 기술력 확보하는 등 기술 경쟁력 우위를 지속 유지해 나가겠습니다.",
+   "sentence_id": "y2024-II-0231",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250319000665",
+    "page": null
+   },
+   "id": "skhynix-p4"
+  },
+  {
+   "type": "specific",
+   "title": "온디바이스 AI 대응 제품군 준비",
+   "sentence": "앞으로 다가올 온디바이스 AI 수요에 대비하여 데이터 처리 속도와 전력 효율을 개선한 다양한 제품군도 준비 중이며, 고객 수요가 확대되는 시기에 맞춰 적기 공급함으로써 HBM 시장에서 리더십을 계속 이어 나갈 계획입니다.",
+   "sentence_id": "y2024-IV-0016",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250319000665",
+    "page": null
+   },
+   "id": "skhynix-p5"
+  }
+ ],
+ "dropped": []
+}
