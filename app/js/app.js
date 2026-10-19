@@ -195,10 +195,10 @@
           '<div class="tech-strip" aria-label="서비스 핵심 기술">' +
             '<span>DART 공시</span><span>RAG 근거 검색</span><span>Citation 검증</span>' +
           '</div>' +
-          '<div class="hero-stats" aria-label="현재 분석 범위">' +
-            '<div><strong>' + readyCompanies.length + '</strong><span>분석 기업</span></div>' +
-            '<div><strong>' + totalSpecific + '</strong><span>구체적 AI 약속</span></div>' +
-            '<div><strong>' + verifiedCitations + '</strong><span>원문 대조 근거</span></div>' +
+          '<div class="hero-stats" aria-label="현재 서비스 범위">' +
+            '<div><strong class="stat-word">OpenDART</strong><span>기업 검색 범위</span></div>' +
+            '<div><strong>' + readyCompanies.length + '</strong><span>검증 deep analysis</span></div>' +
+            '<div><strong>' + verifiedCitations + '</strong><span>Citation Verified</span></div>' +
           '</div>' +
         '</section>' +
         '<section class="company-picker">' +
