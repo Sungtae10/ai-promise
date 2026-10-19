@@ -1,0 +1,31 @@
+{
+ "promises": [
+  {
+   "type": "directional",
+   "title": "AI 금융 표준 선도",
+   "sentence": "미션 참여형 리워드, 모바일 쿠폰 거래, 생활 요금제 비교 등을 통해 고객이 매일 들어오고 싶은 앱으로 자리매김하여 플랫폼 영향력의 척도가 되는 T&E (Traffic & Engagement)를 증대시킬 것입니다.한편, 당사는 사용자 중심의 대고객 서비스와 생산성 향성을 위한 노력, AI 기술 리딩을 통해 AI Native Bank로서 AI 금융의 스탠다드를 이끌어 가고자 합니다.",
+   "sentence_id": "y2024-II-0145",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250411001905",
+    "page": null
+   },
+   "id": "kakaobank-d1"
+  },
+  {
+   "type": "directional",
+   "title": "AI 기반 서비스 출시",
+   "sentence": "2024년 12월에는 'AI 스미싱 문자 확인' 서비스를 출시함으로써 AI기술을 활용하여 안전한 금융환경 조성에 기여하고 있으며, 향후에도 선도적인 AI기술 기반의 서비스 출시를 통해 새로운 혁신을 이어가고자 합니다.",
+   "sentence_id": "y2024-II-0146",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250411001905",
+    "page": null
+   },
+   "id": "kakaobank-d2"
+  }
+ ],
+ "dropped": []
+}
