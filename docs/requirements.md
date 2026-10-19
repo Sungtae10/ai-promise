@@ -41,8 +41,8 @@ AI Promise의 기능 요구사항, 비기능 요구사항, AI 활용 방식, 시
 | FR-05 | AI 생성 고지 | "공시 범위 안에서 확인한 결과입니다.", "AI가 생성한 분석입니다." 두 문구를 모든 화면에 항상 보여줍니다. 문구는 결과 파일의 `labels.disclaimers`이고, 10/19 검증용 시연 데이터에서는 두 번째 문구가 사람 대조 안내로 바뀝니다 | Must | `app/js/app.js`, `engine/labels.json` | 구현됨 |
 | FR-06 | 예시 데이터 표시 | 실제 결과 파일(`app/data/results.json`)이 없으면 가상 회사 예시 데이터를 쓰고, 화면 맨 위에 예시 데이터라는 띠를 띄웁니다. 결과 파일의 `meta.is_sample`이 true이면 그 파일의 안내(`meta.notice`)를 띠에 보여줍니다 (10/19 검증용 시연 데이터) | Must | `app/js/app.js`, `app/data/sample-data.js` | 구현됨 |
 | FR-07 | 확인한 주체 표시 | 확인 4단계마다 누가 했는지(엔진 결과면 AI, 검증용 시연 데이터면 사람)를 `meta.data_mode`로 정해 보여주고, 엔진 결과에는 검색 횟수를 붙입니다. 실제 데이터에 없는 동작(재분석 버튼, 실행 애니메이션)은 넣지 않습니다 | Should | `app/js/app.js` | 구현됨 |
-| FR-08 | 기업별 검증 안내 | 기업마다 검증 안내(`check_note`)를 적으면 기업 카드와 약속 목록에 보여줍니다. 시연용 기업 3곳(카카오, 신한은행, NAVER)에 "시연용 기업" 안내가 들어 있습니다 | Should | `app/js/app.js`, `engine/config.yaml` | 구현됨 |
-| FR-09 | 다크·라이트 모드 | 테마를 바꾸고, 고른 테마를 브라우저에 기억합니다 | Could | `app/js/app.js` | 구현됨 |
+| FR-08 | 기업별 검증 안내 | 기업마다 검증 안내(`check_note`)를 적으면 기업 카드와 약속 목록의 검증 현황에 보여줍니다. 시연용 기업 3곳(카카오, 신한은행, NAVER)에 "시연용 기업" 안내가 들어 있습니다 | Should | `app/js/app.js`, `engine/config.yaml` | 구현됨 |
+| FR-09 | 다크·라이트 모드, 넓은 화면 | 테마를 바꾸고, 고른 테마를 브라우저에 기억합니다. 960px 이상(노트북·프로젝터)에서는 2단·3단 배치로 보여줍니다 | Could | `app/js/app.js` | 구현됨 |
 | FR-33 | 검증 현황 | 첫 화면(전체)과 약속 목록(기업별)에 자료, 판정 방식, 원문 일치 개수(데이터에서 계산), 사용자 테스트(`app/data/validation.json`의 실제 응답 수와 평균, 없으면 "진행 중")를 보여줍니다 | Should | `app/js/app.js`, `app/data/validation.json` | 구현됨 |
 
 ### 2.2 AI 엔진 (`engine/`)

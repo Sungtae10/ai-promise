@@ -502,3 +502,41 @@ a.tl-col-name { text-decoration: underline; text-underline-offset: 2px; }
 .question-item { display: flex; flex-direction: column; gap: 6px; }
 .question-item + .question-item { padding-top: 12px; border-top: 1px solid var(--line); }
 .q-link { font-size: 12px; font-weight: 700; line-height: 1.5; color: var(--body); text-decoration: underline; }
+
+/* ---------- 14. 넓은 화면 배치 (10/19): 노트북·프로젝터에서 발표할 때. 휴대폰 화면은 그대로 ---------- */
+.cols { display: flex; flex-direction: column; gap: 16px; }
+.pick { display: flex; flex-direction: column; gap: 10px; }
+.cols-list .col-main, .cols-list .col-side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+
+/* 약속 상세 오른쪽 요약: 넓은 화면에서만 */
+.side-sum { display: none; margin: 4px 0 0; }
+/* 출처가 길어도 '약속', '실행 근거' 같은 앞 글자는 한 줄로 */
+.quote-meta > span:first-child { flex: none; }
+
+@media (min-width: 960px) {
+  .app { max-width: 1120px; }
+  .sample-banner { padding: 8px 40px; }
+  .topbar { padding: 8px 40px; }
+  .content { padding: 24px 40px 40px; gap: 24px; }
+  .bottombar { padding: 14px 40px 18px; }
+  .bottombar .btn { width: 100%; max-width: 360px; margin-left: auto; }
+  .bottombar.two { grid-template-columns: repeat(2, minmax(0, 260px)); justify-content: end; }
+
+  .headline { font-size: 34px; }
+  .detail-title { font-size: 28px; }
+  .lead { font-size: 16px; }
+  .quote-text { font-size: 16px; }
+
+  .cols { display: grid; gap: 24px; align-items: start; }
+  .cols-home { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .cols-home .hero { padding-top: 8px; }
+  .cols-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cols-list { grid-template-columns: minmax(0, 1fr) 340px; }
+  .cols-list .col-side { position: sticky; top: 76px; }
+  .cols-detail { grid-template-columns: minmax(0, 1fr) 340px; grid-template-areas: "steps side"; }
+  .cols-detail .stepper { grid-area: steps; }
+  .cols-detail .detail-side { grid-area: side; position: sticky; top: 76px; }
+  .side-sum { display: flex; flex-direction: column; }
+  .side-sum .fact-row:first-child { border-top: 1px solid var(--line); padding-top: 10px; }
+  .cols-card { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

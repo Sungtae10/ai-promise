@@ -200,7 +200,7 @@
     return { total: total, ok: ok };
   }
   // 검증 현황: 데이터에서 계산한 값과 validation.json(사용자 테스트)만 보여줘요
-  function factsPanel(companies, scopeName) {
+  function factsPanel(companies, scopeName, showNote) {
     var spec = [];
     companies.forEach(function (c) { spec = spec.concat(specifics(c)); });
     var cc = citationCount(spec);
@@ -224,6 +224,7 @@
       ['원문 일치', cc.total ? '근거 문장 ' + cc.total + '개 중 ' + cc.ok + '개 ' + L.citation_verified_label : '확인할 근거 문장이 아직 없어요'],
       ['사용자 테스트', utText]
     ];
+    if (showNote && companies.length === 1 && companies[0].check_note) rows.splice(1, 0, ['기업 안내', companies[0].check_note]);
     return '<section class="card facts" aria-label="' + esc(scopeName) + ' 검증 현황">' +
       '<h2 class="card-title">' + esc(scopeName) + ' 검증 현황</h2>' +
       '<dl class="fact-list">' + rows.map(function (r) {
@@ -302,22 +303,26 @@
 
     return topbar('<div class="brand">' + ICON.shield + esc(L.service_name) + '</div>') +
       '<main class="content">' + disclaimers() +
-        '<section class="hero">' +
+        '<div class="cols cols-home">' +
+        '<section class="hero col-main">' +
           '<p class="eyebrow">' + esc(L.service_subtitle) + ' · ' + esc(L.tagline) + '</p>' +
           '<h1 class="headline">면접 볼 회사의 AI 약속을<br>다음 해 공시와 맞춰 봐요</h1>' +
           '<p class="lead">사업보고서의 "하겠다"를 찾고, 다음 보고서에서 "했다"는 근거를 찾아 원문과 함께 보여드려요.</p>' +
           '<p class="hero-flow">DART 정기공시 → 약속 찾기 → 근거 찾기(RAG 검색) → 판정 → 원문 인용 검사</p>' +
           heroExample() +
         '</section>' +
-        '<section style="display:flex;flex-direction:column;gap:10px">' +
+        '<section class="col-side pick">' +
           '<h2 class="section-label">기업 고르기</h2>' +
           '<div class="company-list">' + companies + '</div>' +
         '</section>' +
+        '</div>' +
+        '<div class="cols cols-pair">' +
         '<section class="card">' +
           '<h2 class="card-title">AI가 확인하는 4단계</h2>' + pipeHtml +
           (isHumanData() ? '<p class="note">지금 화면의 판정은 같은 4단계를 사람이 원문과 대조해 만든 검증용 데이터예요. 엔진도 같은 형식으로 결과를 만들어요.</p>' : '') +
         '</section>' +
         (ready.length ? factsPanel(ready, '전체') : '') +
+        '</div>' +
       '</main>' +
       '<footer class="bottombar"><p class="note">자료: 금융감독원 전자공시(DART)' + (allReports.length ? ' · ' + esc(allReports.join(', ')) : '') + '</p></footer>';
   }
@@ -356,21 +361,21 @@
       '<main class="content">' + disclaimers() +
         '<section style="display:flex;flex-direction:column;gap:6px">' +
           '<p class="eyebrow">' + esc(company.name) + '</p>' +
-          (company.check_note ? '<p class="note check-note">' + esc(company.check_note) + '</p>' : '') +
           '<h1 class="headline">구체적 약속 ' + spec.length + '개 중</h1>' +
           '<p class="count-line">' + esc(countLine(spec)) + '</p>' +
         '</section>' +
         '<section class="card" aria-label="판정별 개수">' +
           '<div class="summary-grid">' + grid + '</div>' +
         '</section>' +
+        '<div class="cols cols-list"><div class="col-main">' +
         '<section class="timeline" aria-label="보고서별 약속과 근거">' +
           trackHead(company, true) +
           '<ul class="tl-rows">' + rows + '</ul>' +
           '<p class="note">첫 점은 약속한 보고서예요. 색이 찬 점은 그 보고서에서 근거 문장을 찾았다는 뜻이에요. 보고서 이름을 누르면 DART 원문이 열려요.</p>' +
         '</section>' +
         dirBlock +
-        factsPanel([company], company.name) +
         '<p class="note">' + esc(nv.label || '') + ': ' + esc(nv.meaning || '') + '</p>' +
+        '</div><div class="col-side">' + factsPanel([company], company.name, true) + '</div></div>' +
       '</main>' +
       '<footer class="bottombar"><a class="btn btn-primary" href="#/c/' + encodeURIComponent(company.id) + '/card">면접 카드 보기</a></footer>';
   }
@@ -449,6 +454,7 @@
     var pill = specific
       ? '<span class="verdict-pill">' + esc(verdictLabel(p.verdict)) + '</span>'
       : '<span class="verdict-pill">' + esc(L.promise_types.directional.label) + '</span>';
+    var evReports = cols.slice(1).filter(function (c) { return evidenceIn(p, c.title).length; }).map(function (c) { return c.title; });
     var secondLink = evidence.length && evidence[0].source
       ? docLink(evidence[0].source, evidence[0].source.report + ' 원문')
       : '<a class="btn btn-secondary btn-sm" href="' + listHref + '">목록으로</a>';
@@ -458,9 +464,18 @@
         '<section style="display:flex;flex-direction:column;gap:10px">' +
           pill +
           '<h1 class="detail-title">' + esc(p.title) + '</h1>' +
-          '<div class="detail-track">' + trackHead(company, false) + track(company, p) + '</div>' +
         '</section>' +
-        '<ol class="stepper" aria-label="확인 4단계">' + s1 + s2 + s3 + s4 + '</ol>' +
+        '<div class="cols cols-detail">' +
+          '<div class="detail-side"><div class="detail-track">' + trackHead(company, false) + track(company, p) +
+            '<dl class="side-sum">' +
+              '<div class="fact-row"><dt class="fact-key">판정</dt><dd class="fact-val">' + esc(specific ? verdictLabel(p.verdict) : L.promise_types.directional.label) + '</dd></div>' +
+              '<div class="fact-row"><dt class="fact-key">' + esc(specific ? '근거' : '관련 활동') + '</dt><dd class="fact-val">' + esc(evReports.length ? evReports.join(', ') : '찾지 못함') + '</dd></div>' +
+              '<div class="fact-row"><dt class="fact-key">원문 일치</dt><dd class="fact-val">' + esc(cc.total ? cc.ok + '/' + cc.total : '해당 없음') + '</dd></div>' +
+              '<div class="fact-row"><dt class="fact-key">확인</dt><dd class="fact-val">' + esc(human ? '사람이 원문 대조' : 'AI 엔진, 판정기준 v2') + '</dd></div>' +
+            '</dl>' +
+          '</div></div>' +
+          '<ol class="stepper" aria-label="확인 4단계">' + s1 + s2 + s3 + s4 + '</ol>' +
+        '</div>' +
       '</main>' +
       '<footer class="bottombar two">' + docLink(p.source, ((p.source || {}).report || '약속') + ' 원문') + secondLink + '</footer>';
   }
@@ -521,10 +536,12 @@
           '<h1 class="headline">면접 5분 전,<br>이것만 보고 들어가세요</h1>' +
           '<p class="note">' + esc(L.interview_card_notice) + '</p>' +
         '</section>' +
+        '<div class="cols cols-card">' +
         '<section class="card"><h2 class="card-title">확인된 사실 ' + facts.length + '</h2>' +
           '<p class="note">공시 원문 문장 그대로예요.</p>' + factHtml + '</section>' +
         '<section class="card"><h2 class="card-title">면접에서 쓸 포인트 ' + tpData.length + '</h2>' + answers + '</section>' +
         '<section class="card"><h2 class="card-title">회사에 물어볼 질문 ' + qData.length + '</h2>' + questions + '</section>' +
+        '</div>' +
       '</main>' +
       '<footer class="bottombar two">' +
         '<button type="button" class="btn btn-secondary" id="copy-btn">카드 복사하기</button>' +

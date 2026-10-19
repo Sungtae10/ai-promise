@@ -4,7 +4,7 @@
 results.json 요청을 막아 한 번 더 봅니다.
 다크와 라이트 두 테마에서 확인하는 것:
 1. 글자 대비: 작은 글자 4.5:1, 큰 글자(24px 이상, 또는 18.66px 이상 굵게) 3:1 이상 (WCAG AA). 접힌 묶음도 펼쳐서 봅니다.
-2. 가로 넘침: 390px, 320px 폭에서 화면이 옆으로 밀리지 않는지
+2. 가로 넘침: 390px, 320px, 1280px 폭에서 화면이 옆으로 밀리지 않는지
 3. 필수 부품: 예시 데이터 띠에 배경이 있는지, 안내 문구가 작은 글자인지, "원문 보기"에 밑줄이 있는지
 4. 오류: 자바스크립트 오류가 없는지, 불러오지 못한 파일이 없는지
    (data/results.json이 없는 것과 글꼴 CDN에 못 닿는 것은 정상이라 넘어갑니다)
@@ -26,7 +26,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
 APP = ROOT / "app"
-WIDTHS = (390, 320)
+WIDTHS = (390, 320, 1280)   # 글자 대비는 첫 폭에서만, 가로 넘침은 모든 폭에서 봅니다 (1280은 노트북·프로젝터)
 THEMES = ("dark", "light")
 ALLOWED_FAILED = ("data/results.json", "data/validation.json", "cdn.jsdelivr.net", "favicon.ico")
 
