@@ -220,6 +220,10 @@
             '<span>DART 실시간 검색 결과를 확인해 주세요.</span>' +
           '</div>' +
         '</section>' +
+        '<section class="compare-cta">' +
+          '<div><span class="insight-eyebrow">COMPARE</span><strong>지원 기업을 나란히 비교해 보세요</strong><p>검증 분석이 완료된 기업의 AI 약속·근거 상태와 면접 포인트를 한 화면에서 비교합니다.</p></div>' +
+          '<a class="btn btn-secondary" href="#/compare">기업 비교 열기</a>' +
+        '</section>' +
         '<section class="card">' +
           '<h2 class="card-title" style="font-size:13px">이렇게 확인해요</h2>' +
           '<ol class="steps">' +
@@ -466,6 +470,76 @@
   }
 
 
+
+  /* ---------- 화면 5: 검증 완료 기업 비교 ---------- */
+  function companyMetrics(company) {
+    var spec = specifics(company);
+    var counts = countVerdicts(spec);
+    var verified = (company.promises || []).reduce(function (sum, p) {
+      return sum + (p.evidence || []).filter(function (e) { return e.citation_verified === true; }).length;
+    }, 0);
+    return {
+      specific: spec.length,
+      evidence_found: counts.evidence_found || 0,
+      partial: counts.partial || 0,
+      not_verifiable: counts.not_verifiable || 0,
+      verified: verified
+    };
+  }
+
+  function compareCompanyPanel(company, side) {
+    if (!company) return '<div class="compare-panel empty">비교할 기업을 선택해 주세요.</div>';
+    var m = companyMetrics(company);
+    var card = company.interview_card || {};
+    var points = (card.talking_points || []).slice(0, 2).map(function (x) {
+      return '<li>' + esc(x.text) + '</li>';
+    }).join('');
+    return '<article class="compare-panel">' +
+      '<div class="compare-company-head">' +
+        '<span class="compare-side">' + esc(side) + '</span>' +
+        '<div><h2>' + esc(company.name) + '</h2><small>검증 완료 deep analysis</small></div>' +
+      '</div>' +
+      '<div class="compare-metrics">' +
+        '<div><strong>' + m.specific + '</strong><span>구체적 약속</span></div>' +
+        '<div><strong>' + m.evidence_found + '</strong><span>근거 확인</span></div>' +
+        '<div><strong>' + m.partial + '</strong><span>일부 확인</span></div>' +
+        '<div><strong>' + m.not_verifiable + '</strong><span>확인 불가</span></div>' +
+        '<div><strong>' + m.verified + '</strong><span>Citation Verified</span></div>' +
+      '</div>' +
+      (points ? '<div class="compare-insights"><span class="insight-eyebrow">INTERVIEW SIGNAL</span><ul>' + points + '</ul></div>' : '') +
+      '<a class="btn btn-secondary btn-sm" href="#/c/' + encodeURIComponent(company.id) + '">상세 분석 보기</a>' +
+    '</article>';
+  }
+
+  function viewCompare(leftId, rightId) {
+    var ready = (DATA.companies || []).filter(function (x) { return (x.promises || []).length > 0; });
+    var left = findCompany(leftId) || ready[0] || null;
+    var right = findCompany(rightId) || ready.filter(function (x) { return !left || x.id !== left.id; })[0] || ready[0] || null;
+    var options = ready.map(function (x) {
+      return '<option value="' + esc(x.id) + '">' + esc(x.name) + '</option>';
+    }).join('');
+
+    return topbar(backLink('#/', '기업 검색')) +
+      '<main class="content">' + disclaimers() +
+        '<section class="compare-hero">' +
+          '<p class="eyebrow">COMPARE · VERIFIED ANALYSIS</p>' +
+          '<h1 class="headline">지원 기업 AI 전략을<br><span class="hl">한눈에 비교하세요.</span></h1>' +
+          '<p class="lead">같은 판정 기준으로 정리된 약속·근거 상태와 면접 포인트를 비교합니다.</p>' +
+        '</section>' +
+        '<section class="compare-controls card">' +
+          '<label>기업 A<select id="compare-left">' + options + '</select></label>' +
+          '<span class="compare-vs">VS</span>' +
+          '<label>기업 B<select id="compare-right">' + options + '</select></label>' +
+        '</section>' +
+        '<section class="compare-grid">' +
+          compareCompanyPanel(left, 'A') +
+          compareCompanyPanel(right, 'B') +
+        '</section>' +
+        '<p class="note">기업 간 우열이나 투자 판단을 제공하지 않습니다. 공시에서 확인된 약속·근거 상태를 같은 기준으로 나란히 보여줍니다.</p>' +
+      '</main>' +
+      '<footer class="bottombar"><a class="btn btn-primary" href="#/">다른 기업 검색</a></footer>';
+  }
+
   /* ---------- OpenDART universal company search ---------- */
   function normalizeCompanyName(value) {
     return String(value || '').toLowerCase().replace(/\s+/g, '').replace(/\(주\)|주식회사/g, '');
@@ -607,6 +681,8 @@
 
     if (parts.length === 0) {
       html = viewHome();
+    } else if (parts[0] === 'compare') {
+      html = viewCompare(parts[1], parts[2]); title = '기업 AI 전략 비교';
     } else if (company && parts.length === 2) {
       html = viewList(company); title = company.name + ' 약속 목록';
     } else if (company && parts[2] === 'p' && findPromise(company, parts[3])) {
@@ -652,6 +728,27 @@
           location.hash = first.getAttribute('href');
         }
       });
+    }
+    var compareLeft = document.getElementById('compare-left');
+    var compareRight = document.getElementById('compare-right');
+    if (compareLeft && compareRight) {
+      var currentParts = (location.hash.replace(/^#\/?/, '') || '').split('/').filter(Boolean).map(decodeURIComponent);
+      var currentLeft = currentParts[1] || compareLeft.options[0] && compareLeft.options[0].value || '';
+      var currentRight = currentParts[2] || compareRight.options[1] && compareRight.options[1].value || compareRight.options[0] && compareRight.options[0].value || '';
+      compareLeft.value = currentLeft;
+      compareRight.value = currentRight;
+      function updateCompareHash() {
+        var l = compareLeft.value;
+        var r = compareRight.value;
+        if (l === r && compareRight.options.length > 1) {
+          for (var i = 0; i < compareRight.options.length; i++) {
+            if (compareRight.options[i].value !== l) { r = compareRight.options[i].value; compareRight.value = r; break; }
+          }
+        }
+        location.hash = '#/compare/' + encodeURIComponent(l) + '/' + encodeURIComponent(r);
+      }
+      compareLeft.addEventListener('change', updateCompareHash);
+      compareRight.addEventListener('change', updateCompareHash);
     }
     var copyBtn = document.getElementById('copy-btn');
     if (copyBtn && company) {
