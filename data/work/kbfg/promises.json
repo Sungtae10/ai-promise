@@ -1,0 +1,70 @@
+{
+ "promises": [
+  {
+   "type": "specific",
+   "title": "AI/DT 기반 채널·시스템 고도화",
+   "sentence": "시장과 고객의 눈높이에 부응할 수 있는 AI/DT 기반 채널 지원 역량 강화와 시스템 고도화를 추진하고, 디지털 혁신을 기반으로 고객 접점 마케팅 및 플랫폼을 구축하여 회사 주도의 고객경험 혁신을 선도하겠습니다.",
+   "sentence_id": "y2024-II-0103",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-p1"
+  },
+  {
+   "type": "specific",
+   "title": "AI 활용 시장예측력 제고",
+   "sentence": "변동성이 심한 국내외 증시 상황 속에서도 안정적인 포트폴리오 운영 및 AI를 활용한 시장예측력 제고 등 꾸준한 수익 제고를 위해 全 사업부문별 역량 강화에 더욱 힘쓰겠습니다.",
+   "sentence_id": "y2024-II-0110",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-p2"
+  },
+  {
+   "type": "directional",
+   "title": "AI/Tech 기반 일하는 방식 혁신",
+   "sentence": "신가치체계 구축 및 AI/Tech 내재역량을 강화하고, 장기적 인력 운용 전략 및 미래 인재 육성체계를 수립하는 등 AI/Tech 기반의 일하는 방식 변화및 인력 효율화를 통해 성장 구조를 구축하겠습니다.",
+   "sentence_id": "y2024-II-0105",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-d1"
+  },
+  {
+   "type": "directional",
+   "title": "AI 활용 고객경험 혁신",
+   "sentence": "AI데이터를 활용하여 차별화된 고객경험 혁신을 지속적으로 추진 하여 고객 중심의 디지털 금융 서비스를 고도화 할 것입니다.",
+   "sentence_id": "y2024-II-1007",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-d2"
+  },
+  {
+   "type": "directional",
+   "title": "AI 도입을 통한 사업모델·서비스 발굴",
+   "sentence": "'효율 경영'은 비용 절감과 자본활용 최적화를 통해 수익성을 극대화하는 한편, '혁신 성장'은 디지털혁신과 AI기술을 적극 도입하여 새로운 사업 모델을 발굴하고 고객 맞춤형 서비스를 제공하는데 집중할 것입니다.",
+   "sentence_id": "y2024-IV-0022",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-d3"
+  }
+ ],
+ "dropped": []
+}

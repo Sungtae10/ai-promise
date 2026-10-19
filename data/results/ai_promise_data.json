@@ -1,0 +1,305 @@
+{
+ "meta": {
+  "is_sample": false,
+  "notice": "",
+  "schema_version": "0.1",
+  "updated": "2026-10-19",
+  "engine": {
+   "extract_model": "gpt-6-luna",
+   "judge_model": "gpt-6.1-sol",
+   "card_model": "gpt-6.1-sol",
+   "embed_model": "text-embedding-3-large"
+  }
+ },
+ "labels": {
+  "service_name": "AI Promise",
+  "service_subtitle": "기업 AI 약속 검증",
+  "tagline": "면접 전 5분 기업 AI 체크",
+  "disclaimers": [
+   "공시 범위 안에서 확인한 결과입니다.",
+   "AI가 생성한 분석입니다."
+  ],
+  "verdicts": {
+   "evidence_found": {
+    "label": "근거 확인",
+    "short_label": "근거 확인",
+    "meaning": "약속과 같은 대상이 후속 공시에 실행한 것으로 적혀 있음"
+   },
+   "partial": {
+    "label": "일부 확인",
+    "short_label": "일부 확인",
+    "meaning": "관련 활동은 있으나 범위, 시점, 수치가 약속에 못 미치거나 불분명함"
+   },
+   "not_verifiable": {
+    "label": "공시에서 확인 불가",
+    "short_label": "확인 불가",
+    "meaning": "읽은 공시 범위에서 찾지 못함. 미이행이라는 뜻이 아님"
+   },
+   "company_reported_not_pursued": {
+    "label": "회사가 미추진으로 공시",
+    "short_label": "미추진 공시",
+    "meaning": "회사가 추진하지 않았다고 직접 적음"
+   }
+  },
+  "promise_types": {
+   "specific": {
+    "label": "구체적 약속",
+    "note": "판정하고 개수에 넣습니다."
+   },
+   "directional": {
+    "label": "방향성 약속",
+    "note": "방향이 넓어 판정하지 않고 관련 활동만 보여줍니다. 개수에는 넣지 않습니다."
+   }
+  },
+  "not_verifiable_message": "읽은 공시 범위에서 관련 내용을 찾지 못했습니다. 면접에서 추진 방향을 질문해 보세요.",
+  "no_related_activity_message": "읽은 공시 범위에서 관련 활동을 찾지 못했습니다.",
+  "citation_verified_label": "원문 확인됨",
+  "interview_card_notice": "완성된 답변이 아니라 근거가 붙은 소재입니다. 자신의 말로 바꿔 쓰세요."
+ },
+ "companies": [
+  {
+   "id": "kbfg",
+   "name": "KB금융",
+   "reports": {
+    "promise": [
+     {
+      "title": "2024 사업보고서",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822"
+     }
+    ],
+    "evidence": [
+     {
+      "title": "2025 사업보고서",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000835"
+     },
+     {
+      "title": "2026 반기보고서",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200"
+     }
+    ]
+   },
+   "promises": [
+    {
+     "id": "kbfg-p1",
+     "type": "specific",
+     "title": "AI/DT 기반 채널·시스템 고도화",
+     "sentence": "시장과 고객의 눈높이에 부응할 수 있는 AI/DT 기반 채널 지원 역량 강화와 시스템 고도화를 추진하고, 디지털 혁신을 기반으로 고객 접점 마케팅 및 플랫폼을 구축하여 회사 주도의 고객경험 혁신을 선도하겠습니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+      "page": null
+     },
+     "verdict": "partial",
+     "reason": "2025 사업보고서에는 인공지능 마케팅 시스템(AIMs)을 활용해 마케팅 전 과정을 체계화하고, KB Pay 중심의 디지털 채널 강화와 데이터 활용으로 고객 접점을 확대하고 있다고 적혀 있습니다. 이는 약속한 AI 기반 고객 접점 마케팅 및 디지털 채널 강화와 관련된 실행 내용입니다. 다만 채널 지원 역량 강화와 시스템 고도화, 고객 접점 플랫폼 구축이 약속한 범위 전반에서 이루어졌는지는 명확하지 않아 일부 확인으로 판단합니다.",
+     "evidence": [
+      {
+       "sentence": "당사는 인공지능 마케팅 시스템(AIMs)을 활용하여 고객 데이터 분석, 타겟선정, 오퍼 설계, 집행 및 성과 분석에 이르는 마케팅 전 과정을 체계화하였으며, 고객 생애 가치(LTV) 및 반응 예측 기반의 정교한 타겟팅을 통해 마케팅 효율성을 제고하고 있습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000835",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "한편 지급결제 시장은 플랫폼 중심 경쟁으로 전환되고 있으며, 결제를 기반으로 자산 관리등 금융 서비스를 연계하는 통합 플랫폼 역량이 중요한 차별화 요소로 작용하고 있습니다.당사는 KB Pay를 중심으로 결제·카드·자산 관리 서비스를 통합 제공하는 전략을 추진하고 있으며, 디지털 채널 경쟁력 강화와 데이터 활용 고도화를 통해 고객 접점을 확대하고 있습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000835",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    },
+    {
+     "id": "kbfg-p2",
+     "type": "specific",
+     "title": "AI 활용 시장예측력 제고",
+     "sentence": "변동성이 심한 국내외 증시 상황 속에서도 안정적인 포트폴리오 운영 및 AI를 활용한 시장예측력 제고 등 꾸준한 수익 제고를 위해 全 사업부문별 역량 강화에 더욱 힘쓰겠습니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+      "page": null
+     },
+     "verdict": "evidence_found",
+     "reason": "약속한 AI 활용 시장예측력 제고와 관련하여, 2026 반기보고서는 AI 기반 투자분석 및 시장예측 역량을 고도화하여 운용 경쟁력을 강화하고 있다고 기재했습니다. 동일한 포트폴리오 운용 및 시장예측 활동을 향후 계획이 아닌 진행 중인 활동으로 보고했으며, 약속에는 별도의 완료 시점이나 수치 목표가 없습니다.",
+     "evidence": [
+      {
+       "sentence": "이를 위해 변동성이 높은 국내외 금융시장 환경에서도 안정적인 포트폴리오 운용 체계를 유지하는 한편, AI 기반 투자분석 및 시장예측 역량을 고도화하여 운용 경쟁력을 지속적으로 강화하고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    },
+    {
+     "id": "kbfg-d1",
+     "type": "directional",
+     "title": "AI/Tech 기반 일하는 방식 혁신",
+     "sentence": "신가치체계 구축 및 AI/Tech 내재역량을 강화하고, 장기적 인력 운용 전략 및 미래 인재 육성체계를 수립하는 등 AI/Tech 기반의 일하는 방식 변화및 인력 효율화를 통해 성장 구조를 구축하겠습니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+      "page": null
+     },
+     "verdict": null,
+     "reason": null,
+     "evidence": [
+      {
+       "sentence": "금융 규제 완화와 고객 수요의 다변화로 IT 융합 분야가 확장됨에 따라, 클라우드와 AI 등 신기술 부문에 대한 투자를 지속하며 핵심 역량을 내재화하고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "은행업-AI 데이터 간 연계 극대화와 민첩하고 유연한 인프라 구축 및 핵심 테크 역량 내재화를 통해 차별적인 경쟁력을 확보하기 위한 시스템과 역량을 고도화하고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    },
+    {
+     "id": "kbfg-d2",
+     "type": "directional",
+     "title": "AI 활용 고객경험 혁신",
+     "sentence": "AI데이터를 활용하여 차별화된 고객경험 혁신을 지속적으로 추진 하여 고객 중심의 디지털 금융 서비스를 고도화 할 것입니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+      "page": null
+     },
+     "verdict": null,
+     "reason": null,
+     "evidence": [
+      {
+       "sentence": "KB국민카드는 인공지능 마케팅 시스템(AIMs)을 활용하여 고객 데이터 분석, 타겟선정, 오퍼 설계, 집행 및 성과 분석에 이르는 마케팅 전 과정을 체계화하였으며, 고객 생애 가치(LTV) 및 반응 예측 기반의 정교한 타겟팅을 통해 마케팅 효율성을 제고하고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "지속 가능한 성장 기반 구축을 위해 영업·마케팅 전략 고도화와 고객 세그먼트 정교화를 추진하고 있으며, 데이터 분석 및 AI 기반 마케팅 고도화를 통해 영업 효율성과 고객 경험을 동시에 개선하고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    },
+    {
+     "id": "kbfg-d3",
+     "type": "directional",
+     "title": "AI 도입을 통한 사업모델·서비스 발굴",
+     "sentence": "'효율 경영'은 비용 절감과 자본활용 최적화를 통해 수익성을 극대화하는 한편, '혁신 성장'은 디지털혁신과 AI기술을 적극 도입하여 새로운 사업 모델을 발굴하고 고객 맞춤형 서비스를 제공하는데 집중할 것입니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+      "page": null
+     },
+     "verdict": null,
+     "reason": null,
+     "evidence": [
+      {
+       "sentence": "본업 핵심 경쟁력을 강화하여 보험회사의 핵심 펀더멘털인 보험 매출의 내실 있는 성장과 수익성 관련 핵심 경영효율 지표를 개선하였으며, 다차원적 경쟁환경에서 채널이 안정적으로 상품을 공급할 수 있도록 채널별 특성을 고려한 성장 전략을 추진하고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "또한, 미래 보험업 환경변화에 선제적 대응을 위해 디지털 신기술을 활용하여 고객과의 모든 접점에서 디지털 기반 고객서비스혁신을 지속적으로강화해 나가고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    }
+   ],
+   "interview_card": {
+    "issues": [
+     {
+      "text": "AIMs를 활용한 고객 데이터 분석부터 성과 분석까지의 마케팅 전 과정 체계화 (일부 확인)",
+      "promise_id": "kbfg-p1"
+     },
+     {
+      "text": "KB Pay 중심 통합 서비스 전략 추진 및 디지털 채널·데이터 활용 고도화를 통한 고객 접점 확대 (일부 확인)",
+      "promise_id": "kbfg-p1"
+     },
+     {
+      "text": "AI 기반 투자분석 및 시장예측 역량 고도화를 통한 운용 경쟁력 강화 (근거 확인)",
+      "promise_id": "kbfg-p2"
+     }
+    ],
+    "talking_points": [
+     {
+      "text": "AIMs를 활용해 고객 데이터 분석, 타겟 선정, 오퍼 설계, 집행 및 성과 분석에 이르는 마케팅 전 과정을 체계화하고 있습니다. 고객 생애 가치(LTV)와 반응 예측 기반의 타겟팅을 통해 마케팅 효율성을 높이고 있습니다.",
+      "promise_id": "kbfg-p1",
+      "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000835"
+     },
+     {
+      "text": "KB Pay를 중심으로 결제·카드·자산 관리 서비스를 통합 제공하는 전략을 추진하고 있습니다. 디지털 채널 경쟁력 강화와 데이터 활용 고도화를 통해 고객 접점을 확대하고 있습니다.",
+      "promise_id": "kbfg-p1",
+      "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000835"
+     },
+     {
+      "text": "변동성이 높은 국내외 금융시장 환경에서 안정적인 포트폴리오 운용 체계를 유지하고 있습니다. AI 기반 투자분석 및 시장예측 역량을 고도화하여 운용 경쟁력을 지속적으로 강화하고 있습니다.",
+      "promise_id": "kbfg-p2",
+      "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200"
+     }
+    ],
+    "questions": [
+     {
+      "text": "공시에서 AIMs 활용과 디지털 채널 강화는 확인했으나, 채널 지원 역량 강화와 시스템 고도화의 전체 적용 범위는 확인하기 어려웠습니다. 현재 어느 범위까지 진행됐는지 궁금합니다.",
+      "promise_id": "kbfg-p1"
+     },
+     {
+      "text": "공시에서 KB Pay 중심의 통합 서비스 전략은 확인했으나, 약속한 고객 접점 플랫폼 구축의 구체적인 진행 단계는 확인하기 어려웠습니다. 플랫폼 구축 현황과 향후 중점 과제가 궁금합니다.",
+      "promise_id": "kbfg-p1"
+     }
+    ]
+   },
+   "check_note": "AI 엔진 결과예요(사람 검토 전). 근거 문장은 코드가 원문과 글자 그대로 대조했고, 사람 정답과 비교한 정확도는 없어요.",
+   "data_mode": "engine"
+  }
+ ]
+}

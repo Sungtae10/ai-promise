@@ -1,0 +1,342 @@
+{
+ "retrieval_mode": "키워드 + 의미",
+ "models_used": {
+  "extract": [
+   "gpt-6-luna"
+  ],
+  "judge": [
+   "gpt-6.1-sol"
+  ],
+  "judge_escalation": [
+   "gpt-6-astra"
+  ],
+  "related": [
+   "gpt-6.1-sol"
+  ]
+ },
+ "promises": [
+  {
+   "type": "specific",
+   "title": "AI/DT 기반 채널·시스템 고도화",
+   "sentence": "시장과 고객의 눈높이에 부응할 수 있는 AI/DT 기반 채널 지원 역량 강화와 시스템 고도화를 추진하고, 디지털 혁신을 기반으로 고객 접점 마케팅 및 플랫폼을 구축하여 회사 주도의 고객경험 혁신을 선도하겠습니다.",
+   "sentence_id": "y2024-II-0103",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-p1",
+   "verdict": "partial",
+   "reason": "2025 사업보고서에는 인공지능 마케팅 시스템(AIMs)을 활용해 마케팅 전 과정을 체계화하고, KB Pay 중심의 디지털 채널 강화와 데이터 활용으로 고객 접점을 확대하고 있다고 적혀 있습니다. 이는 약속한 AI 기반 고객 접점 마케팅 및 디지털 채널 강화와 관련된 실행 내용입니다. 다만 채널 지원 역량 강화와 시스템 고도화, 고객 접점 플랫폼 구축이 약속한 범위 전반에서 이루어졌는지는 명확하지 않아 일부 확인으로 판단합니다.",
+   "evidence": [
+    {
+     "sentence": "당사는 인공지능 마케팅 시스템(AIMs)을 활용하여 고객 데이터 분석, 타겟선정, 오퍼 설계, 집행 및 성과 분석에 이르는 마케팅 전 과정을 체계화하였으며, 고객 생애 가치(LTV) 및 반응 예측 기반의 정교한 타겟팅을 통해 마케팅 효율성을 제고하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000835",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-II-1012"
+    },
+    {
+     "sentence": "한편 지급결제 시장은 플랫폼 중심 경쟁으로 전환되고 있으며, 결제를 기반으로 자산 관리등 금융 서비스를 연계하는 통합 플랫폼 역량이 중요한 차별화 요소로 작용하고 있습니다.당사는 KB Pay를 중심으로 결제·카드·자산 관리 서비스를 통합 제공하는 전략을 추진하고 있으며, 디지털 채널 경쟁력 강화와 데이터 활용 고도화를 통해 고객 접점을 확대하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000835",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-II-1013"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI/DT 기반 채널·시스템 고도화 시장과 고객의 눈높이에 부응할 수 있는 AI/DT 기반 채널 지원 역량 강화와 시스템 고도화를 추진하고, 디지털 혁신을 기반으로 고객 접점 마케팅 및 플랫폼을 구축하여 회사 주도의 고객경험 혁신을 선도하겠습니다.",
+     "candidates": [
+      "h2026-II-0107",
+      "h2026-II-0108",
+      "h2026-II-0109",
+      "y2025-II-0117",
+      "y2025-II-0118",
+      "y2025-II-0119",
+      "y2025-II-1011",
+      "y2025-II-1012",
+      "y2025-II-1013",
+      "h2026-II-1250",
+      "h2026-II-1251",
+      "h2026-II-1252"
+     ],
+     "verdict": "partial",
+     "evidence_ids": [
+      "y2025-II-1012",
+      "y2025-II-1013"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol",
+   "escalation": {
+    "model": "gpt-6-astra",
+    "first_verdict": "partial",
+    "second_verdict": "partial",
+    "adopted": true
+   }
+  },
+  {
+   "type": "specific",
+   "title": "AI 활용 시장예측력 제고",
+   "sentence": "변동성이 심한 국내외 증시 상황 속에서도 안정적인 포트폴리오 운영 및 AI를 활용한 시장예측력 제고 등 꾸준한 수익 제고를 위해 全 사업부문별 역량 강화에 더욱 힘쓰겠습니다.",
+   "sentence_id": "y2024-II-0110",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-p2",
+   "verdict": "evidence_found",
+   "reason": "약속한 AI 활용 시장예측력 제고와 관련하여, 2026 반기보고서는 AI 기반 투자분석 및 시장예측 역량을 고도화하여 운용 경쟁력을 강화하고 있다고 기재했습니다. 동일한 포트폴리오 운용 및 시장예측 활동을 향후 계획이 아닌 진행 중인 활동으로 보고했으며, 약속에는 별도의 완료 시점이나 수치 목표가 없습니다.",
+   "evidence": [
+    {
+     "sentence": "이를 위해 변동성이 높은 국내외 금융시장 환경에서도 안정적인 포트폴리오 운용 체계를 유지하는 한편, AI 기반 투자분석 및 시장예측 역량을 고도화하여 운용 경쟁력을 지속적으로 강화하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-0115"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 활용 시장예측력 제고 변동성이 심한 국내외 증시 상황 속에서도 안정적인 포트폴리오 운영 및 AI를 활용한 시장예측력 제고 등 꾸준한 수익 제고를 위해 全 사업부문별 역량 강화에 더욱 힘쓰겠습니다.",
+     "candidates": [
+      "y2025-II-0125",
+      "y2025-II-0126",
+      "y2025-II-0127",
+      "h2026-II-0115",
+      "h2026-II-0116",
+      "h2026-II-0117",
+      "y2025-II-0124",
+      "h2026-II-0114",
+      "h2026-II-0128",
+      "h2026-II-0129",
+      "h2026-II-0130",
+      "y2025-II-0021"
+     ],
+     "verdict": "evidence_found",
+     "evidence_ids": [
+      "h2026-II-0115"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol"
+  },
+  {
+   "type": "directional",
+   "title": "AI/Tech 기반 일하는 방식 혁신",
+   "sentence": "신가치체계 구축 및 AI/Tech 내재역량을 강화하고, 장기적 인력 운용 전략 및 미래 인재 육성체계를 수립하는 등 AI/Tech 기반의 일하는 방식 변화및 인력 효율화를 통해 성장 구조를 구축하겠습니다.",
+   "sentence_id": "y2024-II-0105",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-d1",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "금융 규제 완화와 고객 수요의 다변화로 IT 융합 분야가 확장됨에 따라, 클라우드와 AI 등 신기술 부문에 대한 투자를 지속하며 핵심 역량을 내재화하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-1255"
+    },
+    {
+     "sentence": "은행업-AI 데이터 간 연계 극대화와 민첩하고 유연한 인프라 구축 및 핵심 테크 역량 내재화를 통해 차별적인 경쟁력을 확보하기 위한 시스템과 역량을 고도화하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-0994"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI/Tech 기반 일하는 방식 혁신 신가치체계 구축 및 AI/Tech 내재역량을 강화하고, 장기적 인력 운용 전략 및 미래 인재 육성체계를 수립하는 등 AI/Tech 기반의 일하는 방식 변화및 인력 효율화를 통해 성장 구조를 구축하겠습니다.",
+     "candidates": [
+      "y2025-II-0102",
+      "y2025-II-0103",
+      "y2025-II-0104",
+      "y2025-II-0117",
+      "y2025-II-0118",
+      "y2025-II-0119",
+      "h2026-II-0107",
+      "h2026-II-0108",
+      "h2026-II-0109",
+      "y2025-II-0136",
+      "y2025-II-0137",
+      "y2025-II-0138"
+     ],
+     "related_ids": [
+      "h2026-II-1255",
+      "h2026-II-0994"
+     ]
+    }
+   ],
+   "flags": []
+  },
+  {
+   "type": "directional",
+   "title": "AI 활용 고객경험 혁신",
+   "sentence": "AI데이터를 활용하여 차별화된 고객경험 혁신을 지속적으로 추진 하여 고객 중심의 디지털 금융 서비스를 고도화 할 것입니다.",
+   "sentence_id": "y2024-II-1007",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "II. 사업의 내용",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-d2",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "KB국민카드는 인공지능 마케팅 시스템(AIMs)을 활용하여 고객 데이터 분석, 타겟선정, 오퍼 설계, 집행 및 성과 분석에 이르는 마케팅 전 과정을 체계화하였으며, 고객 생애 가치(LTV) 및 반응 예측 기반의 정교한 타겟팅을 통해 마케팅 효율성을 제고하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-1006"
+    },
+    {
+     "sentence": "지속 가능한 성장 기반 구축을 위해 영업·마케팅 전략 고도화와 고객 세그먼트 정교화를 추진하고 있으며, 데이터 분석 및 AI 기반 마케팅 고도화를 통해 영업 효율성과 고객 경험을 동시에 개선하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-1014"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 활용 고객경험 혁신 AI데이터를 활용하여 차별화된 고객경험 혁신을 지속적으로 추진 하여 고객 중심의 디지털 금융 서비스를 고도화 할 것입니다.",
+     "candidates": [
+      "y2025-II-1011",
+      "y2025-II-1012",
+      "y2025-II-1013",
+      "y2025-II-1038",
+      "y2025-II-1039",
+      "y2025-II-1040",
+      "h2026-II-0926",
+      "h2026-II-0927",
+      "h2026-II-0928",
+      "y2025-II-1065",
+      "y2025-II-1066",
+      "y2025-II-1067"
+     ],
+     "related_ids": [
+      "h2026-II-1006",
+      "h2026-II-1014"
+     ]
+    }
+   ],
+   "flags": []
+  },
+  {
+   "type": "directional",
+   "title": "AI 도입을 통한 사업모델·서비스 발굴",
+   "sentence": "'효율 경영'은 비용 절감과 자본활용 최적화를 통해 수익성을 극대화하는 한편, '혁신 성장'은 디지털혁신과 AI기술을 적극 도입하여 새로운 사업 모델을 발굴하고 고객 맞춤형 서비스를 제공하는데 집중할 것입니다.",
+   "sentence_id": "y2024-IV-0022",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324000822",
+    "page": null
+   },
+   "id": "kbfg-d3",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "본업 핵심 경쟁력을 강화하여 보험회사의 핵심 펀더멘털인 보험 매출의 내실 있는 성장과 수익성 관련 핵심 경영효율 지표를 개선하였으며, 다차원적 경쟁환경에서 채널이 안정적으로 상품을 공급할 수 있도록 채널별 특성을 고려한 성장 전략을 추진하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-0069"
+    },
+    {
+     "sentence": "또한, 미래 보험업 환경변화에 선제적 대응을 위해 디지털 신기술을 활용하여 고객과의 모든 접점에서 디지털 기반 고객서비스혁신을 지속적으로강화해 나가고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004200",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-II-0070"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 도입을 통한 사업모델·서비스 발굴 '효율 경영'은 비용 절감과 자본활용 최적화를 통해 수익성을 극대화하는 한편, '혁신 성장'은 디지털혁신과 AI기술을 적극 도입하여 새로운 사업 모델을 발굴하고 고객 맞춤형 서비스를 제공하는데 집중할 것입니다.",
+     "candidates": [
+      "y2025-II-0074",
+      "y2025-II-0075",
+      "y2025-II-0076",
+      "h2026-II-0068",
+      "h2026-II-0069",
+      "h2026-II-0070",
+      "y2025-II-0102",
+      "y2025-II-0103",
+      "y2025-II-0104",
+      "h2026-II-1034",
+      "h2026-II-1035",
+      "h2026-II-1036"
+     ],
+     "related_ids": [
+      "h2026-II-0069",
+      "h2026-II-0070"
+     ]
+    }
+   ],
+   "flags": []
+  }
+ ]
+}
