@@ -1,0 +1,106 @@
+{
+ "companies": {
+  "kbbank": {
+   "corp_code": "00386937",
+   "corp_name": "국민은행",
+   "stock_code": "060000",
+   "corp_found_by": "정확히 같은 이름, 보고서 낸 법인",
+   "reports": {
+    "y2024": {
+     "title": "2024 사업보고서",
+     "found": true,
+     "report_nm": "사업보고서 (2024.12)",
+     "rcept_no": "20250314001552",
+     "rcept_dt": "20250314",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250314001552",
+     "file": "kbbank_y2024.txt",
+     "xml_member": "20250314001552.xml",
+     "zip_members": 3,
+     "chars": 845658,
+     "sha256": "1504f841de6256a1",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 1331,
+      "II": 58131,
+      "IV": 22790
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 1120,
+      "IMAGE": 3,
+      "IMG": 6,
+      "TOC": 0,
+      "LIBRARY": 19
+     }
+    },
+    "y2025": {
+     "title": "2025 사업보고서",
+     "found": true,
+     "report_nm": "[기재정정]사업보고서 (2025.12)",
+     "rcept_no": "20260814002787",
+     "rcept_dt": "20260814",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002787",
+     "file": "kbbank_y2025.txt",
+     "xml_member": "20260814002787.xml",
+     "zip_members": 1,
+     "chars": 855529,
+     "sha256": "d4ec9205db97bd91",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 1232,
+      "II": 56637,
+      "IV": 21380
+     },
+     "xml_tags": {
+      "SECTION-1": 15,
+      "TABLE": 1115,
+      "IMAGE": 3,
+      "IMG": 6,
+      "TOC": 0,
+      "LIBRARY": 21
+     }
+    },
+    "h2026": {
+     "title": "2026 반기보고서",
+     "found": true,
+     "report_nm": "반기보고서 (2026.06)",
+     "rcept_no": "20260814004191",
+     "rcept_dt": "20260814",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004191",
+     "file": "kbbank_h2026.txt",
+     "xml_member": "20260814004191.xml",
+     "zip_members": 1,
+     "chars": 626247,
+     "sha256": "1ece0c36d10960d7",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     },
+     "section_chars": {
+      "I5": 1373,
+      "II": 58599,
+      "IV": 424
+     },
+     "xml_tags": {
+      "SECTION-1": 14,
+      "TABLE": 849,
+      "IMAGE": 2,
+      "IMG": 4,
+      "TOC": 0,
+      "LIBRARY": 33
+     }
+    }
+   }
+  }
+ },
+ "updated": "2026-10-19T12:58:16+00:00"
+}
