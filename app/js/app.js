@@ -266,6 +266,10 @@
         '</details>'
       : '';
     var nv = verdictInfo('not_verifiable') || {};
+    var reportCount = (reports.promise || []).length + (reports.evidence || []).length;
+    var verifiedCount = (company.promises || []).reduce(function (sum, p) {
+      return sum + (p.evidence || []).filter(function (e) { return e.citation_verified === true; }).length;
+    }, 0);
 
     return topbar(backLink('#/', '기업 선택')) +
       '<main class="content">' + disclaimers() +
@@ -275,6 +279,11 @@
           (company.check_note ? '<p class="note check-note">' + esc(company.check_note) + '</p>' : '') +
           '<h1 class="headline">구체적 약속 ' + spec.length + '개 중</h1>' +
           '<p class="count-line">' + esc(countLine(spec)) + '</p>' +
+          '<div class="analysis-meta-strip">' +
+            '<span><strong>' + reportCount + '</strong>개 정기공시</span>' +
+            '<span><strong>' + verifiedCount + '</strong> Citation Verified</span>' +
+            '<span><strong>v2</strong> 판정 기준</span>' +
+          '</div>' +
         '</section>' +
         '<section class="card" aria-label="판정별 개수">' +
           '<div class="summary-grid">' + grid + '</div>' +
