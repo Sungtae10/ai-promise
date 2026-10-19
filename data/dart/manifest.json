@@ -1,0 +1,67 @@
+{
+ "companies": {
+  "shinhanbank": {
+   "corp_code": "00149293",
+   "corp_name": "신한은행",
+   "stock_code": "000010",
+   "corp_found_by": "정확히 같은 이름, 보고서 낸 법인",
+   "reports": {
+    "y2024": {
+     "title": "2024 사업보고서",
+     "found": true,
+     "report_nm": "사업보고서 (2024.12)",
+     "rcept_no": "20250318001188",
+     "rcept_dt": "20250318",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318001188",
+     "file": "shinhanbank_y2024.txt",
+     "xml_member": "20250318001188.xml",
+     "zip_members": 3,
+     "chars": 730816,
+     "sha256": "43c3f4d0446b46b8",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     }
+    },
+    "y2025": {
+     "title": "2025 사업보고서",
+     "found": true,
+     "report_nm": "[기재정정]사업보고서 (2025.12)",
+     "rcept_no": "20261007000168",
+     "rcept_dt": "20261007",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261007000168",
+     "file": "shinhanbank_y2025.txt",
+     "xml_member": "20261007000168.xml",
+     "zip_members": 1,
+     "chars": 741701,
+     "sha256": "7d87ca222ca4b034",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     }
+    },
+    "h2026": {
+     "title": "2026 반기보고서",
+     "found": true,
+     "report_nm": "[기재정정]반기보고서 (2026.06)",
+     "rcept_no": "20261007000174",
+     "rcept_dt": "20261007",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261007000174",
+     "file": "shinhanbank_h2026.txt",
+     "xml_member": "20261007000174.xml",
+     "zip_members": 1,
+     "chars": 598117,
+     "sha256": "bef84bbddc88fd8e",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     }
+    }
+   }
+  }
+ },
+ "updated": "2026-10-19T12:21:06+00:00"
+}
