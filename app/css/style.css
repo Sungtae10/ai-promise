@@ -1129,3 +1129,9 @@ a.question { color: inherit; }
   font-size: 9px;
   font-weight: 750;
 }
+
+.hero-stats .stat-word {
+  font-size: 13px;
+  letter-spacing: .01em;
+  line-height: 1.1;
+}
