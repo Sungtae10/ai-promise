@@ -1,0 +1,43 @@
+{
+ "issues": [
+  {
+   "text": "AI 캠퍼스의 카카오·그룹사 중심 사용 현황 확인 및 활용 증가 여부 확인 한계 (일부 확인)",
+   "promise_id": "kakao-p1"
+  },
+  {
+   "text": "카카오톡 AI 서비스의 정식 출시 및 CBT 진행 확인, 관심사 중심 신규 지면 확인 한계 (일부 확인)",
+   "promise_id": "kakao-p2"
+  },
+  {
+   "text": "카카오톡 내 AI 기능 관련 실행 확인 및 별도 앱 출시 여부 확인 한계 (일부 확인)",
+   "promise_id": "kakao-p3"
+  }
+ ],
+ "talking_points": [
+  {
+   "text": "AI 캠퍼스는 카카오와 그룹사를 위한 AI 인재양성 공간으로, 현재 카카오와 그룹사 위주로 사용되고 있습니다. 일부 사용 건을 제외하면 연결기준 매출이 거의 발생하지 않는 구조로 기재되어 있습니다.",
+   "promise_id": "kakao-p1",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423"
+  },
+  {
+   "text": "공시에는 카카오톡 내 AI 서비스인 'ChatGPT for Kakao'와 'Kanana in KakaoTalk'의 정식 서비스 출시 및 CBT 진행이 기재되어 있습니다.",
+   "promise_id": "kakao-p2",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423"
+  },
+  {
+   "text": "공시에서는 'ChatGPT for Kakao'와 'Kanana in KakaoTalk'의 이용자 저변을 확대하고 반복 사용을 유도하기 위해 사용 맥락을 강화하는 방향을 제시하고 있습니다.",
+   "promise_id": "kakao-p3",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423"
+  }
+ ],
+ "questions": [
+  {
+   "text": "공시에서 AI 캠퍼스의 카카오·그룹사 중심 사용 현황은 확인했으나, 활용 증가를 보여주는 후속 내용은 확인하기 어려웠습니다. 활용 확대 여부는 어떤 지표로 살펴보고 계신지 궁금합니다.",
+   "promise_id": "kakao-p1"
+  },
+  {
+   "text": "공시에서 카카오톡 내 AI 서비스의 정식 출시 및 CBT 진행은 확인했으나, 별도 앱 출시의 후속 내용은 확인하기 어려웠습니다. 별도 앱의 준비 현황과 카카오톡 내 AI 서비스와의 역할 구분이 궁금합니다.",
+   "promise_id": "kakao-p3"
+  }
+ ]
+}
