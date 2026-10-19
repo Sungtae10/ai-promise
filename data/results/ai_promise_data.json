@@ -1,0 +1,315 @@
+{
+ "meta": {
+  "is_sample": false,
+  "notice": "",
+  "schema_version": "0.1",
+  "updated": "2026-10-19",
+  "engine": {
+   "extract_model": "gpt-6-luna",
+   "judge_model": "gpt-6.1-sol",
+   "card_model": "gpt-6.1-sol",
+   "embed_model": "text-embedding-3-large"
+  }
+ },
+ "labels": {
+  "service_name": "AI Promise",
+  "service_subtitle": "기업 AI 약속 검증",
+  "tagline": "면접 전 5분 기업 AI 체크",
+  "disclaimers": [
+   "공시 범위 안에서 확인한 결과입니다.",
+   "AI가 생성한 분석입니다."
+  ],
+  "verdicts": {
+   "evidence_found": {
+    "label": "근거 확인",
+    "short_label": "근거 확인",
+    "meaning": "약속과 같은 대상이 후속 공시에 실행한 것으로 적혀 있음"
+   },
+   "partial": {
+    "label": "일부 확인",
+    "short_label": "일부 확인",
+    "meaning": "관련 활동은 있으나 범위, 시점, 수치가 약속에 못 미치거나 불분명함"
+   },
+   "not_verifiable": {
+    "label": "공시에서 확인 불가",
+    "short_label": "확인 불가",
+    "meaning": "읽은 공시 범위에서 찾지 못함. 미이행이라는 뜻이 아님"
+   },
+   "company_reported_not_pursued": {
+    "label": "회사가 미추진으로 공시",
+    "short_label": "미추진 공시",
+    "meaning": "회사가 추진하지 않았다고 직접 적음"
+   }
+  },
+  "promise_types": {
+   "specific": {
+    "label": "구체적 약속",
+    "note": "판정하고 개수에 넣습니다."
+   },
+   "directional": {
+    "label": "방향성 약속",
+    "note": "방향이 넓어 판정하지 않고 관련 활동만 보여줍니다. 개수에는 넣지 않습니다."
+   }
+  },
+  "not_verifiable_message": "읽은 공시 범위에서 관련 내용을 찾지 못했습니다. 면접에서 추진 방향을 질문해 보세요.",
+  "no_related_activity_message": "읽은 공시 범위에서 관련 활동을 찾지 못했습니다.",
+  "citation_verified_label": "원문 확인됨",
+  "interview_card_notice": "완성된 답변이 아니라 근거가 붙은 소재입니다. 자신의 말로 바꿔 쓰세요."
+ },
+ "companies": [
+  {
+   "id": "naver",
+   "name": "NAVER",
+   "reports": {
+    "promise": [
+     {
+      "title": "2024 사업보고서",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645"
+     }
+    ],
+    "evidence": [
+     {
+      "title": "2025 사업보고서",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021"
+     },
+     {
+      "title": "2026 반기보고서",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002266"
+     }
+    ]
+   },
+   "promises": [
+    {
+     "id": "naver-p1",
+     "type": "specific",
+     "title": "AI Briefing 도입",
+     "sentence": "검색에서는 AI Briefing을 도입하여, 이용자의 질의에 대한 정답 정보를 요약 제공하고, 맥락에 맞는 콘텐츠 추천을 강화할 예정입니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+      "page": null
+     },
+     "verdict": "evidence_found",
+     "reason": "약속한 AI Briefing과 동일한 서비스인 AI 브리핑을 3천만 명의 이용자가 사용 중이라고 공시하여 실제 도입이 확인됩니다. 답변 품질 개선과 정보 제공, 연관 질문의 재검색 및 콘텐츠 재발견도 명시되어 있어, 검색 답변 제공과 콘텐츠 탐색 강화라는 약속에 부합합니다.",
+     "evidence": [
+      {
+       "sentence": "3천만명 이용자들이 사용 중인 AI 브리핑은 단순한 정보 소비를 넘어서 연관 질문의 재검색과 콘텐츠의 재발견으로 이어지는 선순환 구조를 갖추어 가고 있으며, 지속적인 답변 품질 개선 노력과 신뢰성 있는 정보 제공에 집중하고 있습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "IV. 이사의 경영진단 및 분석의견",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    },
+    {
+     "id": "naver-p2",
+     "type": "specific",
+     "title": "AI 초개인화 쇼핑 경험",
+     "sentence": "한 단계 더 발전된 AI 기술을 기반으로 사용자에게 초개인화된 쇼핑 경험을 선사함과 동시에, 판매자에게는 새로운 공간을 제공하여 온라인에서의 브랜드 플래그십 스토어를 구축할 수 있도록 지원할 것입니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+      "page": null
+     },
+     "verdict": "partial",
+     "reason": "2025 사업보고서에서 네이버플러스스토어의 초개인화 추천 강화와 스마트스토어의 개인화 검색·추천 기능 고도화가 확인되어, 사용자에게 개인화된 쇼핑 경험을 제공한다는 약속은 일부 확인됩니다. 다만 브랜드스토어 관련 문장은 2020년 출시한 서비스의 현황으로, 약속한 판매자용 새로운 공간 제공과 온라인 브랜드 플래그십 스토어 구축 지원이 이후 실행되었는지는 확인하기 어렵습니다.",
+     "evidence": [
+      {
+       "sentence": "커머스 부문에서는 네이버플러스스토어 앱을 중심으로 탐색 및 발견 기반의 쇼핑 경험을 강화하고, 스마트스토어 기반의 개인화 검색 및 추천 기능을 고도화하며 이용자 활동성과 전환 효율을 개선하였습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "IV. 이사의 경영진단 및 분석의견",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "또한 초개인화 추천과 발견/탐색 경험이 강화된 네이버플러스스토어를 포함하여 네이버 서비스 내 연계 강화로 멀티플 시너지를 창출하기 위해 노력하고 있습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "2020년에 출시한 '브랜드스토어'는 브랜드사의 대표 D2C 판매채널로 자리매김하였고, '쇼핑라이브'는 국내 1위 라이브커머스 플랫폼으로 성장했습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    },
+    {
+     "id": "naver-d1",
+     "type": "directional",
+     "title": "AI 기술 결합 글로벌 플랫폼 도약",
+     "sentence": "또한 2023년부터는 네이버의 AI 기술력과 그간 쌓아온 기술 플랫폼 역량을 모두 결집하여 클라우드 서비스의 경쟁력을 강화할 뿐만 아니라 세계 최고 수준의 AI 기술 역량과 결합 시너지를 기반으로 글로벌 하이퍼스케일 기술 플랫폼으로 거듭나고자 합니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "II. 사업의 내용",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+      "page": null
+     },
+     "verdict": null,
+     "reason": null,
+     "evidence": [
+      {
+       "sentence": "자체 출시한 초대규모 AI인 HyperCLOVA X를 기반으로 AI 개발 도구인 CLOVA Studio 및 보안이 강한 하이브리드 클라우드 형태인 Neurocloud for HyperCLOVA X 등의 차별화된 서비스로 국내외 AI 경쟁력을 입증하며 비즈니스 맞춤형 AI 시대를 주도하고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002266",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "2023년부터 네이버의 AI 기술 조직과 B2B 사업 부문을 네이버클라우드 법인으로 일원화하여, 기술 플랫폼 역량과 초대규모 AI 'HyperCLOVA X'를 기반으로 기업 맞춤형 AI 솔루션과 클라우드 서비스를 융합하는 통합 B2B 플랫폼 체계를 구축하고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002266",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    },
+    {
+     "id": "naver-d2",
+     "type": "directional",
+     "title": "AI 검색·광고 접목",
+     "sentence": "2025년에는 여기서 멈추지 않고 AI를 검색과 광고에 더욱 밀접하게 접목시키며 혁신을 가속화할 계획입니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+      "page": null
+     },
+     "verdict": null,
+     "reason": null,
+     "evidence": [
+      {
+       "sentence": "서치플랫폼에서는 네이버만의 AI 기술을 검색 서비스와 광고 전반에 효과적으로 접목시키며 이용자와 광고주의 만족도를 제고하고 있습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "IV. 이사의 경영진단 및 분석의견",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "네이버의 AI 기술은 이용자의 검색 의도, 관심사, 그리고 행동 패턴을 더욱 잘 이해하여 검색도를 높이고 있을 뿐 아니라, 다양한 브랜드와 SME들의 사업을 성장시킬 수 있는 광고상품 고도화에도 기여하고 있습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "IV. 이사의 경영진단 및 분석의견",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    },
+    {
+     "id": "naver-d3",
+     "type": "directional",
+     "title": "AI 기반 검색·광고 혁신",
+     "sentence": "이처럼 네이버는 AI 기술을 적극적으로 활용하여 검색과 광고의 혁신을 선도하고, 이용자와 광고주 모두에게 최상의 경험을 제공하는 플랫폼으로 계속해서 성장해 나갈 것입니다.",
+     "source": {
+      "report": "2024 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318000645",
+      "page": null
+     },
+     "verdict": null,
+     "reason": null,
+     "evidence": [
+      {
+       "sentence": "최근 당사는 AI 기술을 기반으로 광고 자동화 및 최적화 기능을 제공하는 'ADVoost 검색'과 'ADVoost 쇼핑'을 출시하여, 광고주의 통합적이고 효과적인 광고 집행을 지원하고 있습니다.",
+       "source": {
+        "report": "2026 반기보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002266",
+        "page": null
+       },
+       "citation_verified": true
+      },
+      {
+       "sentence": "특히, 2023년부터는 AI 기반 타게팅 및 콘텐츠 분석 기술을 바탕으로 피드형 광고를 도입해, 개인화된 광고 경험과 자연스러운 노출을 통해 광고 효율성과 사용자 만족도를 한층 높이고 있습니다.",
+       "source": {
+        "report": "2025 사업보고서",
+        "section": "II. 사업의 내용",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021",
+        "page": null
+       },
+       "citation_verified": true
+      }
+     ],
+     "search_attempts": 1
+    }
+   ],
+   "interview_card": {
+    "issues": [
+     {
+      "text": "3천만 명이 사용 중인 AI 브리핑 도입 및 답변 품질 개선 추진 (근거 확인)",
+      "promise_id": "naver-p1"
+     },
+     {
+      "text": "네이버플러스스토어 초개인화 추천 강화와 스마트스토어 개인화 검색·추천 고도화 (일부 확인)",
+      "promise_id": "naver-p2"
+     },
+     {
+      "text": "판매자용 새로운 공간 제공 및 온라인 브랜드 플래그십 스토어 구축 지원의 후속 실행 확인 한계 (일부 확인)",
+      "promise_id": "naver-p2"
+     }
+    ],
+    "talking_points": [
+     {
+      "text": "AI 브리핑은 3천만 명의 이용자가 사용 중이며, 연관 질문의 재검색과 콘텐츠 재발견으로 이어지는 구조를 갖추어 가고 있습니다. 지속적인 답변 품질 개선과 신뢰성 있는 정보 제공에 집중하고 있습니다.",
+      "promise_id": "naver-p1",
+      "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021"
+     },
+     {
+      "text": "네이버플러스스토어 앱을 중심으로 탐색·발견 기반의 쇼핑 경험을 강화하고 있습니다. 초개인화 추천과 네이버 서비스 내 연계 강화도 추진하고 있습니다.",
+      "promise_id": "naver-p2",
+      "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021"
+     },
+     {
+      "text": "스마트스토어 기반의 개인화 검색 및 추천 기능을 고도화하며 이용자 활동성과 전환 효율을 개선하였습니다.",
+      "promise_id": "naver-p2",
+      "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001021"
+     }
+    ],
+    "questions": [
+     {
+      "text": "공시에서 판매자용 새로운 공간 제공에 관한 후속 내용을 확인하기 어려웠습니다. 이와 관련해 현재 진행 상황과 판매자에게 제공하려는 주요 기능이 궁금합니다.",
+      "promise_id": "naver-p2"
+     },
+     {
+      "text": "공시에서 2020년 출시한 브랜드스토어의 현황은 확인했지만, 약속한 온라인 브랜드 플래그십 스토어 구축 지원의 후속 내용은 확인하기 어려웠습니다. 해당 지원은 어떤 방식으로 추진되고 있는지 궁금합니다.",
+      "promise_id": "naver-p2"
+     }
+    ]
+   },
+   "check_note": "AI 엔진 결과예요(사람 검토 전). 근거 문장은 코드가 원문과 글자 그대로 대조했고, 사람 정답과 비교한 정확도는 없어요.",
+   "data_mode": "engine"
+  }
+ ]
+}
