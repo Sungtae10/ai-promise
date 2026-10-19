@@ -1,0 +1,64 @@
+{
+ "wooribank": [
+  {
+   "id": "wooribank-p1",
+   "title": "생성형 AI 고객 서비스 고도화",
+   "verdict": "evidence_found",
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "생성형 AI 고객 서비스 고도화 [디지털 기술 기반 신사업] 우리은행은 금융당국 망분리 개선 로드맵에 따라 생성형 AI를 활용한 고객 서비스 고도화를 추진 중입니다.",
+     "candidates": [
+      "y2025-IV-0066",
+      "y2025-IV-0067",
+      "y2025-IV-0068",
+      "y2025-IV-0065",
+      "h2026-II-0020",
+      "h2026-II-0021",
+      "h2026-II-0022",
+      "y2025-II-0161",
+      "y2025-II-0162",
+      "y2025-II-0163",
+      "h2026-II-0023",
+      "y2025-II-0017"
+     ],
+     "verdict": "evidence_found",
+     "evidence_ids": [
+      "y2025-IV-0068"
+     ]
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "wooribank-p2",
+   "title": "마이데이터·AI 로보어드바이저 구축",
+   "verdict": "evidence_found",
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "마이데이터·AI 로보어드바이저 구축 Mydata 정보와 AI를 접목한 로보어드바이저를 구축하여 차별화된 자산관리 서비스를 제공하고자 합니다.",
+     "candidates": [
+      "y2025-IV-0067",
+      "y2025-IV-0068",
+      "y2025-IV-0069",
+      "y2025-IV-0066",
+      "y2025-IV-0065",
+      "y2025-II-0175",
+      "y2025-II-0176",
+      "y2025-II-0177",
+      "y2025-II-0174",
+      "y2025-II-0161",
+      "y2025-II-0162",
+      "y2025-II-0163"
+     ],
+     "verdict": "evidence_found",
+     "evidence_ids": [
+      "y2025-IV-0067"
+     ]
+    }
+   ],
+   "flags": []
+  }
+ ]
+}

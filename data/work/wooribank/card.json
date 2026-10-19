@@ -1,0 +1,43 @@
+{
+ "issues": [
+  {
+   "text": "2025년 11월 생성형 AI 기반 ‘AI 청약상담원’ 서비스 도입 (근거 확인)",
+   "promise_id": "wooribank-p1"
+  },
+  {
+   "text": "복잡한 청약 제도에 대한 전문적인 비대면 상담 체계 구축 (근거 확인)",
+   "promise_id": "wooribank-p1"
+  },
+  {
+   "text": "Mydata 정보와 AI를 접목한 로보어드바이저로 초개인화된 맞춤형 자산관리 서비스 제공 (근거 확인)",
+   "promise_id": "wooribank-p2"
+  }
+ ],
+ "talking_points": [
+  {
+   "text": "2025년 11월 생성형 AI 기반의 ‘AI 청약상담원’ 서비스를 도입했습니다.",
+   "promise_id": "wooribank-p1",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313000815"
+  },
+  {
+   "text": "‘AI 청약상담원’ 서비스를 통해 복잡한 청약 제도에 대한 전문적인 비대면 상담 체계를 구축했습니다.",
+   "promise_id": "wooribank-p1",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313000815"
+  },
+  {
+   "text": "Mydata 정보와 AI를 접목한 로보어드바이저를 통해 초개인화된 맞춤형 자산관리 서비스를 제공하고 있습니다.",
+   "promise_id": "wooribank-p2",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313000815"
+  }
+ ],
+ "questions": [
+  {
+   "text": "공시에서 ‘AI 청약상담원’ 서비스 도입과 비대면 상담 체계 구축을 확인했습니다. 상담의 정확성과 품질을 어떤 기준으로 점검하는지 궁금합니다.",
+   "promise_id": "wooribank-p1"
+  },
+  {
+   "text": "공시에서 Mydata 정보와 AI를 접목한 로보어드바이저의 맞춤형 자산관리 서비스 제공을 확인했습니다. 서비스 운영 과정에서 고객 의견을 어떻게 반영하는지 궁금합니다.",
+   "promise_id": "wooribank-p2"
+  }
+ ]
+}

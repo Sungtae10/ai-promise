@@ -1,0 +1,123 @@
+{
+ "retrieval_mode": "키워드 + 의미",
+ "models_used": {
+  "extract": [
+   "gpt-6-luna"
+  ],
+  "judge": [
+   "gpt-6.1-sol"
+  ]
+ },
+ "promises": [
+  {
+   "type": "specific",
+   "title": "생성형 AI 고객 서비스 고도화",
+   "sentence": "[디지털 기술 기반 신사업] 우리은행은 금융당국 망분리 개선 로드맵에 따라 생성형 AI를 활용한 고객 서비스 고도화를 추진 중입니다.",
+   "sentence_id": "y2024-IV-0072",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318001159",
+    "page": null
+   },
+   "id": "wooribank-p1",
+   "verdict": "evidence_found",
+   "reason": "약속은 우리은행의 생성형 AI를 활용한 고객 서비스 고도화입니다. 2025 사업보고서에는 2025년 11월 생성형 AI 기반 ‘AI 청약상담원’ 서비스를 도입해 전문적인 비대면 상담 체계를 구축했다고 명시되어 있어, 해당 고객 서비스의 실행 근거가 확인됩니다.",
+   "evidence": [
+    {
+     "sentence": "2025년 11월 생성형 AI 기반의 ‘AI 청약상담원’ 서비스를 도입하여 복잡한 청약 제도에 대한 전문적인 비대면 상담 체계를 구축하였습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313000815",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0068"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "생성형 AI 고객 서비스 고도화 [디지털 기술 기반 신사업] 우리은행은 금융당국 망분리 개선 로드맵에 따라 생성형 AI를 활용한 고객 서비스 고도화를 추진 중입니다.",
+     "candidates": [
+      "y2025-IV-0066",
+      "y2025-IV-0067",
+      "y2025-IV-0068",
+      "y2025-IV-0065",
+      "h2026-II-0020",
+      "h2026-II-0021",
+      "h2026-II-0022",
+      "y2025-II-0161",
+      "y2025-II-0162",
+      "y2025-II-0163",
+      "h2026-II-0023",
+      "y2025-II-0017"
+     ],
+     "verdict": "evidence_found",
+     "evidence_ids": [
+      "y2025-IV-0068"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol"
+  },
+  {
+   "type": "specific",
+   "title": "마이데이터·AI 로보어드바이저 구축",
+   "sentence": "Mydata 정보와 AI를 접목한 로보어드바이저를 구축하여 차별화된 자산관리 서비스를 제공하고자 합니다.",
+   "sentence_id": "y2024-IV-0073",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318001159",
+    "page": null
+   },
+   "id": "wooribank-p2",
+   "verdict": "evidence_found",
+   "reason": "약속한 대상과 동일하게 Mydata 정보와 AI를 접목한 로보어드바이저를 통해 초개인화된 맞춤형 자산관리 서비스를 제공하고 있다고 공시했습니다. 향후 계획이 아니라 실제 서비스 제공으로 서술되어 있어 로보어드바이저 구축 및 자산관리 서비스 제공의 실행 근거가 확인됩니다.",
+   "evidence": [
+    {
+     "sentence": "Mydata 정보와 AI를 접목한 로보어드바이저를 통해 초개인화된 맞춤형 자산관리 서비스를 제공하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313000815",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0067"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "마이데이터·AI 로보어드바이저 구축 Mydata 정보와 AI를 접목한 로보어드바이저를 구축하여 차별화된 자산관리 서비스를 제공하고자 합니다.",
+     "candidates": [
+      "y2025-IV-0067",
+      "y2025-IV-0068",
+      "y2025-IV-0069",
+      "y2025-IV-0066",
+      "y2025-IV-0065",
+      "y2025-II-0175",
+      "y2025-II-0176",
+      "y2025-II-0177",
+      "y2025-II-0174",
+      "y2025-II-0161",
+      "y2025-II-0162",
+      "y2025-II-0163"
+     ],
+     "verdict": "evidence_found",
+     "evidence_ids": [
+      "y2025-IV-0067"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol"
+  }
+ ]
+}

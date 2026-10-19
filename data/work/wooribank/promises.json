@@ -1,0 +1,31 @@
+{
+ "promises": [
+  {
+   "type": "specific",
+   "title": "생성형 AI 고객 서비스 고도화",
+   "sentence": "[디지털 기술 기반 신사업] 우리은행은 금융당국 망분리 개선 로드맵에 따라 생성형 AI를 활용한 고객 서비스 고도화를 추진 중입니다.",
+   "sentence_id": "y2024-IV-0072",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318001159",
+    "page": null
+   },
+   "id": "wooribank-p1"
+  },
+  {
+   "type": "specific",
+   "title": "마이데이터·AI 로보어드바이저 구축",
+   "sentence": "Mydata 정보와 AI를 접목한 로보어드바이저를 구축하여 차별화된 자산관리 서비스를 제공하고자 합니다.",
+   "sentence_id": "y2024-IV-0073",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250318001159",
+    "page": null
+   },
+   "id": "wooribank-p2"
+  }
+ ],
+ "dropped": []
+}
