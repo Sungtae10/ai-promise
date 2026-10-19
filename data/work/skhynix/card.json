@@ -1,0 +1,43 @@
+{
+ "issues": [
+  {
+   "text": "AI 데이터센터용 61TB QLC·PCIe 5세대 SSD PS1012 제품 기재 (일부 확인)",
+   "promise_id": "skhynix-p4"
+  },
+  {
+   "text": "SOCAMM·LPCAMM 시장 대응 관련 후속 내용의 검토 공시 내 확인 한계 (확인 불가)",
+   "promise_id": "skhynix-p1"
+  },
+  {
+   "text": "ZUFS 4.0 양산 관련 후속 내용의 검토 공시 내 확인 한계 (확인 불가)",
+   "promise_id": "skhynix-p2"
+  }
+ ],
+ "talking_points": [
+  {
+   "text": "2025 사업보고서에는 PS1012가 AI 데이터센터용 QLC 기반 61TB SSD 제품으로 기재되어 있습니다.",
+   "promise_id": "skhynix-p4",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  },
+  {
+   "text": "PS1012는 PCIe 5세대 SSD 제품이며, 데이터 전송 속도는 32GT/s로 기재되어 있습니다.",
+   "promise_id": "skhynix-p4",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  },
+  {
+   "text": "PS1012의 순차 읽기 성능은 13GB/s이며, 이전 세대 대비 2배 향상된 것으로 기재되어 있습니다.",
+   "promise_id": "skhynix-p4",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000635"
+  }
+ ],
+ "questions": [
+  {
+   "text": "검토한 2025 사업보고서와 2026 반기보고서에서는 CIS 사업부문의 AI 메모리 전환에 관한 후속 내용을 확인하기 어려웠습니다. 해당 전환의 현재 진행 상황과 향후 방향을 설명해 주실 수 있습니까?",
+   "promise_id": "skhynix-p3"
+  },
+  {
+   "text": "2025 사업보고서에서 PS1012의 제품 사양은 확인했으나, Solidigm과의 통합 시너지 강화는 향후 계획으로 제시되어 있었습니다. 통합 시너지를 구체화하기 위해 현재 중점을 두는 과제는 무엇입니까?",
+   "promise_id": "skhynix-p4"
+  }
+ ]
+}
