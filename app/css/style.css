@@ -372,3 +372,130 @@ a.issue { align-items: center; }
 a.issue .chevron { margin-left: auto; }
 a.answer-tag { text-decoration: underline; }
 a.question { color: inherit; }
+
+/* ---------- 13. Final v2 부품 (10/19): 시간축, 확인 4단계, 검증 현황, 면접 카드 세 묶음 ---------- */
+/* 시간축: 첫 점은 약속한 보고서, 다음 점은 근거를 찾은 보고서. 채운 점 = 근거 있음, 빈 점 = 근거 없음 */
+.track {
+  position: relative; display: grid; align-items: center; justify-items: center;
+  height: 22px;
+}
+.track::before {
+  content: ""; position: absolute; top: 50%; height: 2px; transform: translateY(-50%);
+  left: calc(50% / var(--n, 3)); right: calc(50% / var(--n, 3));
+  background: var(--line);
+}
+.track-node {
+  position: relative; z-index: 1;
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid var(--sub); background: var(--surface);
+}
+.track-node.is-promise { border-color: var(--text); background: var(--text); }
+.track-node.is-on { border-color: var(--v, var(--confirmed)); background: var(--v, var(--confirmed)); }
+.track-node.is-off { border-color: var(--sub); background: var(--surface); }
+
+/* 보고서 이름 줄: 시간축 점과 같은 칸에 맞춰요 */
+.tl-head { display: grid; gap: 4px; padding: 0 16px 0 19px; }
+.tl-col { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; min-width: 0; }
+.tl-col-name { font-size: 12px; font-weight: 700; line-height: 1.35; color: var(--body); }
+a.tl-col-name { text-decoration: underline; text-underline-offset: 2px; }
+.tl-col-role { font-size: 11px; color: var(--sub); }
+
+/* 화면 1: 실제 약속 하나를 시간축으로 */
+.hero-example {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-top: 4px; padding: 16px 18px;
+  background: var(--surface); border-radius: var(--radius-lg);
+  border-left: 3px solid var(--v, var(--line));
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px var(--glass-line);
+}
+.hero-example .tl-head { padding: 0; }
+.hero-example-cap { font-size: 12px; color: var(--sub); }
+.hero-example-title { font-size: 16px; font-weight: 700; line-height: 1.45; }
+.hero-example-foot { display: flex; justify-content: space-between; align-items: center; }
+[data-theme="light"] .hero-example { box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04); }
+
+/* 화면 1: AI가 확인하는 4단계 (실제 순서라 번호를 씀) */
+.pipeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.pipe-step { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; }
+.pipe-step:not(:last-child)::before {
+  content: ""; position: absolute; left: 13px; top: 30px; bottom: -10px; width: 2px; background: var(--line);
+}
+.pipe-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800;
+  color: var(--confirmed); background: var(--confirmed-bg); border: 1px solid var(--confirmed-line);
+}
+.pipe-body { display: flex; flex-direction: column; gap: 2px; padding-top: 3px; }
+.pipe-title { font-size: 14px; font-weight: 700; }
+.pipe-desc { font-size: 13px; line-height: 1.6; color: var(--body); }
+
+/* 검증 현황: 데이터에서 계산한 값만 */
+.facts .card-title { margin-bottom: 2px; }
+.fact-list { margin: 0; display: flex; flex-direction: column; }
+.fact-row { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+.fact-row:first-child { border-top: 0; padding-top: 0; }
+.fact-key { margin: 0; font-size: 12px; font-weight: 700; line-height: 1.6; color: var(--sub); }
+.fact-val { margin: 0; font-size: 13px; line-height: 1.6; color: var(--body); }
+
+/* 화면 2: 보고서별 시간축 목록 */
+.timeline { display: flex; flex-direction: column; gap: 8px; }
+.tl-rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.tl-row {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 14px 16px;
+  background: var(--surface); border-radius: var(--radius-md);
+  border-left: 3px solid var(--v, var(--line));
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 0 0 1px var(--glass-line);
+  transition: transform 0.12s;
+}
+.tl-row:active { transform: scale(0.985); }
+.tl-row-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.tl-title { font-size: 14px; line-height: 1.5; font-weight: 600; }
+.directional .tl-rows { margin-top: 8px; }
+.directional .tl-head { padding: 0 16px 0 19px; }
+[data-theme="light"] .tl-row { box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03); }
+
+/* 화면 3: 확인 4단계 */
+.detail-track {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 12px 14px; background: var(--surface); border-radius: var(--radius-md);
+  box-shadow: 0 0 0 1px var(--glass-line);
+}
+.detail-track .tl-head { padding: 0; }
+.stepper { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.step { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; padding-bottom: 20px; }
+.step:last-child { padding-bottom: 0; }
+.step:not(:last-child)::before {
+  content: ""; position: absolute; left: 13px; top: 32px; bottom: 4px; width: 2px; background: var(--line);
+}
+.step .step-num { width: 28px; height: 28px; font-size: 13px; }
+.step-main { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.step-head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; min-height: 28px; }
+.step-title { margin: 0; font-size: 15px; font-weight: 800; }
+.step-who {
+  font-size: 11px; font-weight: 700; line-height: 1.4;
+  padding: 2px 8px; border-radius: 999px;
+  color: var(--body); background: var(--chip);
+}
+.step-body { display: flex; flex-direction: column; gap: 8px; }
+.step-quote { background: var(--surface); border-radius: var(--radius-sm); box-shadow: 0 0 0 1px var(--glass-line); }
+.step-result { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; color: var(--body); }
+.report-checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.report-check { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--body); }
+.report-check.is-on { font-weight: 700; }
+.report-check.is-off { color: var(--sub); }
+[data-theme="light"] .detail-track, [data-theme="light"] .step-quote { box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.04); }
+
+/* 화면 4: 확인된 사실, 출처 줄, 질문 */
+.src-line { display: flex; flex-wrap: wrap; align-items: center; gap: 0 10px; }
+.src-text { font-size: 12px; line-height: 1.5; color: var(--sub); }
+.answer .src-text { color: var(--body); } /* 회색 칩 위에서는 sub 색 대비가 모자라서 */
+.fact-item { display: flex; flex-direction: column; gap: 6px; padding-top: 4px; }
+.fact-item + .fact-item { padding-top: 12px; border-top: 1px solid var(--line); }
+.fact-head { display: flex; flex-direction: column; gap: 2px; }
+.fact-text { font-size: 14px; font-weight: 700; line-height: 1.5; color: var(--text); }
+.fact-quote { margin: 0; padding-left: 10px; border-left: 2px solid var(--v, var(--line)); font-size: 13px; line-height: 1.7; color: var(--body); }
+.question-item { display: flex; flex-direction: column; gap: 6px; }
+.question-item + .question-item { padding-top: 12px; border-top: 1px solid var(--line); }
+.q-link { font-size: 12px; font-weight: 700; line-height: 1.5; color: var(--body); text-decoration: underline; }

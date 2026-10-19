@@ -70,7 +70,7 @@ python run.py check --file ../data/results/ai_promise_data.json
 python tests/test_config.py      # 엔진 설정: 핵심 2곳, 시연용 3곳, 검색 설정의 모양. 마지막 줄에 "설정 검사 통과"
 python tests/test_mock.py        # 엔진·평가: 마지막 줄에 "시험 통과"
 python tests/test_ui_static.py   # 화면: app.js가 쓰는 class가 CSS에 모두 있는지 (브라우저 없이)
-python tests/ui_check.py         # 화면: 모든 화면(results.json이 있으면 그 화면, 없으면 예시 데이터 18개) x 다크/라이트의 글자 대비, 가로 넘침, 필수 부품 (Playwright 필요)
+python tests/ui_check.py         # 화면: results.json 화면과 예시 데이터 화면 18개 모두 x 다크/라이트의 글자 대비, 가로 넘침, 필수 부품 (Playwright 필요)
 ```
 
 네 검사는 Pull Request를 올리거나 main에 올릴 때 CI에서도 자동으로 돌아갑니다.
@@ -91,6 +91,8 @@ python tests/ui_check.py         # 화면: 모든 화면(results.json이 있으�
 - `app/index.html`은 `app/data/results.json`을 먼저 읽고, 없으면 `app/data/sample-data.js`(가상 회사 2곳 예시 데이터)를 보여줍니다. 결과 파일의 `meta.is_sample`이 true이면 화면 맨 위에 안내 띠(`meta.notice`)가 나옵니다.
 - 모든 화면에 안내 문구 2개가 항상 보입니다. 엔진 결과일 때는 "공시 범위 안에서 확인한 결과입니다.", "AI가 생성한 분석입니다."이고, 지금의 검증용 시연 데이터에서는 두 번째 문구가 "AI 기반 서비스의 검증용 시연 데이터이며 사람이 공시 원문을 대조했습니다."입니다 (결과 파일의 `labels.disclaimers`).
 - 화면 고치는 규칙은 `app/README.md`에 있습니다. 디자인 변경은 CSS에서 합니다.
+- Final v2 화면(10/19): 약속 목록은 시간축(2024 약속 → 2025 사업보고서 → 2026 반기보고서), 약속 상세는 확인 4단계(약속 찾기, 근거 찾기, 판정, 원문 인용 검사)와 단계마다 누가 했는지, 첫 화면과 목록에는 검증 현황, 면접 카드는 확인된 사실·면접에서 쓸 포인트·회사에 물어볼 질문으로 보여줍니다.
+- 검증 현황의 사용자 테스트 숫자는 `app/data/validation.json`에서만 읽습니다. 실제 설문 응답으로만 채웁니다.
 
 ### Final Sprint 데이터 모드 (10/19, PR #19)
 

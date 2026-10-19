@@ -9,6 +9,10 @@
            없으면 data/sample-data.js 의 예시 데이터를 써요.
    두 파일 모두 안내서 4장의 sample_data.json 형식이에요. (엔진 결과 파일과 같은 형식)
 
+   1019 Final v2: 시간축(약속 보고서 → 근거 보고서), 확인 4단계, 검증 현황, 면접 카드 세 묶음(확인된 사실, 면접에서 쓸 포인트, 회사에 물어볼 질문).
+   누가 했는지는 meta.data_mode로 정해요: human_reviewed_demo면 '사람이 원문 대조', 아니면 'AI 엔진'.
+   사용자 테스트 숫자는 data/validation.json에서만 읽어요.
+
    1012 수정 (데이터 연결, 김성태): 안내서 형식을 그대로 읽게 바꾸고, 안내서 2장 규칙 9개에 맞췄어요.
    - 안내 문구 2개를 모든 화면에, 예시 데이터 안내를 맨 위에 (meta.is_sample)
    - 화면 문구는 데이터의 labels에서 읽기
@@ -51,6 +55,7 @@
   var THEME_KEY = 'ai-promise-theme';
   var appEl = document.getElementById('app');
   var DATA = null;
+  var VALID = null;   // data/validation.json (사용자 테스트 숫자). 없으면 '진행 중'
   var L = DEFAULT_LABELS;
 
   /* ---------- 아이콘 ---------- */
@@ -148,6 +153,113 @@
     return '<span class="btn btn-secondary btn-sm" aria-disabled="true" title="원문 링크가 아직 없어요">' + esc(label) + ICON.external + '</span>';
   }
 
+  /* ---------- Final v2 (10/19): 시간축, 확인 단계, 검증 현황에 쓰는 도구 ---------- */
+  // 데이터 방식: 사람이 원문 대조한 검증용 데이터인지, 엔진 결과(예시 데이터 포함)인지
+  function isHumanData() { return ((DATA.meta || {}).data_mode) === 'human_reviewed_demo'; }
+  function reportCols(company) {
+    var r = company.reports || {};
+    var cols = (r.promise || []).slice(0, 1).map(function (x) { return { title: x.title, url: x.url, role: '약속' }; });
+    (r.evidence || []).forEach(function (x) { cols.push({ title: x.title, url: x.url, role: '근거' }); });
+    return cols;
+  }
+  function evidenceIn(p, title) {
+    return (p.evidence || []).filter(function (e) { return (e.source || {}).report === title; });
+  }
+  function trackLabel(company, p) {
+    var cols = reportCols(company);
+    return cols.map(function (c, i) {
+      if (i === 0) return c.title + ' 약속';
+      return c.title + (evidenceIn(p, c.title).length ? ' 근거 있음' : ' 근거 없음');
+    }).join(', ');
+  }
+  // 시간축: 첫 칸은 약속한 보고서, 다음 칸은 근거를 찾은 보고서. 근거가 있으면 채운 점, 없으면 빈 점
+  function track(company, p) {
+    var cols = reportCols(company);
+    var nodes = cols.map(function (c, i) {
+      if (i === 0) return '<span class="track-node is-promise" aria-hidden="true"></span>';
+      var on = evidenceIn(p, c.title).length > 0;
+      return '<span class="track-node ' + (on ? 'is-on' : 'is-off') + '" aria-hidden="true"></span>';
+    }).join('');
+    return '<span class="track" role="img" aria-label="' + esc(trackLabel(company, p)) + '" style="grid-template-columns:repeat(' + cols.length + ',minmax(0,1fr));--n:' + cols.length + '">' + nodes + '</span>';
+  }
+  function trackHead(company, withLinks) {
+    var cols = reportCols(company);
+    var cells = cols.map(function (c) {
+      var name = withLinks && c.url
+        ? '<a class="tl-col-name" href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(c.title) + '</a>'
+        : '<span class="tl-col-name">' + esc(c.title) + '</span>';
+      return '<span class="tl-col">' + name + '<span class="tl-col-role">' + esc(c.role) + '</span></span>';
+    }).join('');
+    return '<div class="tl-head" style="grid-template-columns:repeat(' + cols.length + ',minmax(0,1fr))">' + cells + '</div>';
+  }
+  function citationCount(promises) {
+    var total = 0, ok = 0;
+    (promises || []).forEach(function (p) {
+      (p.evidence || []).forEach(function (e) { total += 1; if (e.citation_verified === true) ok += 1; });
+    });
+    return { total: total, ok: ok };
+  }
+  // 검증 현황: 데이터에서 계산한 값과 validation.json(사용자 테스트)만 보여줘요
+  function factsPanel(companies, scopeName) {
+    var spec = [];
+    companies.forEach(function (c) { spec = spec.concat(specifics(c)); });
+    var cc = citationCount(spec);
+    var reportCount = companies.length ? reportCols(companies[0]).length : 0;
+    var ut = (VALID && VALID.user_test) || null;
+    var utText;
+    if (ut && ut.responses > 0) {
+      utText = '응답 ' + ut.responses + '명 (공식 최소 ' + (ut.target || 5) + '명)';
+      var av = ut.averages || {};
+      var parts = [];
+      if (av.understanding != null) parts.push('이해도 ' + av.understanding);
+      if (av.trust != null) parts.push('신뢰도 ' + av.trust);
+      if (av.intent != null) parts.push('활용 의향 ' + av.intent);
+      if (parts.length) utText += ', 5점 만점 평균 ' + parts.join(', ');
+    } else {
+      utText = '진행 중이에요. 응답이 모이면 실제 숫자를 적어요';
+    }
+    var rows = [
+      ['자료', 'DART 정기공시, 기업마다 보고서 ' + reportCount + '개'],
+      ['판정', isHumanData() ? '사람이 원문과 대조해 판정 (판정기준 v2, 검증용 시연 데이터)' : 'AI 엔진이 판정기준 v2로 판정'],
+      ['원문 일치', cc.total ? '근거 문장 ' + cc.total + '개 중 ' + cc.ok + '개 ' + L.citation_verified_label : '확인할 근거 문장이 아직 없어요'],
+      ['사용자 테스트', utText]
+    ];
+    return '<section class="card facts" aria-label="' + esc(scopeName) + ' 검증 현황">' +
+      '<h2 class="card-title">' + esc(scopeName) + ' 검증 현황</h2>' +
+      '<dl class="fact-list">' + rows.map(function (r) {
+        return '<div class="fact-row"><dt class="fact-key">' + esc(r[0]) + '</dt><dd class="fact-val">' + esc(r[1]) + '</dd></div>';
+      }).join('') + '</dl></section>';
+  }
+  // 첫 화면의 실제 예: 첫 기업에서 근거 확인(없으면 일부 확인) 약속 하나
+  function heroExample() {
+    var c = (DATA.companies || []).filter(function (x) { return specifics(x).length; })[0];
+    if (!c) return '';
+    var spec = specifics(c);
+    var p = spec.filter(function (x) { return x.verdict === 'evidence_found'; })[0] ||
+            spec.filter(function (x) { return x.verdict === 'partial'; })[0] || spec[0];
+    return '<a class="hero-example ' + vClass(p.verdict) + '" href="' + promiseHref(c, p.id) + '">' +
+        '<span class="hero-example-cap">' + esc(c.name) + '의 2024년 약속 하나</span>' +
+        '<span class="hero-example-title">' + esc(p.title) + '</span>' +
+        trackHead(c, false) + track(c, p) +
+        '<span class="hero-example-foot"><span class="verdict-text">' + esc(verdictLabel(p.verdict)) + '</span>' + ICON.chevron + '</span>' +
+      '</a>';
+  }
+  function stripVerdictTail(text) {
+    var t = String(text || '');
+    VERDICT_ORDER.forEach(function (k) {
+      [verdictShort(k), verdictLabel(k)].forEach(function (lab) {
+        var tail = ' (' + lab + ')';
+        if (lab && t.slice(-tail.length) === tail) t = t.slice(0, -tail.length);
+      });
+    });
+    return t;
+  }
+  function srcLine(src) {
+    if (!src || !src.report) return '';
+    var link = src.url ? '<a class="ev-link" href="' + esc(src.url) + '" target="_blank" rel="noopener">원문 보기' + ICON.external + '</a>' : '';
+    return '<div class="src-line"><span class="src-text">출처: ' + esc(sourceLabel(src)) + '</span>' + link + '</div>';
+  }
+
   /* ---------- 화면 1: 기업 고르기 ---------- */
   function viewHome() {
     var companies = (DATA.companies || []).map(function (c) {
@@ -175,38 +287,48 @@
         if (allReports.indexOf(x.title) < 0) allReports.push(x.title);
       });
     });
+    var ready = (DATA.companies || []).filter(function (c) { return (c.promises || []).length; });
+
+    var pipeline = [
+      ['약속 찾기', '2024 사업보고서의 정한 장에서 AI 약속 문장을 원문 그대로 골라요.'],
+      ['근거 찾기', '다음 보고서에서 키워드 검색과 의미 검색(RAG)으로 근거 후보를 찾아요. 판정이 "확인 불가"면 검색어를 바꿔 다시 찾아요 (처음 포함 최대 3번).'],
+      ['판정', '찾은 문장만 근거로 판정기준 v2에 따라 4가지 중 하나로 정해요.'],
+      ['원문 인용 검사', '근거 문장이 원문에 글자 그대로 있는지 코드로 다시 확인해요.']
+    ];
+    var pipeHtml = '<ol class="pipeline">' + pipeline.map(function (s, i) {
+      return '<li class="pipe-step"><span class="pipe-num" aria-hidden="true">' + (i + 1) + '</span>' +
+        '<span class="pipe-body"><span class="pipe-title">' + esc(s[0]) + '</span><span class="pipe-desc">' + esc(s[1]) + '</span></span></li>';
+    }).join('') + '</ol>';
 
     return topbar('<div class="brand">' + ICON.shield + esc(L.service_name) + '</div>') +
       '<main class="content">' + disclaimers() +
         '<section class="hero">' +
           '<p class="eyebrow">' + esc(L.service_subtitle) + ' · ' + esc(L.tagline) + '</p>' +
-          '<h1 class="headline">면접 볼 회사의 AI 약속,<br><span class="hl">실제로 실행됐을까요?</span></h1>' +
-          '<p class="lead">사업보고서 속 "하겠다"와 다음 해의 "했다"를 AI가 찾아 나란히 보여드려요.</p>' +
+          '<h1 class="headline">면접 볼 회사의 AI 약속을<br>다음 해 공시와 맞춰 봐요</h1>' +
+          '<p class="lead">사업보고서의 "하겠다"를 찾고, 다음 보고서에서 "했다"는 근거를 찾아 원문과 함께 보여드려요.</p>' +
+          heroExample() +
         '</section>' +
         '<section style="display:flex;flex-direction:column;gap:10px">' +
           '<h2 class="section-label">기업 고르기</h2>' +
           '<div class="company-list">' + companies + '</div>' +
         '</section>' +
         '<section class="card">' +
-          '<h2 class="card-title" style="font-size:13px">이렇게 확인해요</h2>' +
-          '<ol class="steps">' +
-            '<li><span class="step-num">1</span>사업보고서에서 AI 약속 찾기</li>' +
-            '<li><span class="step-num">2</span>다음 보고서에서 실행 근거 찾기</li>' +
-            '<li><span class="step-num">3</span>근거 문장이 원문에 그대로 있는지 다시 확인</li>' +
-          '</ol>' +
+          '<h2 class="card-title">AI가 확인하는 4단계</h2>' + pipeHtml +
+          (isHumanData() ? '<p class="note">지금 화면의 판정은 같은 4단계를 사람이 원문과 대조해 만든 검증용 데이터예요. 엔진도 같은 형식으로 결과를 만들어요.</p>' : '') +
         '</section>' +
+        (ready.length ? factsPanel(ready, '전체') : '') +
       '</main>' +
       '<footer class="bottombar"><p class="note">자료: 금융감독원 전자공시(DART)' + (allReports.length ? ' · ' + esc(allReports.join(', ')) : '') + '</p></footer>';
   }
 
-  /* ---------- 화면 2: 약속 목록 ---------- */
-  function promiseRow(company, p) {
+  /* ---------- 화면 2: 약속 목록 (시간축) ---------- */
+  function tlRow(company, p) {
     var tag = isSpecific(p)
       ? '<span class="verdict-text">' + esc(verdictLabel(p.verdict)) + '</span>'
       : '<span class="verdict-text">' + esc(L.promise_types.directional.label) + '</span>';
-    return '<li><a class="promise-item ' + vClass(p.verdict) + '" href="' + promiseHref(company, p.id) + '">' +
-      '<span class="verdict-dot" aria-hidden="true"></span>' +
-      '<span class="promise-item-body"><span class="promise-item-title">' + esc(p.title) + '</span>' + tag + '</span>' + ICON.chevron +
+    return '<li><a class="tl-row ' + vClass(p.verdict) + '" href="' + promiseHref(company, p.id) + '">' +
+      '<span class="tl-row-top"><span class="tl-title">' + esc(p.title) + '</span>' + ICON.chevron + '</span>' +
+      tag + track(company, p) +
     '</a></li>';
   }
 
@@ -214,18 +336,17 @@
     var spec = specifics(company);
     var dirs = directionals(company);
     var counts = countVerdicts(spec);
-    var reports = company.reports || {};
 
     var grid = VERDICT_ORDER.map(function (k) {
       return '<div class="' + vClass(k) + '"><div class="summary-num">' + counts[k] + '</div>' +
         '<div class="summary-label">' + esc(verdictShort(k)) + '</div></div>';
     }).join('');
-    var items = spec.map(function (p) { return promiseRow(company, p); }).join('');
+    var rows = spec.map(function (p) { return tlRow(company, p); }).join('');
     var dirBlock = dirs.length
       ? '<details class="directional">' +
           '<summary>' + esc(L.promise_types.directional.label) + ' ' + dirs.length + '개 (개수에 넣지 않음)</summary>' +
           '<p class="note">' + esc(L.promise_types.directional.note) + '</p>' +
-          '<ul class="promise-list">' + dirs.map(function (p) { return promiseRow(company, p); }).join('') + '</ul>' +
+          '<ul class="tl-rows">' + dirs.map(function (p) { return tlRow(company, p); }).join('') + '</ul>' +
         '</details>'
       : '';
     var nv = verdictInfo('not_verifiable') || {};
@@ -234,7 +355,6 @@
       '<main class="content">' + disclaimers() +
         '<section style="display:flex;flex-direction:column;gap:6px">' +
           '<p class="eyebrow">' + esc(company.name) + '</p>' +
-          '<p class="note">약속: ' + esc(reportTitles(reports.promise)) + ' · 근거: ' + esc(reportTitles(reports.evidence)) + '</p>' +
           (company.check_note ? '<p class="note check-note">' + esc(company.check_note) + '</p>' : '') +
           '<h1 class="headline">구체적 약속 ' + spec.length + '개 중</h1>' +
           '<p class="count-line">' + esc(countLine(spec)) + '</p>' +
@@ -242,64 +362,91 @@
         '<section class="card" aria-label="판정별 개수">' +
           '<div class="summary-grid">' + grid + '</div>' +
         '</section>' +
-        '<ul class="promise-list">' + items + '</ul>' +
+        '<section class="timeline" aria-label="보고서별 약속과 근거">' +
+          trackHead(company, true) +
+          '<ul class="tl-rows">' + rows + '</ul>' +
+          '<p class="note">첫 점은 약속한 보고서예요. 색이 찬 점은 그 보고서에서 근거 문장을 찾았다는 뜻이에요. 보고서 이름을 누르면 DART 원문이 열려요.</p>' +
+        '</section>' +
         dirBlock +
+        factsPanel([company], company.name) +
         '<p class="note">' + esc(nv.label || '') + ': ' + esc(nv.meaning || '') + '</p>' +
       '</main>' +
       '<footer class="bottombar"><a class="btn btn-primary" href="#/c/' + encodeURIComponent(company.id) + '/card">면접 카드 보기</a></footer>';
   }
 
-  /* ---------- 화면 3: 약속 자세히 보기 ---------- */
-  function evidenceBlock(e, kindLabel) {
+  /* ---------- 화면 3: 약속 자세히 보기 (확인 4단계) ---------- */
+  function evidenceQuote(e, kindLabel) {
     var verified = e.citation_verified === true
       ? '<span class="verified">' + ICON.check + esc(L.citation_verified_label) + '</span>'
       : '';
     var link = e.source && e.source.url
       ? '<a class="ev-link" href="' + esc(e.source.url) + '" target="_blank" rel="noopener">원문 보기' + ICON.external + '</a>'
       : '';
-    return '<div class="divider">' + ICON.down + '다음 보고서</div>' +
-      '<div class="quote-block">' +
+    return '<div class="quote-block step-quote">' +
         '<div class="quote-meta is-evidence"><span>' + esc(kindLabel) + '</span><span>' + esc(sourceLabel(e.source || {})) + '</span></div>' +
         '<p class="quote-text">"' + esc(e.sentence) + '"</p>' +
         '<div class="ev-foot">' + verified + link + '</div>' +
       '</div>';
+  }
+  function step(num, title, who, body) {
+    return '<li class="step"><span class="step-num" aria-hidden="true">' + num + '</span>' +
+      '<div class="step-main"><div class="step-head"><h2 class="step-title">' + esc(title) + '</h2>' +
+      (who ? '<span class="step-who">' + esc(who) + '</span>' : '') + '</div>' +
+      '<div class="step-body">' + body + '</div></div></li>';
   }
 
   function viewDetail(company, p) {
     var listHref = '#/c/' + encodeURIComponent(company.id);
     var evidence = p.evidence || [];
     var specific = isSpecific(p);
+    var human = isHumanData();
     var kindLabel = !specific ? '관련 활동' : (p.verdict === 'company_reported_not_pursued' ? '회사가 적은 문장' : '실행 근거');
     var emptyMsg = specific ? L.not_verifiable_message : L.no_related_activity_message;
+    var cols = reportCols(company);
 
-    var evidenceHtml = evidence.length
-      ? evidence.map(function (e) { return evidenceBlock(e, kindLabel); }).join('')
-      : '<div class="divider">' + ICON.down + '다음 보고서</div>' +
-        '<div class="quote-block"><p class="quote-empty">' + esc(emptyMsg) + '</p></div>';
+    // 1. 약속 찾기
+    var promiseLink = p.source && p.source.url
+      ? '<div class="ev-foot"><a class="ev-link" href="' + esc(p.source.url) + '" target="_blank" rel="noopener">원문 보기' + ICON.external + '</a></div>'
+      : '';
+    var s1 = step(1, '약속 찾기', human ? '사람이 원문에서 고름' : 'AI가 원문 문장을 고름',
+      '<div class="quote-block step-quote">' +
+        '<div class="quote-meta"><span>약속</span><span>' + esc(sourceLabel(p.source || {})) + '</span></div>' +
+        '<p class="quote-text">"' + esc(p.sentence) + '"</p>' + promiseLink +
+      '</div>');
 
-    // AI가 확인한 과정: 엔진이 실제로 남긴 값만 보여줘요 (검색 횟수, 원문 확인 개수)
-    var verifiedCount = evidence.filter(function (e) { return e.citation_verified === true; }).length;
-    var steps = [];
-    if (p.search_attempts) steps.push([true, '근거를 찾으려고 검색 ' + p.search_attempts + '번']);
-    if (evidence.length) {
-      steps.push([verifiedCount === evidence.length, '찾은 문장 ' + evidence.length + '개 중 ' + verifiedCount + '개 ' + L.citation_verified_label]);
-    } else {
-      steps.push([false, '읽은 공시에서 ' + (specific ? '근거 문장' : '관련 활동') + '을 찾지 못함']);
-    }
-    var checkRows = steps.map(function (r) {
-      return '<li><span class="check-icon ' + (r[0] ? 'ok' : 'no') + '">' + (r[0] ? ICON.check : ICON.dash) + '</span>' + esc(r[1]) + '</li>';
+    // 2. 근거 찾기: 보고서마다 근거가 있었는지 + 근거 문장
+    var checks = cols.slice(1).map(function (c) {
+      var n = evidenceIn(p, c.title).length;
+      return '<li class="report-check ' + (n ? 'is-on' : 'is-off') + '">' +
+        '<span class="check-icon ' + (n ? 'ok' : 'no') + '">' + (n ? ICON.check : ICON.dash) + '</span>' +
+        '<span>' + esc(c.title) + (n ? ' 근거 ' + n + '개' : ' 근거 없음') + '</span></li>';
     }).join('');
+    var who2 = human ? '사람이 원문 대조' : (p.search_attempts ? '키워드·의미 검색 ' + p.search_attempts + '번' : 'AI 검색');
+    var evHtml = evidence.length
+      ? evidence.map(function (e) { return evidenceQuote(e, kindLabel); }).join('')
+      : '<p class="quote-empty">' + esc(emptyMsg) + '</p>';
+    var s2 = step(2, '근거 찾기', who2, '<ul class="report-checks">' + checks + '</ul>' + evHtml);
+
+    // 3. 판정
+    var vi = verdictInfo(p.verdict) || {};
+    var s3 = specific
+      ? step(3, '판정', human ? '판정기준 v2, 사람' : '판정기준 v2, AI',
+          '<span class="verdict-pill">' + esc(verdictLabel(p.verdict)) + '</span>' +
+          (vi.meaning ? '<p class="note">' + esc(vi.meaning) + '</p>' : '') +
+          (p.reason ? '<p class="reason">' + esc(p.reason) + '</p>' : ''))
+      : step(3, '판정', '', '<p class="note">' + esc(L.promise_types.directional.note) + '</p>');
+
+    // 4. 원문 인용 검사
+    var cc = citationCount([p]);
+    var s4 = step(4, '원문 인용 검사', human ? '사람이 글자 그대로 대조' : '코드가 원문과 대조',
+      cc.total
+        ? '<p class="step-result"><span class="check-icon ' + (cc.ok === cc.total ? 'ok' : 'no') + '">' + (cc.ok === cc.total ? ICON.check : ICON.dash) + '</span>' +
+            esc('근거 문장 ' + cc.total + '개 중 ' + cc.ok + '개 ' + L.citation_verified_label) + '</p>'
+        : '<p class="note">확인할 근거 문장이 없어요.</p>');
 
     var pill = specific
       ? '<span class="verdict-pill">' + esc(verdictLabel(p.verdict)) + '</span>'
       : '<span class="verdict-pill">' + esc(L.promise_types.directional.label) + '</span>';
-    var reasonHtml = specific && p.reason
-      ? '<section style="display:flex;flex-direction:column;gap:6px">' +
-          '<h2 class="card-title" style="font-size:13px">판정 이유</h2>' +
-          '<p class="reason">' + esc(p.reason) + '</p>' +
-        '</section>'
-      : (!specific ? '<p class="note">' + esc(L.promise_types.directional.note) + '</p>' : '');
-
     var secondLink = evidence.length && evidence[0].source
       ? docLink(evidence[0].source, evidence[0].source.report + ' 원문')
       : '<a class="btn btn-secondary btn-sm" href="' + listHref + '">목록으로</a>';
@@ -309,53 +456,60 @@
         '<section style="display:flex;flex-direction:column;gap:10px">' +
           pill +
           '<h1 class="detail-title">' + esc(p.title) + '</h1>' +
+          '<div class="detail-track">' + trackHead(company, false) + track(company, p) + '</div>' +
         '</section>' +
-        '<section class="card compare" aria-label="약속과 근거 비교">' +
-          '<div class="quote-block">' +
-            '<div class="quote-meta"><span>약속</span><span>' + esc(sourceLabel(p.source || {})) + '</span></div>' +
-            '<p class="quote-text">"' + esc(p.sentence) + '"</p>' +
-          '</div>' + evidenceHtml +
-        '</section>' +
-        '<section class="card">' +
-          '<h2 class="card-title" style="font-size:13px">AI가 확인한 과정</h2>' +
-          '<ul class="checks">' + checkRows + '</ul>' +
-        '</section>' +
-        reasonHtml +
+        '<ol class="stepper" aria-label="확인 4단계">' + s1 + s2 + s3 + s4 + '</ol>' +
       '</main>' +
       '<footer class="bottombar two">' + docLink(p.source, ((p.source || {}).report || '약속') + ' 원문') + secondLink + '</footer>';
   }
 
-  /* ---------- 화면 4: 면접 카드 ---------- */
+  /* ---------- 화면 4: 면접 카드 (확인된 사실, 면접에서 쓸 포인트, 회사에 물어볼 질문) ---------- */
+  function confirmedFacts(company) {
+    var card = company.interview_card || {};
+    var issueText = {};
+    (card.issues || []).forEach(function (it) { if (it.promise_id && !issueText[it.promise_id]) issueText[it.promise_id] = stripVerdictTail(it.text); });
+    var spec = specifics(company).filter(function (p) { return (p.evidence || []).length; });
+    var ordered = spec.filter(function (p) { return p.verdict === 'evidence_found'; })
+      .concat(spec.filter(function (p) { return p.verdict === 'partial'; }));
+    return ordered.slice(0, 3).map(function (p) {
+      return { p: p, text: issueText[p.id] || p.title, ev: p.evidence[0] };
+    });
+  }
   function viewCard(company) {
     var card = company.interview_card || {};
     var listHref = '#/c/' + encodeURIComponent(company.id);
-    var issuesData = card.issues || [], tpData = card.talking_points || [], qData = card.questions || [];
-    if (!issuesData.length && !tpData.length && !qData.length) {
+    var facts = confirmedFacts(company);
+    var tpData = card.talking_points || [], qData = card.questions || [];
+    if (!facts.length && !tpData.length && !qData.length) {
       return topbar(backLink(listHref, '약속 목록')) +
         '<main class="content">' + disclaimers() + '<p class="empty">면접 카드를 준비하고 있어요.</p></main>';
     }
-    function titleOf(pid) { var p = findPromise(company, pid); return p ? p.title : ''; }
-    function verdictOf(pid) { var p = findPromise(company, pid); return p ? p.verdict : null; }
+    function promiseOf(pid) { return findPromise(company, pid); }
 
-    var issues = issuesData.map(function (it, i) {
-      var v = verdictOf(it.promise_id);
-      return '<a class="issue ' + vClass(v) + '" href="' + promiseHref(company, it.promise_id) + '"><span class="issue-num">' + (i + 1) + '</span>' +
-        '<div class="issue-body"><div class="issue-text">' + esc(it.text) + '</div></div>' + ICON.chevron + '</a>';
-    }).join('');
+    var factHtml = facts.length ? facts.map(function (f) {
+      return '<div class="fact-item ' + vClass(f.p.verdict) + '">' +
+        '<a class="fact-head" href="' + promiseHref(company, f.p.id) + '"><span class="verdict-text">' + esc(verdictLabel(f.p.verdict)) + '</span>' +
+          '<span class="fact-text">' + esc(f.text) + '</span></a>' +
+        '<p class="fact-quote">"' + esc(f.ev.sentence) + '"</p>' + srcLine(f.ev.source) +
+      '</div>';
+    }).join('') : '<p class="note">공시에서 근거가 확인된 약속이 없어요. 아래 질문으로 추진 방향을 물어보세요.</p>';
+
     var answers = tpData.map(function (a) {
-      var link = a.evidence_url
-        ? '<a class="ev-link" href="' + esc(a.evidence_url) + '" target="_blank" rel="noopener">근거 원문' + ICON.external + '</a>'
-        : '';
+      var p = promiseOf(a.promise_id);
+      var ev = p ? ((p.evidence || []).filter(function (e) { return (e.source || {}).url === a.evidence_url; })[0] || (p.evidence || [])[0]) : null;
+      var src = ev ? ev.source : (a.evidence_url ? { report: '근거 원문', url: a.evidence_url } : null);
       return '<div class="answer">' +
-        '<a class="answer-tag" href="' + promiseHref(company, a.promise_id) + '">' + esc(titleOf(a.promise_id)) + '</a>' +
-        '<div class="answer-text">' + esc(a.text) + '</div>' + link + '</div>';
+        (p ? '<a class="answer-tag" href="' + promiseHref(company, p.id) + '">' + esc(p.title) + '</a>' : '') +
+        '<div class="answer-text">' + esc(a.text) + '</div>' + srcLine(src) + '</div>';
     }).join('');
+
     var questions = qData.map(function (q) {
       var text = typeof q === 'string' ? q : q.text;
-      var inner = ICON.chat + '<div>' + esc(text) + '</div>';
-      return q && q.promise_id
-        ? '<a class="question" href="' + promiseHref(company, q.promise_id) + '">' + inner + '</a>'
-        : '<div class="question">' + inner + '</div>';
+      var p = q && q.promise_id ? promiseOf(q.promise_id) : null;
+      return '<div class="question-item">' +
+        '<div class="question">' + ICON.chat + '<div>' + esc(text) + '</div></div>' +
+        (p ? '<a class="q-link" href="' + promiseHref(company, p.id) + '">관련 약속: ' + esc(p.title) + ' (' + esc(verdictShort(p.verdict) || L.promise_types.directional.label) + ')</a>' + srcLine(p.source) : '') +
+      '</div>';
     }).join('');
 
     return topbar(backLink(listHref, '약속 목록')) +
@@ -365,9 +519,10 @@
           '<h1 class="headline">면접 5분 전,<br>이것만 보고 들어가세요</h1>' +
           '<p class="note">' + esc(L.interview_card_notice) + '</p>' +
         '</section>' +
-        '<section class="card"><h2 class="card-title">핵심 이슈 ' + issuesData.length + '</h2>' + issues + '</section>' +
-        '<section class="card"><h2 class="card-title">답변 소재 ' + tpData.length + '</h2>' + answers + '</section>' +
-        '<section class="card"><h2 class="card-title">면접관에게 할 역질문 ' + qData.length + '</h2>' + questions + '</section>' +
+        '<section class="card"><h2 class="card-title">확인된 사실 ' + facts.length + '</h2>' +
+          '<p class="note">공시 원문 문장 그대로예요.</p>' + factHtml + '</section>' +
+        '<section class="card"><h2 class="card-title">면접에서 쓸 포인트 ' + tpData.length + '</h2>' + answers + '</section>' +
+        '<section class="card"><h2 class="card-title">회사에 물어볼 질문 ' + qData.length + '</h2>' + questions + '</section>' +
       '</main>' +
       '<footer class="bottombar two">' +
         '<button type="button" class="btn btn-secondary" id="copy-btn">카드 복사하기</button>' +
@@ -377,13 +532,17 @@
 
   function cardAsText(company) {
     var card = company.interview_card || {};
-    var lines = ['[' + company.name + ' 면접 카드]', L.interview_card_notice, '', '핵심 이슈'];
-    (card.issues || []).forEach(function (it, i) { lines.push((i + 1) + '. ' + it.text); });
-    lines.push('', '답변 소재');
+    function srcText(src) { return src && src.report ? ' (출처: ' + sourceLabel(src) + (src.url ? ', ' + src.url : '') + ')' : ''; }
+    var lines = ['[' + company.name + ' 면접 카드]', L.interview_card_notice, '', '확인된 사실'];
+    confirmedFacts(company).forEach(function (f, i) {
+      lines.push((i + 1) + '. ' + f.text + ' [' + verdictLabel(f.p.verdict) + ']');
+      lines.push('   "' + f.ev.sentence + '"' + srcText(f.ev.source));
+    });
+    lines.push('', '면접에서 쓸 포인트');
     (card.talking_points || []).forEach(function (a) {
       lines.push('- ' + a.text + (a.evidence_url ? ' (근거: ' + a.evidence_url + ')' : ''));
     });
-    lines.push('', '역질문');
+    lines.push('', '회사에 물어볼 질문');
     (card.questions || []).forEach(function (q) { lines.push('- ' + (typeof q === 'string' ? q : q.text)); });
     lines.push('', (L.disclaimers || []).join(' '));
     return lines.join('\n');
@@ -457,8 +616,13 @@
     render();
   }
 
-  fetch('data/results.json', { cache: 'no-store' })
-    .then(function (res) { if (!res.ok) throw new Error('no results'); return res.json(); })
+  function getJson(url) {
+    return fetch(url, { cache: 'no-store' }).then(function (res) { if (!res.ok) throw new Error(url); return res.json(); });
+  }
+  getJson('data/validation.json').catch(function () { return null; }).then(function (v) {
+    VALID = v;
+    return getJson('data/results.json');
+  })
     .then(function (data) { start(data); })
     .catch(function () { start(window.AI_PROMISE_SAMPLE); });
 })();

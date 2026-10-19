@@ -1,6 +1,7 @@
 """화면 검사 (브라우저로 1~2분): 예시 데이터의 모든 화면을 휴대폰 폭으로 열어 봅니다.
 
-화면 목록은 화면이 쓰는 데이터(results.json, 없으면 sample-data.js)에서 자동으로 만듭니다 (예시 데이터는 18개).
+화면 목록은 데이터에서 자동으로 만듭니다. results.json이 있으면 그 화면들을 보고, 예시 데이터(sample-data.js, 18개 화면, 판정 4가지와 방향성 약속이 모두 들어 있음)도
+results.json 요청을 막아 한 번 더 봅니다.
 다크와 라이트 두 테마에서 확인하는 것:
 1. 글자 대비: 작은 글자 4.5:1, 큰 글자(24px 이상, 또는 18.66px 이상 굵게) 3:1 이상 (WCAG AA). 접힌 묶음도 펼쳐서 봅니다.
 2. 가로 넘침: 390px, 320px 폭에서 화면이 옆으로 밀리지 않는지
@@ -27,7 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 APP = ROOT / "app"
 WIDTHS = (390, 320)
 THEMES = ("dark", "light")
-ALLOWED_FAILED = ("data/results.json", "cdn.jsdelivr.net", "favicon.ico")
+ALLOWED_FAILED = ("data/results.json", "data/validation.json", "cdn.jsdelivr.net", "favicon.ico")
 
 CONTRAST_JS = r"""() => {
   const parse = (s) => { const m = s.match(/rgba?\(([^)]+)\)/); if (!m) return null;
@@ -69,22 +70,24 @@ PARTS_JS = r"""() => {
 }"""
 
 
-def routes():
-    """화면 주소 목록. 화면은 results.json이 있으면 그것을, 없으면 예시 데이터를 쓰므로 같은 쪽에서 만듭니다."""
-    results = APP / "data" / "results.json"
-    if results.exists():
-        data = json.loads(results.read_text(encoding="utf-8"))
-        pairs = [(c["id"], [p["id"] for p in c.get("promises", [])]) for c in data.get("companies", [])]
-        sample = False
-    else:
-        ids = re.findall(r'"id": "([a-z0-9-]+)"', (APP / "data" / "sample-data.js").read_text(encoding="utf-8"))
-        companies = [i for i in ids if not re.search(r"-(p|d)\d+$", i)]
-        pairs = [(c, [i for i in ids if i.startswith(c + "-")]) for c in companies]
-        sample = True
+def _routes_for(pairs):
     out = ["#/"]
     for c, pids in pairs:
         out += [f"#/c/{c}", f"#/c/{c}/card"] + [f"#/c/{c}/p/{pid}" for pid in pids]
-    return out, sample
+    return out
+
+
+def passes():
+    """검사할 묶음: (이름, 화면 주소들, 예시 데이터인지, results.json 요청을 막을지)."""
+    ids = re.findall(r'"id": "([a-z0-9-]+)"', (APP / "data" / "sample-data.js").read_text(encoding="utf-8"))
+    companies = [i for i in ids if not re.search(r"-(p|d)\d+$", i)]
+    sample_routes = _routes_for([(c, [i for i in ids if i.startswith(c + "-")]) for c in companies])
+    results = APP / "data" / "results.json"
+    if not results.exists():
+        return [("예시 데이터", sample_routes, True, False)]
+    data = json.loads(results.read_text(encoding="utf-8"))
+    real_routes = _routes_for([(c["id"], [p["id"] for p in c.get("promises", [])]) for c in data.get("companies", [])])
+    return [("results.json", real_routes, False, False), ("예시 데이터", sample_routes, True, True)]
 
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
@@ -104,15 +107,18 @@ def serve():
 
 def main():
     httpd, port = serve()
-    rs, sample = routes()
+    groups = passes()
     problems = []
     evlink_pages = 0
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
-            for theme in THEMES:
+            for label, rs, sample, block_results in groups:
+              for theme in THEMES:
                 for width in WIDTHS:
                     ctx = browser.new_context(viewport={"width": width, "height": 844})
+                    if block_results:
+                        ctx.route("**/data/results.json", lambda r: r.fulfill(status=404, body="not found"))
                     ctx.add_init_script(f"try {{ localStorage.setItem('ai-promise-theme', '{theme}'); }} catch (e) {{}}")
                     page = ctx.new_page()
                     page.on("pageerror", lambda e, t=theme: problems.append(f"[{t}] 자바스크립트 오류: {e}"))
@@ -152,7 +158,8 @@ def main():
 
     if evlink_pages == 0:
         problems.append("원문 링크가 있는 화면을 하나도 찾지 못함 (데이터나 화면 코드 확인 필요)")
-    print(f"화면 {len(rs)}개 x 테마 {len(THEMES)}개 x 폭 {len(WIDTHS)}개 확인 ({'예시 데이터' if sample else 'results.json'})")
+    for label, rs, _, _ in groups:
+        print(f"화면 {len(rs)}개 x 테마 {len(THEMES)}개 x 폭 {len(WIDTHS)}개 확인 ({label})")
     if problems:
         for x in problems:
             print("문제:", x)

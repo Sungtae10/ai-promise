@@ -1,0 +1,9 @@
+{
+  "updated": "2026-10-19",
+  "note": "화면의 '검증 현황'에 보이는 사용자 테스트 숫자입니다. 실제로 받은 설문 응답으로만 채웁니다. averages는 5점 만점 평균(소수 첫째 자리)이고, 응답이 없으면 null입니다.",
+  "user_test": {
+    "responses": 0,
+    "target": 5,
+    "averages": null
+  }
+}
