@@ -1,0 +1,151 @@
+{
+ "site": "https://ai-promise-six.vercel.app",
+ "company": "samsung",
+ "role": "기술사업화",
+ "health": {
+  "status": 200,
+  "seconds": 4.3,
+  "body": {
+   "ok": true,
+   "configured": true,
+   "model_used": "gpt-6.1-sol",
+   "checked_at": "2026-10-19T18:15:19.955Z"
+  }
+ },
+ "post": {
+  "status": 200,
+  "seconds": 33.4,
+  "model": "gpt-6.1-sol",
+  "ok": true,
+  "role_echo": "기술사업화",
+  "counts": {
+   "connections": 3,
+   "gaps": 2,
+   "talking_points": 3,
+   "questions": 2
+  },
+  "levels": {
+   "direct": 2,
+   "indirect": 1
+  },
+  "indirect_with_limit": 1,
+  "gaps_with_prepare": 2,
+  "has_summary": true,
+  "quotes_in_resume": 3,
+  "dropped": 0,
+  "error": null
+ },
+ "post_body": {
+  "ok": true,
+  "company": "samsung",
+  "role": "기술사업화",
+  "model": "gpt-6.1-sol",
+  "summary": "삼성전자는 AI 기능 고도화를 통한 고객 경험 확대와 HBM·AI 서버용 고부가 메모리를 통한 경쟁력 강화를 강조합니다. 지원자의 시장·경쟁사 분석과 온디바이스 AI 사례 조사 경험은 기술사업화의 시장 기회 검토에 이어지지만, 제품 개발·양산이나 사업성 검증을 수행한 경험으로 넓혀 말해서는 안 됩니다.",
+  "connections": [
+   {
+    "level": "direct",
+    "competency": "시장·경쟁사 분석",
+    "resume_quote": "반도체 기업 전략팀 인턴으로 HBM과 AI 서버용 메모리 시장 자료를 정리하고 경쟁사 투자 계획을 비교했습니다.",
+    "role_link": "기술사업화에서 시장 자료와 경쟁사 투자 계획을 비교해 기술의 사업 기회와 경쟁 환경을 검토하는 데 활용할 수 있습니다.",
+    "why": "HBM 시장과 경쟁사 투자 분석은 HBM4를 통한 AI 시장 경쟁력 강화라는 약속과 직접 맞닿으며, 공시상 HBM4 양산 출하는 확인되지만 HBM3E 개선제품 판매 확대까지 확인된 것은 아니라는 구분이 필요합니다.",
+    "limit": "",
+    "promise_id": "samsung-p2",
+    "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "level": "direct",
+    "competency": "시장 기회 분석",
+    "resume_quote": "HBM과 AI 서버용 메모리 시장 자료를 정리하고 경쟁사 투자 계획을 비교했습니다.",
+    "role_link": "기술사업화에서 AI 서버용 메모리의 수요 방향과 경쟁 환경을 정리해 사업 기회 검토의 기초 자료로 활용할 수 있습니다.",
+    "why": "AI 서버용 메모리 시장 조사 경험은 서버향 고부가 메모리 공급 확대 약속과 직접 연결되지만, 자료의 일부 확인 판정에 따라 세부 용량과 공정 기반 확산 범위는 확인된 내용과 구분해야 합니다.",
+    "limit": "",
+    "promise_id": "samsung-p3",
+    "promise_title": "AI 서버용 고용량 DDR5·LPDDR5x 공급 확대",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "level": "indirect",
+    "competency": "제품 사례 기반 기회 발굴",
+    "resume_quote": "온디바이스 AI 제품 사례를 조사해 신사업 아이디어 보고서를 썼습니다.",
+    "role_link": "기술사업화에서 AI 제품 사례를 비교해 고객가치에 관한 가설을 세우고 신사업 아이디어를 구체화하는 데 활용할 수 있습니다.",
+    "why": "제품 사례를 사업 아이디어로 정리한 경험은 AI 기능 고도화가 새로운 고객 경험으로 이어지는 기회를 검토하는 데 간접적으로 연결됩니다.",
+    "limit": "온디바이스 AI 제품 사례를 조사한 경험이며, 삼성전자 제품을 개발하거나 고객가치를 검증한 경험은 아닙니다.",
+    "promise_id": "samsung-d1",
+    "promise_title": "AI 기능 고도화로 새로운 고객 경험 제공",
+    "verdict": null,
+    "type": "directional"
+   }
+  ],
+  "gaps": [
+   {
+    "title": "기술·원가 기반 사업성 검토",
+    "why": "HBM4 경쟁력 강화 약속을 기술사업화 관점에서 평가하려면 시장 조사에 더해 기술 특성과 사업성을 연결하는 검토가 필요하지만 이력서에는 확인되지 않습니다.",
+    "prepare": [
+     "HBM4 근거의 1c D램·4나노 베이스 다이 정리",
+     "기술 특징과 사업성 검토 항목의 연결 질문 작성",
+     "HBM4 출하와 HBM3E 판매 확대의 확인 범위 구분"
+    ],
+    "promise_id": "samsung-p2",
+    "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "title": "폼팩터별 고객가치 검증",
+    "why": "다양한 폼팩터로 Galaxy AI를 확장하는 약속의 사업 기회를 검토하려면 사용 맥락별 고객가치 분석이 필요하지만 해당 제품의 고객가치를 검증한 경험은 확인되지 않습니다.",
+    "prepare": [
+     "공시에 제시된 폼팩터와 생태계 제품군 정리",
+     "개인화 AI·멀티모달의 고객가치 가설 작성",
+     "제품 사례 조사와 고객 검증의 차이 정리"
+    ],
+    "promise_id": "samsung-p1",
+    "promise_title": "Galaxy AI 확장·고도화 및 다양한 폼팩터 적용",
+    "verdict": "evidence_found",
+    "type": "specific"
+   }
+  ],
+  "talking_points": [
+   {
+    "text": "저는 반도체 기업 전략팀 인턴으로 HBM 시장 자료와 경쟁사 투자 계획을 비교한 경험이 있으며, 이를 기술사업화의 경쟁 환경 검토에 활용하고자 합니다. HBM4 양산 출하가 확인된 내용과 HBM3E 개선제품 판매 확대처럼 같은 근거로 확인되지 않은 내용을 구분해 설명하겠습니다.",
+    "promise_id": "samsung-p2",
+    "promise_title": "HBM4 개발·양산으로 AI 시장 경쟁력 강화",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "text": "저는 AI 서버용 메모리 시장 자료를 정리한 경험을 바탕으로 서버향 고부가 메모리의 사업 기회를 검토하는 데 기여하고자 합니다. 공시에서 확인되는 판매 방향과 세부 용량·공정·확산 범위에 관한 확인 한계를 구분하겠습니다.",
+    "promise_id": "samsung-p3",
+    "promise_title": "AI 서버용 고용량 DDR5·LPDDR5x 공급 확대",
+    "verdict": "partial",
+    "type": "specific"
+   },
+   {
+    "text": "저는 온디바이스 AI 제품 사례를 조사해 신사업 아이디어 보고서를 작성한 경험이 있으며, 이를 AI 기능이 고객 경험으로 이어지는 기회를 검토하는 데 활용하고자 합니다. 다만 제품 개발이나 고객 검증을 수행한 경험으로 확대해 설명하지 않겠습니다.",
+    "promise_id": "samsung-d1",
+    "promise_title": "AI 기능 고도화로 새로운 고객 경험 제공",
+    "verdict": null,
+    "type": "directional"
+   }
+  ],
+  "questions": [
+   {
+    "text": "Galaxy AI를 다양한 폼팩터로 확장하는 과정에서 기술사업화 담당자는 고객가치와 사업 기회를 어떤 기준으로 검토하는지 궁금합니다",
+    "promise_id": "samsung-p1",
+    "promise_title": "Galaxy AI 확장·고도화 및 다양한 폼팩터 적용",
+    "verdict": "evidence_found",
+    "type": "specific"
+   },
+   {
+    "text": "서버향 고용량 DDR5와 LPDDR5x 등 고부가 제품의 사업 기회를 검토할 때 기술사업화 담당자의 시장·경쟁사 분석이 어떤 의사결정에 활용되는지 궁금합니다",
+    "promise_id": "samsung-p3",
+    "promise_title": "AI 서버용 고용량 DDR5·LPDDR5x 공급 확대",
+    "verdict": "partial",
+    "type": "specific"
+   }
+  ],
+  "dropped": 0
+ }
+}
