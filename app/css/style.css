@@ -232,7 +232,7 @@ button { font-family: inherit; }
 .detail-title { font-size: 22px; font-weight: 900; line-height: 1.4; margin: 0; letter-spacing: -0.02em; }
 .compare { padding: 0; gap: 0; overflow: hidden; }
 .quote-block { padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
-.quote-meta { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--sub); }
+.quote-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 8px; font-size: 12px; color: var(--sub); }
 .quote-meta.is-evidence { color: var(--v, var(--confirmed)); }
 .quote-text { font-size: 15px; line-height: 1.75; margin: 0; }
 .quote-empty { font-size: 14px; line-height: 1.7; color: var(--sub); margin: 0; }
@@ -392,10 +392,12 @@ a.question { color: inherit; }
 .track-node.is-promise { border-color: var(--text); background: var(--text); }
 .track-node.is-on { border-color: var(--v, var(--confirmed)); background: var(--v, var(--confirmed)); }
 .track-node.is-off { border-color: var(--sub); background: var(--surface); }
+/* 약속한 보고서 안에서 근거도 찾은 경우: 테두리는 약속 색, 안은 판정 색 */
+.track-node.is-promise.is-on { border-color: var(--text); background: var(--v, var(--confirmed)); }
 
-/* 보고서 이름 줄: 시간축 점과 같은 칸에 맞춰요 */
-.tl-head { display: grid; gap: 4px; padding: 0 16px 0 19px; }
-.tl-col { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; min-width: 0; }
+/* 보고서 이름 줄: 시간축 점과 같은 칸에 맞춰요 (점 줄처럼 칸 사이 간격 없음) */
+.tl-head { display: grid; gap: 0; padding: 0 16px 0 19px; }
+.tl-col { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; min-width: 0; padding: 0 2px; }
 .tl-col-name { font-size: 12px; font-weight: 700; line-height: 1.35; color: var(--body); }
 a.tl-col-name { text-decoration: underline; text-underline-offset: 2px; }
 .tl-col-role { font-size: 11px; color: var(--sub); }
@@ -502,6 +504,17 @@ a.tl-col-name { text-decoration: underline; text-underline-offset: 2px; }
 .question-item { display: flex; flex-direction: column; gap: 6px; }
 .question-item + .question-item { padding-top: 12px; border-top: 1px solid var(--line); }
 .q-link { font-size: 12px; font-weight: 700; line-height: 1.5; color: var(--body); text-decoration: underline; }
+/* 질문 아래 '관련 약속'과 출처 줄을 질문 글 왼쪽 끝에 맞춰요 (아이콘 18px + 간격 10px) */
+.question-item .q-link, .question-item .src-line { margin-left: 28px; }
+
+/* 아주 좁은 휴대폰(320px 등): 첫 화면 제목이 4줄이 되지 않게 */
+@media (max-width: 359px) {
+  .headline { font-size: 24px; }
+}
+/* 휴대폰: 처리 순서 한 줄은 아래 '4단계' 카드와 내용이 같아서 숨겨요 (기업 목록이 첫 화면에 보이게) */
+@media (max-width: 599px) {
+  .hero-flow { display: none; }
+}
 
 /* ---------- 14. 넓은 화면 배치 (10/19): 노트북·프로젝터에서 발표할 때. 휴대폰 화면은 그대로 ---------- */
 .cols { display: flex; flex-direction: column; gap: 16px; }

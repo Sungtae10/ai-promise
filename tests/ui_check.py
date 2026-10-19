@@ -1,4 +1,4 @@
-"""화면 검사 (브라우저로 1~2분): 예시 데이터의 모든 화면을 휴대폰 폭으로 열어 봅니다.
+"""화면 검사 (브라우저로 2~3분): results.json과 예시 데이터의 모든 화면을 휴대폰 폭과 노트북 폭으로 열어 봅니다.
 
 화면 목록은 데이터에서 자동으로 만듭니다. results.json이 있으면 그 화면들을 보고, 예시 데이터(sample-data.js, 18개 화면, 판정 4가지와 방향성 약속이 모두 들어 있음)도
 results.json 요청을 막아 한 번 더 봅니다.
@@ -7,7 +7,10 @@ results.json 요청을 막아 한 번 더 봅니다.
 2. 가로 넘침: 390px, 320px, 1280px 폭에서 화면이 옆으로 밀리지 않는지
 3. 필수 부품: 예시 데이터 띠에 배경이 있는지, 안내 문구가 작은 글자인지, "원문 보기"에 밑줄이 있는지
 4. 오류: 자바스크립트 오류가 없는지, 불러오지 못한 파일이 없는지
-   (data/results.json이 없는 것과 글꼴 CDN에 못 닿는 것은 정상이라 넘어갑니다)
+   (results.json 막기 묶음의 404와 글꼴 CDN에 못 닿는 것은 정상이라 넘어갑니다. data/validation.json이 빠지면 문제로 잡습니다)
+5. 화면이 제대로 그려졌는지: "찾는 화면이 없어요", "화면을 그리지 못했어요"가 나오면 문제입니다.
+   예시 묶음은 띠에 "예시 데이터입니다"가 있어야 하고, results.json 묶음에는 없어야 합니다 (조용히 예시 데이터로 바뀐 것을 잡음).
+   예시 데이터 화면은 18개여야 합니다.
 
 준비: pip install playwright && python -m playwright install chromium
 사용법 (저장소 맨 위 폴더에서): python tests/ui_check.py
@@ -28,7 +31,10 @@ ROOT = Path(__file__).resolve().parent.parent
 APP = ROOT / "app"
 WIDTHS = (390, 320, 1280)   # 글자 대비는 첫 폭에서만, 가로 넘침은 모든 폭에서 봅니다 (1280은 노트북·프로젝터)
 THEMES = ("dark", "light")
-ALLOWED_FAILED = ("data/results.json", "data/validation.json", "cdn.jsdelivr.net", "favicon.ico")
+ALLOWED_FAILED = ("data/results.json", "cdn.jsdelivr.net", "favicon.ico")
+SAMPLE_ROUTES = 18          # 예시 데이터 화면 수 (첫 화면 1 + 기업 2곳 x (목록, 카드, 약속 6~7개))
+SAMPLE_MARK = "예시 데이터입니다"
+BROKEN_TEXTS = ("찾는 화면이 없어요", "화면을 그리지 못했어요")
 
 CONTRAST_JS = r"""() => {
   const parse = (s) => { const m = s.match(/rgba?\(([^)]+)\)/); if (!m) return null;
@@ -66,6 +72,8 @@ PARTS_JS = r"""() => {
     banner_bg: cs(q('.sample-banner'), 'backgroundColor'),
     disclaimer_px: q('.disclaimer') ? parseFloat(cs(q('.disclaimer'), 'fontSize')) : null,
     evlink_deco: cs(q('.ev-link'), 'textDecorationLine'),
+    banner_text: q('.sample-banner') ? q('.sample-banner').textContent : '',
+    empty_text: Array.from(document.querySelectorAll('.empty')).map(e => e.textContent).join(' '),
   };
 }"""
 
@@ -121,10 +129,11 @@ def main():
                         ctx.route("**/data/results.json", lambda r: r.fulfill(status=404, body="not found"))
                     ctx.add_init_script(f"try {{ localStorage.setItem('ai-promise-theme', '{theme}'); }} catch (e) {{}}")
                     page = ctx.new_page()
-                    page.on("pageerror", lambda e, t=theme: problems.append(f"[{t}] 자바스크립트 오류: {e}"))
-                    page.on("requestfailed", lambda r, t=theme: None if any(a in r.url for a in ALLOWED_FAILED)
+                    tag = f"{label} {theme}"
+                    page.on("pageerror", lambda e, t=tag: problems.append(f"[{t}] 자바스크립트 오류: {e}"))
+                    page.on("requestfailed", lambda r, t=tag: None if any(a in r.url for a in ALLOWED_FAILED)
                             else problems.append(f"[{t}] 불러오기 실패: {r.url}"))
-                    page.on("response", lambda r, t=theme: None if r.status < 400 or any(a in r.url for a in ALLOWED_FAILED)
+                    page.on("response", lambda r, t=tag: None if r.status < 400 or any(a in r.url for a in ALLOWED_FAILED)
                             else problems.append(f"[{t}] {r.status}: {r.url}"))
                     for route in rs:
                         page.goto(f"http://127.0.0.1:{port}/index.html{route}")
@@ -133,7 +142,7 @@ def main():
                         page.wait_for_timeout(100)
                         over = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
                         if over > 0:
-                            problems.append(f"[{theme} {width}px] {route}: 가로로 {over}px 넘침")
+                            problems.append(f"[{tag} {width}px] {route}: 가로로 {over}px 넘침")
                         if width != WIDTHS[0]:
                             continue
                         seen = set()
@@ -141,16 +150,22 @@ def main():
                             key = (x["cls"], x["ratio"])
                             if key not in seen:
                                 seen.add(key)
-                                problems.append(f"[{theme}] {route}: 대비 {x['ratio']}:1 (기준 {x['need']}) .{x['cls']} '{x['text']}'")
+                                problems.append(f"[{tag}] {route}: 대비 {x['ratio']}:1 (기준 {x['need']}) .{x['cls']} '{x['text']}'")
                         parts = page.evaluate(PARTS_JS)
+                        if any(b in parts["empty_text"] for b in BROKEN_TEXTS):
+                            problems.append(f"[{tag}] {route}: 화면이 그려지지 않음 ({parts['empty_text'].strip()})")
                         if sample and parts["banner_bg"] in (None, "rgba(0, 0, 0, 0)", "transparent"):
-                            problems.append(f"[{theme}] {route}: 예시 데이터 띠가 없거나 배경이 없음")
+                            problems.append(f"[{tag}] {route}: 예시 데이터 띠가 없거나 배경이 없음")
+                        if sample and SAMPLE_MARK not in parts["banner_text"]:
+                            problems.append(f"[{tag}] {route}: 예시 데이터 띠에 '{SAMPLE_MARK}'가 없음 (예시 데이터로 바뀌지 않음)")
+                        if not sample and SAMPLE_MARK in parts["banner_text"]:
+                            problems.append(f"[{tag}] {route}: results.json 화면인데 예시 데이터가 나옴 (결과 파일을 못 읽었거나 그리다 오류)")
                         if parts["disclaimer_px"] is None or parts["disclaimer_px"] > 13:
-                            problems.append(f"[{theme}] {route}: 안내 문구가 없거나 큼 ({parts['disclaimer_px']}px)")
+                            problems.append(f"[{tag}] {route}: 안내 문구가 없거나 큼 ({parts['disclaimer_px']}px)")
                         if parts["evlink_deco"] is not None:
                             evlink_pages += 1
                             if "underline" not in parts["evlink_deco"]:
-                                problems.append(f"[{theme}] {route}: '원문 보기' 링크에 밑줄이 없음")
+                                problems.append(f"[{tag}] {route}: '원문 보기' 링크에 밑줄이 없음")
                     ctx.close()
             browser.close()
     finally:
@@ -158,6 +173,9 @@ def main():
 
     if evlink_pages == 0:
         problems.append("원문 링크가 있는 화면을 하나도 찾지 못함 (데이터나 화면 코드 확인 필요)")
+    for label, rs, sample, _ in groups:
+        if sample and len(rs) != SAMPLE_ROUTES:
+            problems.append(f"[{label}] 예시 데이터 화면이 {len(rs)}개입니다 ({SAMPLE_ROUTES}개여야 함, sample-data.js 확인)")
     for label, rs, _, _ in groups:
         print(f"화면 {len(rs)}개 x 테마 {len(THEMES)}개 x 폭 {len(WIDTHS)}개 확인 ({label})")
     if problems:
