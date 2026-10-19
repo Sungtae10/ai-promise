@@ -1,0 +1,43 @@
+{
+ "issues": [
+  {
+   "text": "'ChatGPT for Kakao'와 'Kanana in KakaoTalk'의 정식 서비스 출시 및 CBT 진행 기재 (일부 확인)",
+   "promise_id": "kakao-p1"
+  },
+  {
+   "text": "카카오톡 내 AI 기능 관련 실행은 일부 확인되나 별도 앱·모델 오케스트레이션 실행 여부는 확인에 한계 (일부 확인)",
+   "promise_id": "kakao-p2"
+  },
+  {
+   "text": "AI 서비스의 반복 사용 유도와 플랫폼 내 AI 트래픽 성장 동력화에 대한 향후 방향 제시 (일부 확인)",
+   "promise_id": "kakao-p1"
+  }
+ ],
+ "talking_points": [
+  {
+   "text": "사업보고서에는 'ChatGPT for Kakao'와 'Kanana in KakaoTalk'의 정식 서비스 출시 및 CBT 진행이 기재되어 있습니다.",
+   "promise_id": "kakao-p1",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423"
+  },
+  {
+   "text": "글로벌 파트너십 강화와 지속적인 연구 개발을 통해 카카오톡 안에서 AI를 일상적으로 경험할 수 있는 '모두의 AI' 기반을 다져나갈 계획을 제시하고 있습니다.",
+   "promise_id": "kakao-p2",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423"
+  },
+  {
+   "text": "두 AI 서비스의 이용자 저변을 확대하고 반복 사용을 유도하도록 사용 맥락을 강화하는 방향을 제시하고 있습니다. AI 트래픽이 플랫폼 내 새로운 성장 동력으로 자리매김할 것으로 기대하고 있습니다.",
+   "promise_id": "kakao-p1",
+   "evidence_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423"
+  }
+ ],
+ "questions": [
+  {
+   "text": "제공된 공시 근거에서는 관심사 중심 콘텐츠 탐색을 위한 새로운 지면의 후속 내용을 확인하기 어려웠습니다. 해당 지면은 현재 어떤 방향으로 준비하고 있는지 궁금합니다.",
+   "promise_id": "kakao-p1"
+  },
+  {
+   "text": "제공된 공시 근거에서는 별도 앱과 내부·외부 AI 모델을 활용한 모델 오케스트레이션 전략의 후속 내용을 확인하기 어려웠습니다. 두 과제의 현재 추진 방향과 연계 방식을 설명해 주실 수 있습니까?",
+   "promise_id": "kakao-p2"
+  }
+ ]
+}

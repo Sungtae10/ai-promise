@@ -1,0 +1,335 @@
+{
+ "retrieval_mode": "키워드 + 의미",
+ "models_used": {
+  "extract": [
+   "gpt-6-luna"
+  ],
+  "judge": [
+   "gpt-6.1-sol"
+  ],
+  "judge_escalation": [
+   "gpt-6-astra"
+  ],
+  "related": [
+   "gpt-6.1-sol"
+  ]
+ },
+ "promises": [
+  {
+   "type": "specific",
+   "title": "AI 신규 기능·서비스 출시",
+   "sentence": "카카오톡의 지속적인 성장을 위해 카카오만의 AI 기술이 집약된 신규 기능과 서비스들을 선보이고, 이용자들이 관심사 중심의 콘텐츠를 탐색할 수 있는 새로운 지면을 마련하면서, 채팅 중심의 목적형 트래픽에서 새로운 맥락의 트래픽으로 확대하며, 유저 활동성을 대폭 개선할 수 있는 기반을 구축하고자 합니다.",
+   "sentence_id": "y2024-IV-0010",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250324000901",
+    "page": null
+   },
+   "id": "kakao-p1",
+   "verdict": "partial",
+   "reason": "2025 사업보고서에는 카카오톡 내 AI 서비스인 'ChatGPT for Kakao'와 'Kanana in KakaoTalk'의 정식 서비스 출시 및 CBT 진행이 기재되어 있어, 약속한 AI 신규 기능·서비스 제공과 관련된 실행이 일부 확인됩니다. 다만 관심사 중심 콘텐츠 탐색을 위한 새로운 지면 마련은 확인되지 않으며, AI 트래픽 확대와 반복 사용 유도는 향후 계획과 기대로 서술되어 있어 약속 전체의 실행을 확인하기에는 부족합니다.",
+   "evidence": [
+    {
+     "sentence": "글로벌 파트너십 강화와 지속적인 연구 개발을 통해 국민 누구나 카카오톡 안에서 AI를 일상적으로 경험할 수 있도록 '모두의 AI' 기반을 다져나갈 계획으로, 정식 서비스 출시 및 CBT를 진행한 'ChatGPT for Kakao'와 'Kanana in KakaoTalk'은 이용자 저변을 확대하고, 반복 사용을 유도할 수 있도록 사용 맥락을 강화하면서 AI 트래픽이 플랫폼 내에 새로운 성장 동력으로서 자리매김하는 것을 기대하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0012"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 신규 기능·서비스 출시 카카오톡의 지속적인 성장을 위해 카카오만의 AI 기술이 집약된 신규 기능과 서비스들을 선보이고, 이용자들이 관심사 중심의 콘텐츠를 탐색할 수 있는 새로운 지면을 마련하면서, 채팅 중심의 목적형 트래픽에서 새로운 맥락의 트래픽으로 확대하며, 유저 활동성을 대폭 개선할 수 있는 기반을 구축하고자 합니다.",
+     "candidates": [
+      "h2026-I5-0054",
+      "h2026-I5-0055",
+      "h2026-I5-0056",
+      "h2026-I5-0057",
+      "y2025-IV-0011",
+      "y2025-IV-0012",
+      "y2025-IV-0013",
+      "y2025-IV-0014",
+      "h2026-I5-0053",
+      "h2026-I5-0066",
+      "h2026-I5-0067",
+      "h2026-I5-0068"
+     ],
+     "verdict": "partial",
+     "evidence_ids": [
+      "y2025-IV-0012"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol",
+   "escalation": {
+    "model": "gpt-6-astra",
+    "first_verdict": "partial",
+    "second_verdict": "partial",
+    "adopted": true
+   }
+  },
+  {
+   "type": "specific",
+   "title": "카카오톡 AI 기능·별도 앱 서비스 준비",
+   "sentence": "카카오는 각 서비스에서 최고의 사용자 경험을 비용 경쟁력 있게 제공하기 위해 다양한 내부 및 외부 AI 모델을 활용한 모델 오케스트레이션 전략을 통해 카카오톡 내 AI 기능 적용와 별도의 앱 출시를 통한 AI 서비스를 준비하고 있습니다.",
+   "sentence_id": "y2024-IV-0013",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "IV. 이사의 경영진단 및 분석의견",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250324000901",
+    "page": null
+   },
+   "id": "kakao-p2",
+   "verdict": "partial",
+   "reason": "2025 사업보고서에는 'ChatGPT for Kakao'와 'Kanana in KakaoTalk'의 정식 서비스 출시 및 CBT 진행이 기재되어 있어, 약속한 카카오톡 내 AI 기능과 관련된 실행을 일부 확인할 수 있습니다. 다만 별도 앱 출시를 통한 AI 서비스와 내부·외부 AI 모델을 활용한 모델 오케스트레이션 전략의 실행 여부는 후보 문장에서 확인되지 않습니다.",
+   "evidence": [
+    {
+     "sentence": "글로벌 파트너십 강화와 지속적인 연구 개발을 통해 국민 누구나 카카오톡 안에서 AI를 일상적으로 경험할 수 있도록 '모두의 AI' 기반을 다져나갈 계획으로, 정식 서비스 출시 및 CBT를 진행한 'ChatGPT for Kakao'와 'Kanana in KakaoTalk'은 이용자 저변을 확대하고, 반복 사용을 유도할 수 있도록 사용 맥락을 강화하면서 AI 트래픽이 플랫폼 내에 새로운 성장 동력으로서 자리매김하는 것을 기대하고 있습니다.",
+     "source": {
+      "report": "2025 사업보고서",
+      "section": "IV. 이사의 경영진단 및 분석의견",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "y2025-IV-0012"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "카카오톡 AI 기능·별도 앱 서비스 준비 카카오는 각 서비스에서 최고의 사용자 경험을 비용 경쟁력 있게 제공하기 위해 다양한 내부 및 외부 AI 모델을 활용한 모델 오케스트레이션 전략을 통해 카카오톡 내 AI 기능 적용와 별도의 앱 출시를 통한 AI 서비스를 준비하고 있습니다.",
+     "candidates": [
+      "h2026-I5-0055",
+      "h2026-I5-0056",
+      "h2026-I5-0057",
+      "y2025-IV-0011",
+      "y2025-IV-0012",
+      "y2025-IV-0013",
+      "h2026-I5-0054",
+      "y2025-II-0178",
+      "y2025-II-0179",
+      "y2025-II-0180",
+      "h2026-I5-0052",
+      "h2026-I5-0053"
+     ],
+     "verdict": "partial",
+     "evidence_ids": [
+      "y2025-IV-0012"
+     ]
+    }
+   ],
+   "flags": [],
+   "judge_model_used": "gpt-6.1-sol",
+   "escalation": {
+    "model": "gpt-6-astra",
+    "first_verdict": "partial",
+    "second_verdict": "partial",
+    "adopted": true
+   }
+  },
+  {
+   "type": "directional",
+   "title": "AI 관련 인프라 확충",
+   "sentence": "카카오데이터센터 운영 및 부가사업 등에 따른 사업의 목적 추가 이사회 회사의 주된 사업 및 공동체 서비스를 안정적으로 지원하고 동시에 클라우드 및 AI 관련 인프라 확충이 가능할 것으로 기대 2025.03.26",
+   "sentence_id": "y2024-I5-0029",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250324000901",
+    "page": null
+   },
+   "id": "kakao-d1",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "호스팅 및 관련 서비스업] (1) 그 사업 분야(업종, 제품 및 서비스의 내용 등) 및 진출 목적- 당사는 2021년 3월 12일 이사회 결의를 통해, 공동체의 서비스를 안정적으로 지원하고 동시에 클라우드 및 AI 관련 인프라 확충을 목적으로 자체 인터넷데이터센터(IDC)의 구축을 결정했습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819000055",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-I5-0042"
+    },
+    {
+     "sentence": "카카오의 첫 번째 자체 데이터센터인 '카카오 데이터센터 안산'은 지난 2023년 9월 준공되었으며, 2024년 1분기부터 본격적인 가동을 시작하였습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819000055",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-I5-0043"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "AI 관련 인프라 확충 카카오데이터센터 운영 및 부가사업 등에 따른 사업의 목적 추가 이사회 회사의 주된 사업 및 공동체 서비스를 안정적으로 지원하고 동시에 클라우드 및 AI 관련 인프라 확충이 가능할 것으로 기대 2025.03.26",
+     "candidates": [
+      "h2026-I5-0027",
+      "h2026-I5-0028",
+      "h2026-I5-0029",
+      "y2025-I5-0030",
+      "y2025-I5-0031",
+      "y2025-I5-0032",
+      "h2026-I5-0026",
+      "y2025-I5-0029",
+      "h2026-I5-0025",
+      "y2025-I5-0028",
+      "h2026-I5-0041",
+      "h2026-I5-0042"
+     ],
+     "related_ids": [
+      "h2026-I5-0042",
+      "h2026-I5-0043"
+     ]
+    }
+   ],
+   "flags": []
+  },
+  {
+   "type": "directional",
+   "title": "연내 AI 서비스 준비",
+   "sentence": "연내 준비하는 AI서비스에도 중요한 인프라자산이 될 것으로 기대하고 있습니다.(5) 기존 사업과의 연관성- 데이터센터는 카카오와 카카오 그룹의 서비스를 안정화하여 제공하는게 우선과제로,",
+   "sentence_id": "y2024-I5-0073",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250324000901",
+    "page": null
+   },
+   "id": "kakao-d2",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "호스팅업 관련해서는 카카오 소유의 IP address 구매를 통해 안정적인 서비스를 진행할 수 있는 환경을 구축하고 있으며, 우선은 카카오 내부 서비스를 위해 활용하고 이후 카카오 그룹 등의 외부 대여 등을 고려하고 있습니다.(4) 사업 추진현황(조직 및 인력구성 현황, 연구개발활동 내역, 제품 및 서비스 개발 진척도 및 상용화 여부, 매출 발생여부 등)- 자체 데이터센터 운영은 2024년 1월부터 시작했으며, 카카오톡 서비스를 포함하여 카카오 그룹의 서비스, 신규 AI 서비스 등에 대한 클라우드 등의 인프라를 지원하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819000055",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-I5-0050"
+    },
+    {
+     "sentence": "카카오 데이터센터의 서버는 24시간 무중단 운영을 위한 전력·통신·냉수 공급망 등의 운영설비 이중화(장애 방지 등을 위해 같은 기능을 가진 시스템을 2개 마련), 데이터와 운영 도구 다중화, 화재에 대비한 시스템 등을 설계에 반영하여 운영상의 리스크를 줄이고자 설계하였습니다.(7) 향후 추진계획- 자체 데이터센터를 운영하면서 필요한 GPU, 서버, 네트워크 등의 추가적인 기계장치 관련 CAPEX 투자가 집행될 예정입니다.(8) 미추진 사유- 해당 사항이 없습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819000055",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-I5-0053"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "연내 AI 서비스 준비 연내 준비하는 AI서비스에도 중요한 인프라자산이 될 것으로 기대하고 있습니다.(5) 기존 사업과의 연관성- 데이터센터는 카카오와 카카오 그룹의 서비스를 안정화하여 제공하는게 우선과제로,",
+     "candidates": [
+      "y2025-I5-0072",
+      "y2025-I5-0073",
+      "h2026-I5-0052",
+      "h2026-I5-0053",
+      "h2026-I5-0054",
+      "h2026-I5-0050",
+      "h2026-I5-0051",
+      "y2025-I5-0071",
+      "y2025-I5-0070",
+      "h2026-I5-0049",
+      "h2026-I5-0048"
+     ],
+     "related_ids": [
+      "h2026-I5-0050",
+      "h2026-I5-0053"
+     ]
+    }
+   ],
+   "flags": []
+  },
+  {
+   "type": "directional",
+   "title": "연내 AI 서비스 준비",
+   "sentence": "연내 준비하는 AI서비스에도 중요한 인프라자산이 될 것으로 기대하고 있습니다.(6) 주요 위험- 데이터센터의 서버는 장애가 반복되지 않도록 운영하는게 가장 중요합니다.",
+   "sentence_id": "y2024-I5-0074",
+   "source": {
+    "report": "2024 사업보고서",
+    "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250324000901",
+    "page": null
+   },
+   "id": "kakao-d3",
+   "verdict": null,
+   "reason": null,
+   "evidence": [
+    {
+     "sentence": "호스팅업 관련해서는 카카오 소유의 IP address 구매를 통해 안정적인 서비스를 진행할 수 있는 환경을 구축하고 있으며, 우선은 카카오 내부 서비스를 위해 활용하고 이후 카카오 그룹 등의 외부 대여 등을 고려하고 있습니다.(4) 사업 추진현황(조직 및 인력구성 현황, 연구개발활동 내역, 제품 및 서비스 개발 진척도 및 상용화 여부, 매출 발생여부 등)- 자체 데이터센터 운영은 2024년 1월부터 시작했으며, 카카오톡 서비스를 포함하여 카카오 그룹의 서비스, 신규 AI 서비스 등에 대한 클라우드 등의 인프라를 지원하고 있습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819000055",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-I5-0050"
+    },
+    {
+     "sentence": "카카오 데이터센터의 서버는 24시간 무중단 운영을 위한 전력·통신·냉수 공급망 등의 운영설비 이중화(장애 방지 등을 위해 같은 기능을 가진 시스템을 2개 마련), 데이터와 운영 도구 다중화, 화재에 대비한 시스템 등을 설계에 반영하여 운영상의 리스크를 줄이고자 설계하였습니다.(7) 향후 추진계획- 자체 데이터센터를 운영하면서 필요한 GPU, 서버, 네트워크 등의 추가적인 기계장치 관련 CAPEX 투자가 집행될 예정입니다.(8) 미추진 사유- 해당 사항이 없습니다.",
+     "source": {
+      "report": "2026 반기보고서",
+      "section": "I. 회사의 개요 > 5. 정관에 관한 사항",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819000055",
+      "page": null
+     },
+     "citation_verified": true,
+     "sentence_id": "h2026-I5-0053"
+    }
+   ],
+   "search_attempts": 1,
+   "search_log": [
+    {
+     "attempt": 1,
+     "query": "연내 AI 서비스 준비 연내 준비하는 AI서비스에도 중요한 인프라자산이 될 것으로 기대하고 있습니다.(6) 주요 위험- 데이터센터의 서버는 장애가 반복되지 않도록 운영하는게 가장 중요합니다.",
+     "candidates": [
+      "y2025-I5-0072",
+      "y2025-I5-0073",
+      "h2026-I5-0052",
+      "h2026-I5-0053",
+      "h2026-I5-0054",
+      "y2025-I5-0071",
+      "h2026-I5-0051",
+      "y2025-I5-0070",
+      "h2026-I5-0050",
+      "h2026-I5-0055",
+      "y2025-II-0048",
+      "y2025-II-0049"
+     ],
+     "related_ids": [
+      "h2026-I5-0050",
+      "h2026-I5-0053"
+     ]
+    }
+   ],
+   "flags": []
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "companies": {
+  "kakao": {
+   "corp_code": "00258801",
+   "corp_name": "카카오",
+   "stock_code": "035720",
+   "corp_found_by": "종목코드",
+   "reports": {
+    "y2024": {
+     "title": "2024 사업보고서",
+     "found": true,
+     "report_nm": "[기재정정]사업보고서 (2024.12)",
+     "rcept_no": "20250324000901",
+     "rcept_dt": "20250324",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250324000901",
+     "file": "kakao_y2024.txt",
+     "xml_member": "20250324000901.xml",
+     "zip_members": 1,
+     "chars": 727822,
+     "sha256": "901b8dbe42d14634",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     }
+    },
+    "y2025": {
+     "title": "2025 사업보고서",
+     "found": true,
+     "report_nm": "사업보고서 (2025.12)",
+     "rcept_no": "20260318001423",
+     "rcept_dt": "20260318",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423",
+     "file": "kakao_y2025.txt",
+     "xml_member": "20260318001423.xml",
+     "zip_members": 3,
+     "chars": 734291,
+     "sha256": "ee8bf1e039bf99c6",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     }
+    },
+    "h2026": {
+     "title": "2026 반기보고서",
+     "found": true,
+     "report_nm": "[기재정정]반기보고서 (2026.06)",
+     "rcept_no": "20260819000055",
+     "rcept_dt": "20260819",
+     "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819000055",
+     "file": "kakao_h2026.txt",
+     "xml_member": "20260819000055.xml",
+     "zip_members": 1,
+     "chars": 521940,
+     "sha256": "d7b2437a7166ded9",
+     "sections_found": {
+      "I5": true,
+      "II": true,
+      "IV": true
+     }
+    }
+   }
+  }
+ },
+ "updated": "2026-10-19T12:26:03+00:00"
+}
